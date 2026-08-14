@@ -1,0 +1,187 @@
+{
+  "profile_id": "logitrack_series_a",
+  "metadata": {
+    "company_name": "LogiTrack",
+    "industry": "Logistics SaaS",
+    "stage": "Series A",
+    "document_type": "Bộ hồ sơ startup logistics đang gọi vốn Series A",
+    "analysis_type": "Phân tích tài chính & cấu trúc vốn",
+    "language": "vi",
+    "version": "1.0",
+    "generated_at": "2026-07-27",
+    "confidence": 0.68
+  },
+  "score": {
+    "total": 56,
+    "maximum": 100,
+    "grade": "Tier 2 - Sẵn sàng có điều kiện",
+    "breakdown": [
+      {
+        "name": "Capital Structure",
+        "score": 14,
+        "maximum": 20,
+        "reason": "Đã hoàn thành vòng Seed (2 tỷ VNĐ, định giá 15 tỷ). Cap Table rõ ràng: Founders 85%, ESOP 10%, Seed Investor 5%. Tuy nhiên chưa có vesting schedule chính thức cho founders."
+      },
+      {
+        "name": "Financial Position",
+        "score": 14,
+        "maximum": 20,
+        "reason": "ARR đạt 4.2 tỷ VNĐ (+180% YoY), gross margin 68%. Tuy nhiên chưa có kiểm toán, báo cáo tài chính do kế toán nội bộ lập."
+      },
+      {
+        "name": "Cash Flow",
+        "score": 10,
+        "maximum": 15,
+        "reason": "Dòng tiền hoạt động âm (-800 triệu/năm) do đang đầu tư mạnh cho R&D và sales. Burn rate ~150 triệu/tháng, runway còn 8 tháng."
+      },
+      {
+        "name": "Governance",
+        "score": 8,
+        "maximum": 15,
+        "reason": "Có HĐQT 3 người (2 founders + 1 advisor). Tuy nhiên chưa có ban kiểm soát, chưa có CFO chuyên nghiệp."
+      },
+      {
+        "name": "Legal Compliance",
+        "score": 7,
+        "maximum": 15,
+        "reason": "Công ty cổ phần đầy đủ. Có hợp đồng cổ đông với Seed Investor nhưng thiếu một số điều khoản chuẩn Series A (liquidation preference, anti-dilution)."
+      },
+      {
+        "name": "Valuation",
+        "score": 3,
+        "maximum": 15,
+        "reason": "Đang gọi Series A với định giá pre-money 80 tỷ VNĐ (4x ARR). Mức này cao so với thị trường Việt Nam (thường 2-3x ARR cho SaaS logistics)."
+      }
+    ]
+  },
+  "analysis": {
+    "summary": "LogiTrack là SaaS logistics có traction tốt với ARR 4.2 tỷ và tăng trưởng 180%/năm. Sản phẩm đã có 45 khách hàng doanh nghiệp với retention rate 92%. Tuy nhiên định giá Series A đề xuất (80 tỷ, 4x ARR) cao hơn thị trường. Cần cải thiện governance (bổ sung CFO, ban kiểm soát) và điều chỉnh định giá xuống 60-70 tỷ (3-3.5x ARR) để thu hút nhà đầu tư.",
+    "financial_position": "ARR 4.2 tỷ, tăng trưởng mạnh nhưng chưa có kiểm toán. Gross margin 68% tốt cho SaaS nhưng net margin vẫn âm do chi phí sales cao.",
+    "governance": "HĐQT 3 người nhưng thiếu independent director. Chưa có CFO, financial reporting do CEO kiêm nhiệm. Cần chuyên nghiệp hóa trước Series A.",
+    "cash_flow": "Burn rate 150 triệu/tháng, runway 8 tháng. Cần gọi vốn trong 3-4 tháng tới để tránh áp lực.",
+    "capital_structure": "Cap Table đơn giản sau Seed. Founders nắm 85% - tốt cho control nhưng cần chuẩn bị cho dilution Series A (thường 20-25%).",
+    "legal_compliance": "Đầy đủ pháp lý cơ bản. Hợp đồng cổ đông Seed cần update để tương thích với term sheet Series A.",
+    "valuation": "Định giá 80 tỷ (4x ARR) cao so với market. Cần điều chỉnh xuống 60-70 tỷ hoặc chứng minh growth rate justify premium.",
+    "financial_ratios": {
+      "gross_margin": "68%",
+      "ebitda_margin": "-15%",
+      "roe": null,
+      "roa": null,
+      "current_ratio": 1.8,
+      "quick_ratio": 1.5,
+      "debt_to_equity": 0.2,
+      "ltv_cac": "4.2x",
+      "burn_rate": "150 triệu VNĐ/tháng",
+      "runway": "8 tháng"
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "Critical",
+      "category": "Valuation",
+      "recommendation": "Điều chỉnh định giá pre-money xuống 60-70 tỷ VNĐ (3-3.5x ARR) để phù hợp thị trường.",
+      "financial_impact": "Tăng khả năng closing vòng Series A, tránh negotiation kéo dài.",
+      "implementation": "So sánh với deals tương tự trong khu vực (LogiHub, TrackPO), chuẩn bị justification cho growth premium."
+    },
+    {
+      "priority": "Critical",
+      "category": "Financial",
+      "recommendation": "Thuê kiểm toán độc lập để audit báo cáo tài chính 2025.",
+      "financial_impact": "Tăng độ tin cậy cho nhà đầu tư, giảm thời gian due diligence.",
+      "implementation": "Liên hệ Big 4 (Deloitte, PwC, EY, KPMG) hoặc mid-tier (Grant Thornton, BDO), chi phí ~80-120 triệu VNĐ."
+    },
+    {
+      "priority": "High",
+      "category": "Governance",
+      "recommendation": "Tuyển CFO có kinh nghiệm SaaS và bổ sung 1 independent director vào HĐQT.",
+      "financial_impact": "Chuyên nghiệp hóa quản trị, tăng confidence cho Series A investors.",
+      "implementation": "CFO salary ~60-80 triệu/tháng + equity. Independent director có thể từ network của advisor hiện tại."
+    },
+    {
+      "priority": "High",
+      "category": "Legal",
+      "recommendation": "Update shareholders' agreement để bao gồm các điều khoản Series A chuẩn (liquidation preference, anti-dilution, board composition).",
+      "financial_impact": "Tránh renegotiation tốn kém sau khi đã commit với nhà đầu tư.",
+      "implementation": "Thuê luật sư M&A có kinh nghiệm startup (~50-80 triệu cho full package)."
+    },
+    {
+      "priority": "Medium",
+      "category": "Growth",
+      "recommendation": "Chứng minh khả năng đạt ARR 10 tỷ trong 12 tháng tới để justify valuation premium.",
+      "financial_impact": "Tăng leverage trong negotiation, có thể giữ valuation 80 tỷ nếu có clear path.",
+      "implementation": "Tập trung vào enterprise sales (deal size >200 triệu/năm), giảm churn rate xuống <5%."
+    }
+  ],
+  "risks": [
+    {
+      "category": "Valuation Risk",
+      "severity": "High",
+      "probability": "High",
+      "financial_impact": "Định giá 4x ARR cao hơn market, có thể không tìm được lead investor.",
+      "mitigation": "Điều chỉnh xuống 3-3.5x ARR hoặc chứng minh growth rate >150% sustainably."
+    },
+    {
+      "category": "Runway Risk",
+      "severity": "High",
+      "probability": "Medium",
+      "financial_impact": "Runway 8 tháng, nếu fundraising kéo dài có thể phải accept unfavorable terms.",
+      "mitigation": "Bắt đầu fundraising ngay, chuẩn bị bridge loan nếu cần."
+    },
+    {
+      "category": "Key Person Risk",
+      "severity": "Medium",
+      "probability": "Medium",
+      "financial_impact": "CEO kiêm CFO, nếu có vấn đề sẽ ảnh hưởng cả operational và financial management.",
+      "mitigation": "Tuyển CFO ASAP, document all financial processes."
+    },
+    {
+      "category": "Market Risk",
+      "severity": "Medium",
+      "probability": "Low",
+      "financial_impact": "Logistics SaaS thị trường nhỏ, có thể khó đạt ARR 50 tỷ+ để lên Series B.",
+      "mitigation": "Mở rộng sang các vertical adjacent (warehouse, fleet management) hoặc regional expansion."
+    }
+  ],
+  "kpis": [
+    {
+      "name": "ARR",
+      "current": 4200000000,
+      "target": 10000000000,
+      "unit": "VNĐ",
+      "deadline": "12 tháng"
+    },
+    {
+      "name": "Số khách hàng enterprise",
+      "current": 45,
+      "target": 100,
+      "unit": "khách hàng",
+      "deadline": "12 tháng"
+    },
+    {
+      "name": "Net Revenue Retention",
+      "current": 115,
+      "target": 120,
+      "unit": "%",
+      "deadline": "12 tháng"
+    },
+    {
+      "name": "CAC Payback Period",
+      "current": 14,
+      "target": 10,
+      "unit": "tháng",
+      "deadline": "12 tháng"
+    }
+  ],
+  "references": [
+    {
+      "type": "Law",
+      "name": "Luật Doanh nghiệp 2020",
+      "description": "Quy định về công ty cổ phần và phát hành cổ phần."
+    },
+    {
+      "type": "Standard",
+      "name": "VAS",
+      "description": "Chuẩn mực kế toán Việt Nam cho báo cáo tài chính kiểm toán."
+    }
+  ]
+}

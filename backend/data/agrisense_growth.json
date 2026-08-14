@@ -1,0 +1,192 @@
+{
+  "profile_id": "agrisense_growth",
+  "metadata": {
+    "company_name": "AgriSense",
+    "industry": "AgriTech IoT",
+    "stage": "Growth Stage",
+    "document_type": "Bộ hồ sơ startup AgriTech giai đoạn tăng trưởng",
+    "analysis_type": "Đánh giá sức khỏe doanh nghiệp và sẵn sàng gọi vốn Series B",
+    "language": "vi",
+    "version": "1.0",
+    "generated_at": "2026-07-27",
+    "confidence": 0.78
+  },
+  "score": {
+    "total": 74,
+    "maximum": 100,
+    "grade": "Tier 3 - Sẵn sàng gọi vốn",
+    "breakdown": [
+      {
+        "name": "Capital Structure",
+        "score": 16,
+        "maximum": 20,
+        "reason": "Cap Table minh bạch sau Series A: Founders 65%, ESOP 12%, Series A Investor 20%, Seed Investor 3%. Vesting schedule 4 năm cho founders. Tuy nhiên cần làm rõ điều khoản chuyển đổi cho convertible notes."
+      },
+      {
+        "name": "Financial Position",
+        "score": 16,
+        "maximum": 20,
+        "reason": "ARR 18 tỷ VNĐ (+220% YoY), gross margin 72%. Đã có kiểm toán 2025 từ Grant Thornton. Net margin vẫn âm (-8%) nhưng đang cải thiện nhanh."
+      },
+      {
+        "name": "Cash Flow",
+        "score": 12,
+        "maximum": 15,
+        "reason": "Dòng tiền hoạt động dương từ Q3/2025. Burn rate giảm từ 400 triệu xuống 180 triệu/tháng. Runway >12 tháng."
+      },
+      {
+        "name": "Governance",
+        "score": 12,
+        "maximum": 15,
+        "reason": "HĐQT 5 người (3 founders + 1 investor director + 1 independent). Có CFO chuyên nghiệp, ban kiểm soát đầy đủ. Chính sách quản trị rõ ràng."
+      },
+      {
+        "name": "Legal Compliance",
+        "score": 12,
+        "maximum": 15,
+        "reason": "Công ty cổ phần đầy đủ. Hợp đồng cổ đông Series A chuẩn. Có đầy đủ giấy phép IoT, bằng sáng chế cho 2 giải pháp cảm biến. Tuân thủ GDPR cho thị trường EU."
+      },
+      {
+        "name": "Valuation",
+        "score": 6,
+        "maximum": 15,
+        "reason": "Định giá Series A post-money 120 tỷ (6x ARR). Cho Series B, đề xuất 350 tỷ (7x ARR) - hợp lý với growth rate 220% và path to profitability."
+      }
+    ]
+  },
+  "analysis": {
+    "summary": "AgriSense là startup AgriTech IoT có traction mạnh với ARR 18 tỷ, tăng trưởng 220%/năm và path rõ ràng tới profitability trong 6-9 tháng tới. Sản phẩm đã triển khai cho 180 trang trại lớn với retention rate 95%. Hồ sơ pháp lý, quản trị và tài chính tương đối hoàn chỉnh. Sẵn sàng gọi Series B với định giá 300-350 tỷ VNĐ.",
+    "financial_position": "ARR 18 tỷ, tăng trưởng mạnh. Gross margin 72% xuất sắc cho IoT hardware+software. Đã có kiểm toán, báo cáo tài chính minh bạch. Net margin -8% nhưng cải thiện nhanh.",
+    "governance": "HĐQT 5 người với independent director. CFO chuyên nghiệp từ Big 4. Ban kiểm soát đầy đủ. Chính sách quản trị rõ ràng, sẵn sàng cho institutional investors.",
+    "cash_flow": "Đã đạt cash flow dương từ Q3/2025. Burn rate giảm nhanh. Runway >12 tháng, không áp lực phải gọi vốn gấp.",
+    "capital_structure": "Cap Table sạch sau Series A. Founders nắm 65% - đủ control. ESOP 12% - tốt cho talent retention. Investor 23% - hợp lý.",
+    "legal_compliance": "Đầy đủ giấy phép, bằng sáng chế. Hợp đồng cổ đông chuẩn. Tuân thủ GDPR cho thị trường EU - điểm cộng cho expansion.",
+    "valuation": "Định giá Series B đề xuất 350 tỷ (7x ARR) hợp lý với growth rate 220% và path to profitability. Có thể negotiate 300-400 tỷ tùy terms.",
+    "financial_ratios": {
+      "gross_margin": "72%",
+      "ebitda_margin": "5%",
+      "roe": null,
+      "roa": null,
+      "current_ratio": 2.4,
+      "quick_ratio": 2.1,
+      "debt_to_equity": 0.3,
+      "ltv_cac": "6.8x",
+      "burn_rate": "180 triệu VNĐ/tháng",
+      "runway": ">12 tháng"
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "High",
+      "category": "Growth",
+      "recommendation": "Tăng tốc expansion sang thị trường Thái Lan và Indonesia để justify valuation premium.",
+      "financial_impact": "Regional expansion tăng TAM 5x, justify 7-8x ARR multiple cho Series B.",
+      "implementation": "Setup sales team tại Bangkok và Jakarta, partner với local distributors. Budget: 3-5 tỷ VNĐ."
+    },
+    {
+      "priority": "High",
+      "category": "Product",
+      "recommendation": "Ra mắt AgriSense Pro (enterprise tier) với giá 50-100 triệu/năm để tăng ARPU.",
+      "financial_impact": "Tăng ARPU 2-3x, cải thiện unit economics và path to profitability.",
+      "implementation": "Add advanced features: predictive analytics, integration với ERP systems. Timeline: 3-4 tháng."
+    },
+    {
+      "priority": "Medium",
+      "category": "Financial",
+      "recommendation": "Mục tiêu đạt profitability vào Q2/2026 để tăng leverage trong negotiation Series B.",
+      "financial_impact": "Profitable companies command 30-50% valuation premium vs unprofitable peers.",
+      "implementation": "Optimize CAC (focus on inbound marketing), reduce churn, upsell existing customers."
+    },
+    {
+      "priority": "Medium",
+      "category": "Legal",
+      "recommendation": "Đăng ký bằng sáng chế quốc tế (PCT) cho 2 giải pháp cảm biến để bảo vệ IP tại thị trường mục tiêu.",
+      "financial_impact": "Tăng moat, giảm rủi ro cạnh tranh từ Trung Quốc. Chi phí ~500 triệu - 1 tỷ VNĐ.",
+      "implementation": "Thuê IP law firm có kinh nghiệm PCT filing. Timeline: 12-18 tháng."
+    },
+    {
+      "priority": "Low",
+      "category": "Governance",
+      "recommendation": "Bổ sung thêm 1 independent director có kinh nghiệm regional expansion (SEA).",
+      "financial_impact": "Tăng credibility với institutional investors, có advisor cho expansion strategy.",
+      "implementation": "Recruit từ network của investor hiện tại hoặc LinkedIn. Compensation: 200-300 triệu/năm + options."
+    }
+  ],
+  "risks": [
+    {
+      "category": "Execution Risk",
+      "severity": "Medium",
+      "probability": "Medium",
+      "financial_impact": "Regional expansion có thể chậm hơn kế hoạch, ảnh hưởng đến growth rate và valuation.",
+      "mitigation": "Start với pilot tại 1 thị trường (Thái Lan), prove model trước khi scale."
+    },
+    {
+      "category": "Competition Risk",
+      "severity": "Medium",
+      "probability": "Low",
+      "financial_impact": "Các player lớn (John Deere, Trimble) có thể enter thị trường Việt Nam.",
+      "mitigation": "Tiếp tục innovate, build strong customer relationships, leverage local market knowledge."
+    },
+    {
+      "category": "Technology Risk",
+      "severity": "Low",
+      "probability": "Low",
+      "financial_impact": "Phần cứng IoT có thể gặp vấn đề reliability ở điều kiện thời tiết khắc nghiệt.",
+      "mitigation": "Continuous R&D, rigorous testing, comprehensive warranty and support."
+    },
+    {
+      "category": "Regulatory Risk",
+      "severity": "Low",
+      "probability": "Low",
+      "financial_impact": "Thay đổi quy định về dữ liệu nông nghiệp hoặc IoT có thể ảnh hưởng đến business model.",
+      "mitigation": "Monitor regulatory changes, maintain compliance team, engage with industry associations."
+    }
+  ],
+  "kpis": [
+    {
+      "name": "ARR",
+      "current": 18000000000,
+      "target": 50000000000,
+      "unit": "VNĐ",
+      "deadline": "18 tháng"
+    },
+    {
+      "name": "Số trang trại",
+      "current": 180,
+      "target": 500,
+      "unit": "trang trại",
+      "deadline": "18 tháng"
+    },
+    {
+      "name": "Net Revenue Retention",
+      "current": 125,
+      "target": 130,
+      "unit": "%",
+      "deadline": "12 tháng"
+    },
+    {
+      "name": "Net Margin",
+      "current": -8,
+      "target": 15,
+      "unit": "%",
+      "deadline": "12 tháng"
+    }
+  ],
+  "references": [
+    {
+      "type": "Law",
+      "name": "Luật Doanh nghiệp 2020",
+      "description": "Quy định về công ty cổ phần và phát hành cổ phần."
+    },
+    {
+      "type": "Standard",
+      "name": "VAS",
+      "description": "Chuẩn mực kế toán Việt Nam."
+    },
+    {
+      "type": "Regulation",
+      "name": "GDPR",
+      "description": "Quy định bảo vệ dữ liệu cá nhân EU, áp dụng cho thị trường European."
+    }
+  ]
+}
