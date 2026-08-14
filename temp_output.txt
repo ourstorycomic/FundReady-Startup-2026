@@ -1,0 +1,136 @@
+
+
+--- backend_open/tailieuthamkhao\BÔ TIÊU CHÍ (1).docx ---
+HỢP ĐỒNG CỔ ĐÔNG
+1. Cơ cấu Cổ phần & Bảng vốn hóa - Cap Table (20 Điểm)
+Phân bổ tỷ lệ cổ phần (8 điểm): Quy định rõ ràng số lượng, loại cổ phần (Phổ thông, Ưu đãi) và tỷ lệ sở hữu của Nhà sáng lập (Founders) và Nhà đầu tư (Investor).
+Cam kết của Founders & Vesting Schedule (12 điểm):
+Lịch trình chuyển giao cổ phần theo thời gian/mục tiêu (Vesting: thường 3–4 năm, Cliff 1 năm) áp dụng cho sáng lập viên và nhân sự cốt lõi.
+Cơ chế xử lý cổ phần khi Founders rời đi (Good Leaver / Bad Leaver).
+2. Quyền Quản trị & Quyết định Doanh nghiệp (25 Điểm)
+Cơ cấu Đại hội đồng cổ đông & Hội đồng quản trị (10 điểm): Tỷ lệ đại diện trong HĐQT của Nhà đầu tư; quy trình bầu, miễn nhiệm HĐQT.
+Quyền Phủ quyết (Veto Rights / Reserved Matters) (15 điểm): Danh mục các quyết định quan trọng bắt buộc phải có sự đồng ý của Nhà đầu tư (ví dụ: phát hành thêm cổ phần, bán tài sản lớn, sáp nhập/M&A, thay đổi ngành nghề kinh doanh, vay nợ vượt hạn mức...).
+3. Quy định Chuyển nhượng & Bán Cổ phần (20 Điểm)
+Quyền ưu tiên mua trước (Right of First Refusal - ROFR) (5 điểm): Cổ đông muốn bán phải chào bán cho cổ đông hiện hữu trước.
+Quyền kéo theo & Quyền đi theo (Tag-Along & Drag-Along) (10 điểm):
+Tag-Along: Cổ đông thiểu số/Nhà đầu tư được quyền bán cổ phần cùng với Founders nếu Founders bán phần vốn của mình.
+Drag-Along: Cổ đông đa số/Nhà đầu tư có quyền ép các cổ đông khác cùng bán công ty khi có đề nghị M&A toàn bộ công ty thỏa đáng.
+Quy định chống pha loãng (Anti-Dilution Provisions) (5 điểm): Bảo vệ giá trị đầu tư của nhà đầu tư khi công ty phát hành thêm cổ phần ở các vòng sau với giá thấp hơn (Down-round) (Full Ratchet hoặc Broad-based Weighted Average).
+4. Chiến lược Thoái vốn & Quyền Ưu tiên Thanh toán (15 Điểm)
+Quyền ưu tiên thanh toán (Liquidation Preference) (10 điểm): Quy định thứ tự và số tiền Nhà đầu tư nhận được khi công ty giải thể, phá sản hoặc bán/M&A (Ví dụ: 1x Non-participating / Participating).
+Lộ trình thoái vốn (Exit Strategy) (5 điểm): Cam kết và mốc thời gian thoái vốn của Nhà đầu tư (qua IPO, M&A hoặc quyền yêu cầu công ty/Founders mua lại cổ phần - Put Option).
+5. Pháp lý, Bảo mật & Xử lý Tranh chấp (20 Điểm)
+Thỏa thuận Không cạnh tranh & Không chèo kéo (Non-Compete & Non-Solicitation) (8 điểm): Ràng buộc Founders không được lập/làm việc cho đối thủ trong và sau khi rời công ty (thường 1–3 năm).
+Bảo vệ Tài sản Trí tuệ (IP Assignment) (6 điểm): Cam kết toàn bộ bản quyền, sáng chế, phần mềm do Founders/Nhân viên tạo ra thuộc về công ty.
+Cơ chế xử lý bế tắc & Tranh chấp (Deadlock Resolution & Dispute Resolution) (6 điểm): Quy định rõ luật áp dụng (Luật Việt Nam hay Singapore/Quốc tế/…) và cơ quan tài phán (Trọng tài thương mại SIAC/VIAC hay Tòa án).
+CAP TABLE
+1. Cấu Trúc Sở Hữu Founders (Founders' Equity) (30 điểm)
+Tỷ lệ nắm giữ đủ lớn (15đ): Trước vòng Seed/Series A, nhóm Founders nên nắm giữ ít nhất 70–80% cổ phần để bảo đảm động lực vận hành và quyền kiểm soát.
+Phân bổ giữa các Founders (15đ): Phân chia hợp lý dựa trên đóng góp, tránh chia đều 50-50 hay 33-33-33 (dễ gây bế tắc quyết định - Deadlock). Phải có 1 Lead Founder rõ ràng.
+2. Quỹ Cổ Phần Nhân Viên (ESOP Pool) (20 điểm)
+Có sẵn ESOP Pool (10đ): Dành sẵn 10–15% cổ phần cho nhân sự cốt lõi tương lai.
+Vị trí ESOP trong tính toán (10đ): ESOP được tạo ra trước khi nhà đầu tư rót vốn (Pre-money ESOP Unallocated) để tránh làm pha loãng nhà đầu tư mới ngay khi vào.
+3. Lịch Trình Chuyển Giao Cổ Phần (Vesting Schedule) (20 điểm)
+...
+
+
+--- backend_open/tailieuthamkhao\Bộ tiêu chí đánh giá sức khỏe doanh nghiệp.docx ---
+HỒ SƠ GIỚI THIỆU
+STT
+TIÊU CHÍ ĐÁNH GIÁ HSGT
+ĐIỂM
+1
+Tổng quan doanh nghiệp và mô hình kinh doanh
+10
+a. Minh bạch về pháp lý thông tin doanh nghiệp, thành lập và quá trình phát triển
+3
+b. Tính khả thi và hiệu quả của mô hình kinh doanh doanh nghiệp
+7
+2
+Vấn đề của thị trường và giải pháp
+20
+a. Độ sắc bén trong việc xác định pain-point của thị trường
+10
+b. Tính ưu việt và thực tế của giải pháp
+10
+3
+Thị trường và khách hàng mục tiêu
+15
+a. Quy mô thị trường rõ ràng
+7
+b. Độ chính xác của việc xác định khách hàng
+8
+4
+Chỉ số tăng trưởng và lợi thế cạnh tranh
+35
+a. Các chỉ số kinh doanh cốt lõi (ARR, users, tăng trưởng MoM, unit economics)
+20
+...
+
+
+--- backend_open/tailieuthamkhao\MÔ PHỎNG GỌI VỐN (1).docx ---
+KỊCH BẢN GỌI VỐN CHO CÔNG TY CỔ PHẦN CÔNG NGHỆ BUFFER 
+Doanh nghiệp đang mong muốn gì?Theo thông tin doanh nghiệp cung cấp, Công ty Cổ phần Công nghệ Buffer (Buffer Inc.) hiện mong muốn huy động 450,000 USD (tương đương khoảng 11,5 tỷ VNĐ) để phục vụ quá trình phát triển, mở rộng hoạt động kinh doanh và tăng tốc nền tảng SaaS quản lý truyền thông xã hội ở giai đoạn Seed / Pre-Series A. Đây là cơ sở đầu tiên để xây dựng phương án gọi vốn. Tuy nhiên, sau khi phân tích hồ sơ doanh nghiệp, hệ thống nhận thấy Buffer đang đứng trước ba nhu cầu đầu tư lớn:
+Nâng cấp hệ sinh thái AI Assistant và hạ tầng R&D (AI Content Generator, TikTok/Reels Video Automation, Core API).
+Mở rộng hoạt động Marketing (Inbound SEO Engine, Affiliate Network) và tối ưu hóa hệ thống chuyển đổi.
+Chuẩn bị hạ tầng Cloud (AWS), mở rộng dịch vụ Chăm sóc khách hàng (CSKH 24/7) và hành chính pháp lý cho giai đoạn tăng trưởng. Do đó, 450,000 USD là mức vốn doanh nghiệp mong muốn huy động để bứt phá đạt mục tiêu 3.5 triệu USD ARR trong 18 tháng tới, nhưng cần được phân bổ chuẩn xác để tối ưu hóa hiệu quả sử dụng vốn.
+Khuyến nghị của hệ thống
+Mức vốn doanh nghiệp mong muốn: 450,000 USD (~11,5 tỷ VNĐ)
+Mức vốn hệ thống khuyến nghị: 450,000 USD (giữ nguyên quy mô Seed/Pre-Series A dựa trên định giá Pre-money 4,050,000 USD)
+Chênh lệch: 0 USD (Tập trung tối ưu hóa phân bổ cơ cấu sử dụng vốn thay vì thay đổi quy mô huy động).
+Tại sao giữ nguyên mức 450,000 USD và cấu trúc phân bổ chiến lược?
+Với quy mô ARR hiện tại đạt trên 1.25 triệu USD và tỷ lệ chuyển đổi từ Free sang Paid đạt 5.2%, Buffer đã có nền tảng Inbound vững chắc từ lượng truy cập Blog hàng triệu lượt/tháng. Tuy nhiên, để chuyển dịch mạnh mẽ sang tích hợp AI sâu hơn và mở rộng quy mô người dùng trả phí từ 15,000 lên 50,000 người dùng, nguồn vốn 450,000 USD cần được bơm chuẩn xác vào 3 trụ cột trọng yếu: R&D sản phẩm, Marketing & Tăng trưởng, cùng Vận hành & Hạ tầng Cloud.
+Phương án A – Nếu doanh nghiệp giữ mức gọi vốn 450,000 USDNếu doanh nghiệp muốn giữ nguyên mong muốn ban đầu là 450,000 USD, nguồn vốn nên được tập trung vào những hạng mục có tác động trực tiếp nhất đến khả năng tăng trưởng ARR.
+Phân bổ đề xuất:
+Hạng mục
+Tỷ lệ
+Số tiền (USD)
+Mục tiêu
+R&D – Sản phẩm & Kỹ thuật
+50%
+225,000
+Phát triển AI Content Generator & Tự động hóa Video TikTok/Reels
+Marketing & Tăng trưởng (GTM)
+30%
+135,000
+Mở rộng kênh Affiliate, SEO Content & Performance Ads
+Vận hành & Hỗ trợ
+20%
+90,000
+Nâng cấp hạ tầng Cloud AWS & mở rộng CSKH 24/7
+Tổng
+...
+
+
+--- backend_open/tailieuthamkhao\MÔ PHỎNG GỌI VỐN.docx ---
+KỊCH BẢN GỌI VỐN ĐỀ XUẤT CHO NEXUS DIGITAL
+1. Doanh nghiệp đang mong muốn gì?
+Theo thông tin doanh nghiệp cung cấp, Nexus Digital hiện mong muốn huy động 3 tỷ đồng để phục vụ quá trình phát triển và mở rộng hoạt động kinh doanh.
+Đây là cơ sở đầu tiên để xây dựng phương án gọi vốn.
+Tuy nhiên, sau khi phân tích hồ sơ doanh nghiệp, hệ thống nhận thấy Nexus Digital đang đứng trước ba nhu cầu đầu tư lớn:
+1.    Nâng cấp công nghệ và AI.
+2.    Mở rộng hoạt động Marketing và Sales B2B.
+3.    Chuẩn bị hạ tầng, nhân sự và bảo mật cho giai đoạn tăng trưởng.
+Do đó, 3 tỷ đồng là mức vốn doanh nghiệp mong muốn huy động, nhưng chưa chắc là mức vốn tối ưu để thực hiện đầy đủ kế hoạch tăng trưởng.
+2. Khuyến nghị của hệ thống
+Mức vốn doanh nghiệp mong muốn: 3 tỷ VNĐ
+Mức vốn hệ thống khuyến nghị: 5 tỷ VNĐ
+Chênh lệch: +2 tỷ VNĐ
+Tại sao hệ thống đề xuất cao hơn nhu cầu ban đầu?
+Với 3 tỷ đồng, Nexus Digital có thể ưu tiên giải quyết một số vấn đề cấp thiết nhất, nhưng sẽ phải cắt giảm đáng kể nguồn lực dành cho Marketing, Sales và hạ tầng.
+Trong khi đó, mục tiêu của doanh nghiệp không chỉ là duy trì sản phẩm mà là tăng tốc thương mại hóa và mở rộng quy mô trong giai đoạn 2026–2028.
+Nếu chỉ huy động 3 tỷ đồng, doanh nghiệp có nguy cơ rơi vào tình trạng:
+Có sản phẩm → nhưng thiếu ngân sách thương mại hóa → tăng trưởng khách hàng chậm → doanh thu tăng chậm → phải gọi vốn tiếp sớm.
+Vì vậy, nếu thị trường và khả năng hấp thụ vốn cho phép, hệ thống khuyến nghị Nexus Digital cân nhắc nâng mức gọi vốn lên 5 tỷ đồng để có đủ nguồn lực thực hiện đồng thời cả ba trụ cột.
+3. Phương án A – Nếu doanh nghiệp giữ mức gọi vốn 3 tỷ đồng
+Nếu doanh nghiệp muốn giữ nguyên mong muốn ban đầu là 3 tỷ đồng, nguồn vốn nên được tập trung vào những hạng mục có tác động trực tiếp nhất đến khả năng tăng trưởng.
+Phân bổ đề xuất:
+Hạng mục
+Tỷ lệ
+Số tiền
+Mục tiêu
+R&D – AI & Công nghệ
+50%
+1,5 tỷ
+Củng cố sản phẩm và lợi thế công nghệ
+...

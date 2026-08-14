@@ -1,0 +1,187 @@
+{
+  "profile_id": "edupath_sme",
+  "metadata": {
+    "company_name": "EduPath",
+    "industry": "Education Technology",
+    "stage": "SME - Hộ kinh doanh gia đình",
+    "document_type": "Bộ hồ sơ hộ kinh doanh giáo dục",
+    "analysis_type": "Đánh giá mức độ sẵn sàng chuyển đổi sang doanh nghiệp và gọi vốn",
+    "language": "vi",
+    "version": "1.0",
+    "generated_at": "2026-07-27",
+    "confidence": 0.52
+  },
+  "score": {
+    "total": 34,
+    "maximum": 100,
+    "grade": "Tier 1 - Chưa đủ điều kiện gọi vốn",
+    "breakdown": [
+      {
+        "name": "Capital Structure",
+        "score": 5,
+        "maximum": 20,
+        "reason": "Hoạt động dưới dạng hộ kinh doanh cá nhân, không có Cap Table. Sở hữu 100% bởi ông Nguyễn Văn Hùng. Không thể phát hành cổ phần cho nhà đầu tư."
+      },
+      {
+        "name": "Financial Position",
+        "score": 10,
+        "maximum": 20,
+        "reason": "Doanh thu ổn định 800 triệu VNĐ/năm từ trung tâm luyện thi. Biên lợi nhuận ròng 25%. Tuy nhiên không có báo cáo tài chính kiểm toán, chỉ có sổ sách kế toán đơn giản."
+      },
+      {
+        "name": "Cash Flow",
+        "score": 8,
+        "maximum": 15,
+        "reason": "Dòng tiền dương nhờ thu học phí trước. Tuy nhiên không có hệ thống quản lý dòng tiền chuyên nghiệp."
+      },
+      {
+        "name": "Governance",
+        "score": 3,
+        "maximum": 15,
+        "reason": "Quản lý gia đình, ông Hùng quyết định mọi việc. Không có cơ cấu quản trị, không có nhân sự quản lý cấp trung."
+      },
+      {
+        "name": "Legal Compliance",
+        "score": 6,
+        "maximum": 15,
+        "reason": "Có giấy phép hộ kinh doanh và giấy phép trung tâm luyện thi. Tuy nhiên không đáp ứng điều kiện để gọi vốn vì không phải là doanh nghiệp."
+      },
+      {
+        "name": "Valuation",
+        "score": 2,
+        "maximum": 15,
+        "reason": "Không thể định giá vì không phải là doanh nghiệp. Giá trị chủ yếu là thương hiệu địa phương và cơ sở vật chất."
+      }
+    ]
+  },
+  "analysis": {
+    "summary": "EduPath là hộ kinh doanh trung tâm luyện thi hoạt động 5 năm, doanh thu ổn định 800 triệu/năm với 150 học viên. Mô hình gia đình, không có cấu trúc doanh nghiệp phù hợp để gọi vốn. Cần chuyển đổi sang công ty TNHH hoặc cổ phần, xây dựng hệ thống quản trị chuyên nghiệp trước khi có thể tiếp cận nhà đầu tư.",
+    "financial_position": "Doanh thu ổn định nhưng quy mô nhỏ. Không có báo cáo tài chính chuẩn. Sổ sách kế toán đơn giản, không phù hợp cho due diligence.",
+    "governance": "Quản lý 1 người, không có phân quyền. Rủi ro cao nếu chủ hộ gặp vấn đề sức khỏe. Không có kế hoạch kế nhiệm.",
+    "cash_flow": "Dòng tiền tốt nhờ mô hình thu trước trả sau. Tuy nhiên không có kế hoạch tài chính dài hạn.",
+    "capital_structure": "Không có Cap Table vì là hộ kinh doanh. 100% sở hữu bởi ông Hùng. Không thể phát hành cổ phần.",
+    "legal_compliance": "Đầy đủ giấy phép hoạt động trung tâm luyện thi. Tuy nhiên cần chuyển đổi loại hình để gọi vốn.",
+    "valuation": "Không thể định giá theo phương pháp chuẩn. Giá trị ước tính dựa trên doanh thu và tài sản cố định (~2-3 tỷ VNĐ).",
+    "financial_ratios": {
+      "gross_margin": "60%",
+      "ebitda_margin": "35%",
+      "roe": null,
+      "roa": null,
+      "current_ratio": null,
+      "quick_ratio": null,
+      "debt_to_equity": null,
+      "ltv_cac": "8.5x",
+      "burn_rate": null,
+      "runway": null
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "Critical",
+      "category": "Legal Structure",
+      "recommendation": "Chuyển đổi từ hộ kinh doanh sang công ty TNHH 1 thành viên hoặc công ty cổ phần.",
+      "financial_impact": "Điều kiện tiên quyết để có thể gọi vốn và mở rộng quy mô.",
+      "implementation": "Liên hệ phòng đăng ký kinh doanh, chi phí ~5-10 triệu VNĐ, thời gian 2-3 tuần."
+    },
+    {
+      "priority": "Critical",
+      "category": "Financial",
+      "recommendation": "Thuê dịch vụ kế toán chuyên nghiệp để lập báo cáo tài chính chuẩn VAS.",
+      "financial_impact": "Tạo nền tảng minh bạch tài chính, cần thiết cho nhà đầu tư.",
+      "implementation": "Thuê công ty kế toán (~15-20 triệu/năm) hoặc kế toán part-time có chứng chỉ."
+    },
+    {
+      "priority": "High",
+      "category": "Governance",
+      "recommendation": "Xây dựng cơ cấu tổ chức, bổ nhiệm quản lý trung tâm và kế toán trưởng.",
+      "financial_impact": "Giảm rủi ro phụ thuộc vào 1 người, tăng khả năng mở rộng.",
+      "implementation": "Tuyển dụng hoặc đào tạo từ nhân viên hiện tại, lương ~15-20 triệu/tháng."
+    },
+    {
+      "priority": "High",
+      "category": "Product",
+      "recommendation": "Phát triển nền tảng online để mở rộng quy mô beyond địa phương.",
+      "financial_impact": "Tăng doanh thu 3-5x và thu hút nhà đầu tư EdTech.",
+      "implementation": "Đầu tư ~200-300 triệu để xây dựng platform, hoặc hợp tác với đối tác công nghệ."
+    },
+    {
+      "priority": "Medium",
+      "category": "Growth Strategy",
+      "recommendation": "Mở thêm 2-3 chi nhánh trong khu vực để chứng minh khả năng scale.",
+      "financial_impact": "Chứng minh mô hình có thể nhân rộng, tăng định giá lên 2-3x.",
+      "implementation": "Cần vốn ~500 triệu/chi nhánh, có thể vay ngân hàng hoặc tìm đối tác."
+    }
+  ],
+  "risks": [
+    {
+      "category": "Legal Structure Risk",
+      "severity": "Critical",
+      "probability": "High",
+      "financial_impact": "Không thể gọi vốn nếu vẫn là hộ kinh doanh.",
+      "mitigation": "Chuyển đổi sang công ty TNHH hoặc cổ phần."
+    },
+    {
+      "category": "Key Person Risk",
+      "severity": "High",
+      "probability": "Medium",
+      "financial_impact": "Nếu ông Hùng gặp vấn đề, toàn bộ hoạt động trung tâm bị ảnh hưởng.",
+      "mitigation": "Xây dựng đội ngũ quản lý, chuẩn hóa quy trình vận hành."
+    },
+    {
+      "category": "Scalability Risk",
+      "severity": "Medium",
+      "probability": "High",
+      "financial_impact": "Mô hình phụ thuộc vào địa điểm, khó mở rộng nhanh.",
+      "mitigation": "Đầu tư vào nền tảng online và franchise model."
+    },
+    {
+      "category": "Competition Risk",
+      "severity": "Medium",
+      "probability": "Medium",
+      "financial_impact": "Cạnh tranh từ các trung tâm lớn và nền tảng online.",
+      "mitigation": "Tập trung vào chất lượng và thương hiệu địa phương."
+    }
+  ],
+  "kpis": [
+    {
+      "name": "Số học viên",
+      "current": 150,
+      "target": 500,
+      "unit": "học viên",
+      "deadline": "12 tháng"
+    },
+    {
+      "name": "Doanh thu năm",
+      "current": 800000000,
+      "target": 3000000000,
+      "unit": "VNĐ",
+      "deadline": "24 tháng"
+    },
+    {
+      "name": "Số chi nhánh",
+      "current": 1,
+      "target": 4,
+      "unit": "chi nhánh",
+      "deadline": "18 tháng"
+    },
+    {
+      "name": "Tỷ lệ học viên đậu đại học",
+      "current": 85,
+      "target": 90,
+      "unit": "%",
+      "deadline": "12 tháng"
+    }
+  ],
+  "references": [
+    {
+      "type": "Law",
+      "name": "Luật Doanh nghiệp 2020",
+      "description": "Quy định về chuyển đổi loại hình doanh nghiệp."
+    },
+    {
+      "type": "Regulation",
+      "name": "Thông tư 200/2014/TT-BTC",
+      "description": "Hướng dẫn chế độ kế toán doanh nghiệp."
+    }
+  ]
+}

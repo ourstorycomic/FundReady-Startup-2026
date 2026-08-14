@@ -1,0 +1,23 @@
+FundReady AI - Ban giao source day du
+=====================================
+
+Cau truc goi:
+- index.html      : Trang chu (da ma hoa JS/CSS)
+- danh-gia.html   : Cong cu danh gia goi von (da ma hoa JS/CSS)
+- backend/        : Toan bo backend FastAPI (da ma hoa bang PyArmor)
+
+Cach chay WEB:
+- Mo index.html bang trinh duyet.
+- Frontend goi API tu xa: https://fundready-demo.fly.dev
+
+Cach chay BACKEND local:
+  cd backend
+  python3 -m venv venv && source venv/bin/activate
+  pip install -r requirements.txt
+  cp .env.example .env   # dien API key vao day
+  uvicorn main:app --port 8000
+
+Luu y:
+- Ma nguon da duoc obfuscate (PyArmor cho backend, javascript-obfuscator cho web) - khong the sua truc tiep.
+- backend/ khong kem file .env (chua API key ca nhan) - chuyen den .env.example.
+- Deploy len Fly.io/Render theo file fly.toml / render.yaml.

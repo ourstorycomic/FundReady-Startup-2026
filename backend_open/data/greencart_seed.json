@@ -1,0 +1,187 @@
+{
+  "profile_id": "greencart_seed",
+  "metadata": {
+    "company_name": "GreenCart",
+    "industry": "AgriTech",
+    "stage": "Seed",
+    "document_type": "Bộ hồ sơ startup giai đoạn Seed",
+    "analysis_type": "Đánh giá sơ bộ mức độ sẵn sàng gọi vốn",
+    "language": "vi",
+    "version": "1.0",
+    "generated_at": "2026-07-27",
+    "confidence": 0.45
+  },
+  "score": {
+    "total": 34,
+    "maximum": 100,
+    "grade": "Tier 1 - Chưa đủ điều kiện gọi vốn",
+    "breakdown": [
+      {
+        "name": "Capital Structure",
+        "score": 8,
+        "maximum": 20,
+        "reason": "Công ty mới thành lập 6 tháng, chưa có Cap Table chính thức. Hai founders chia đều 50-50, không có Lead Founder rõ ràng. Chưa có ESOP pool."
+      },
+      {
+        "name": "Financial Position",
+        "score": 6,
+        "maximum": 20,
+        "reason": "Doanh thu tháng đầu tiên đạt 15 triệu VNĐ, chủ yếu từ bán hàng thử nghiệm. Chưa có báo cáo tài chính kiểm toán. Tự tài trợ bằng vốn cá nhân 200 triệu VNĐ."
+      },
+      {
+        "name": "Cash Flow",
+        "score": 5,
+        "maximum": 15,
+        "reason": "Dòng tiền âm, burn rate ~30 triệu/tháng. Runway còn khoảng 5 tháng với vốn hiện tại."
+      },
+      {
+        "name": "Governance",
+        "score": 5,
+        "maximum": 15,
+        "reason": "Chưa có cơ cấu quản trị chính thức. Hai founders tự phân chia công việc theo thỏa thuận miệng. Chưa có hợp đồng cổ đông."
+      },
+      {
+        "name": "Legal Compliance",
+        "score": 6,
+        "maximum": 15,
+        "reason": "Đã đăng ký hộ kinh doanh cá nhân, chưa chuyển đổi sang doanh nghiệp. Chưa có giấy phép con cho lĩnh vực nông nghiệp."
+      },
+      {
+        "name": "Valuation",
+        "score": 4,
+        "maximum": 15,
+        "reason": "Chưa có định giá chính thức. Dựa trên doanh thu thử nghiệm và số người dùng ban đầu (200 khách hàng), ước tính pre-money valuation khoảng 2-3 tỷ VNĐ."
+      }
+    ]
+  },
+  "analysis": {
+    "summary": "GreenCart là startup AgriTech giai đoạn rất sớm (Seed), mới hoạt động 6 tháng với sản phẩm MVP đang được 200 khách hàng thử nghiệm. Đội ngũ 2 founders có kinh nghiệm nông nghiệp nhưng thiếu kỹ năng công nghệ và quản trị tài chính. Hồ sơ pháp lý chưa hoàn thiện (vẫn là hộ kinh doanh), chưa có báo cáo tài chính hay Cap Table chính thức. Cần ít nhất 6-12 tháng hoàn thiện hồ sơ trước khi tiếp cận nhà đầu tư.",
+    "financial_position": "Giai đoạn pre-revenue với doanh thu thử nghiệm rất nhỏ (15 triệu/tháng). Chi phí chủ yếu cho phát triển sản phẩm và marketing ban đầu. Chưa có hệ thống kế toán chính thức.",
+    "governance": "Quản trị informal giữa 2 founders, chưa có hợp đồng cổ đông hay vesting schedule. Rủi ro cao về xung đột nếu không có thỏa thuận rõ ràng.",
+    "cash_flow": "Burn rate ~30 triệu/tháng, runway còn 5 tháng. Cần gọi vốn hoặc tạo doanh thu nhanh để duy trì hoạt động.",
+    "capital_structure": "Chưa có Cap Table. Vốn cá nhân 200 triệu VNĐ từ 2 founders. Chưa có nhà đầu tư bên ngoài.",
+    "legal_compliance": "Vẫn hoạt động dưới dạng hộ kinh doanh, chưa phù hợp để gọi vốn VC. Cần chuyển đổi sang công ty cổ phần hoặc TNHH.",
+    "valuation": "Định giá dựa trên traction ban đầu và tiềm năng thị trường nông nghiệp. Chưa có phương pháp định giá chuẩn (DCF, comparables).",
+    "financial_ratios": {
+      "gross_margin": "35%",
+      "ebitda_margin": null,
+      "roe": null,
+      "roa": null,
+      "current_ratio": null,
+      "quick_ratio": null,
+      "debt_to_equity": null,
+      "ltv_cac": "2.1x",
+      "burn_rate": "30 triệu VNĐ/tháng",
+      "runway": "5 tháng"
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "Critical",
+      "category": "Legal",
+      "recommendation": "Chuyển đổi từ hộ kinh doanh sang công ty cổ phần để đủ điều kiện gọi vốn VC.",
+      "financial_impact": "Không thể gọi vốn nếu không có pháp nhân doanh nghiệp phù hợp.",
+      "implementation": "Thuê luật sư tư vấn cấu trúc công ty, mất 2-4 tuần và ~20-30 triệu VNĐ."
+    },
+    {
+      "priority": "Critical",
+      "category": "Governance",
+      "recommendation": "Soạn thảo hợp đồng cổ đông với vesting schedule 4 năm, cliff 1 năm cho cả 2 founders.",
+      "financial_impact": "Bảo vệ cả 2 founders khỏi rủi ro một người rời đi sớm mà vẫn giữ 50% cổ phần.",
+      "implementation": "Sử dụng template hợp đồng cổ đông chuẩn hoặc thuê luật sư (~15-25 triệu VNĐ)."
+    },
+    {
+      "priority": "High",
+      "category": "Financial",
+      "recommendation": "Thiết lập hệ thống kế toán cơ bản và bắt đầu ghi chép giao dịch chính thức.",
+      "financial_impact": "Tạo nền tảng cho báo cáo tài chính sau này, cần thiết cho due diligence.",
+      "implementation": "Sử dụng phần mềm kế toán MISA Base (~3-5 triệu/năm) hoặc thuê kế toán part-time."
+    },
+    {
+      "priority": "High",
+      "category": "Product",
+      "recommendation": "Tăng traction lên 1000+ khách hàng trong 3 tháng tới để chứng minh product-market fit.",
+      "financial_impact": "Tăng định giá công ty lên 2-3x khi có traction rõ ràng.",
+      "implementation": "Tập trung vào marketing kênh Facebook và hợp tác với hợp tác xã nông nghiệp."
+    },
+    {
+      "priority": "Medium",
+      "category": "Capital Structure",
+      "recommendation": "Xác định rõ Lead Founder và phân chia lại cổ phần hợp lý hơn (60-40 hoặc 70-30).",
+      "financial_impact": "Nhà đầu tư thường yêu cầu có Lead Founder rõ ràng với cổ phần chi phối.",
+      "implementation": "Thảo luận open giữa 2 founders về đóng góp, vai trò và cam kết dài hạn."
+    }
+  ],
+  "risks": [
+    {
+      "category": "Legal Structure Risk",
+      "severity": "Critical",
+      "probability": "High",
+      "financial_impact": "Không thể gọi vốn VC nếu vẫn là hộ kinh doanh.",
+      "mitigation": "Chuyển đổi sang công ty cổ phần ngay lập tức."
+    },
+    {
+      "category": "Founder Conflict Risk",
+      "severity": "High",
+      "probability": "Medium",
+      "financial_impact": "Xung đột 50-50 có thể dẫn đến deadlock, phá sản công ty.",
+      "mitigation": "Có hợp đồng cổ đông với cơ chế giải quyết tranh chấp và vesting."
+    },
+    {
+      "category": "Runway Risk",
+      "severity": "High",
+      "probability": "High",
+      "financial_impact": "Hết vốn trong 5 tháng nếu không tăng doanh thu hoặc gọi vốn.",
+      "mitigation": "Cắt giảm chi phí không cần thiết, tập trung vào revenue-generating activities."
+    },
+    {
+      "category": "Market Validation Risk",
+      "severity": "Medium",
+      "probability": "Medium",
+      "financial_impact": "200 khách hàng chưa đủ để chứng minh product-market fit.",
+      "mitigation": "Tập trung vào retention rate và LTV/CAC trước khi scale."
+    }
+  ],
+  "kpis": [
+    {
+      "name": "Số khách hàng active",
+      "current": 200,
+      "target": 1000,
+      "unit": "khách hàng",
+      "deadline": "3 tháng"
+    },
+    {
+      "name": "Doanh thu tháng",
+      "current": 15000000,
+      "target": 100000000,
+      "unit": "VNĐ",
+      "deadline": "6 tháng"
+    },
+    {
+      "name": "LTV/CAC",
+      "current": 2.1,
+      "target": 3.0,
+      "unit": "x",
+      "deadline": "6 tháng"
+    },
+    {
+      "name": "Retention rate (3 tháng)",
+      "current": 45,
+      "target": 70,
+      "unit": "%",
+      "deadline": "3 tháng"
+    }
+  ],
+  "references": [
+    {
+      "type": "Law",
+      "name": "Luật Doanh nghiệp 2020",
+      "description": "Quy định về chuyển đổi loại hình doanh nghiệp và cấu trúc công ty cổ phần."
+    },
+    {
+      "type": "Guide",
+      "name": "Founder's Agreement Template",
+      "description": "Template hợp đồng cổ đông chuẩn cho startup giai đoạn sớm."
+    }
+  ]
+}

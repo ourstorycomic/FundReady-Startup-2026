@@ -1,0 +1,192 @@
+{
+  "profile_id": "tradeco_sme_transform",
+  "metadata": {
+    "company_name": "Tradeco",
+    "industry": "Manufacturing & Trading",
+    "stage": "SME chuyển đổi số",
+    "document_type": "Bộ hồ sơ doanh nghiệp sản xuất thương mại 10 năm",
+    "analysis_type": "Đánh giá mức độ sẵn sàng gọi vốn để mở rộng và chuyển đổi số",
+    "language": "vi",
+    "version": "1.0",
+    "generated_at": "2026-07-27",
+    "confidence": 0.65
+  },
+  "score": {
+    "total": 58,
+    "maximum": 100,
+    "grade": "Tier 2 - Sẵn sàng có điều kiện",
+    "breakdown": [
+      {
+        "name": "Capital Structure",
+        "score": 10,
+        "maximum": 20,
+        "reason": "Công ty TNHH 2 thành viên, sở hữu 60-40 giữa 2 anh em. Không có ESOP, không có kế hoạch phát hành cổ phần. Cap Table đơn giản nhưng không phù hợp cho gọi vốn VC (cần chuyển sang cổ phần)."
+      },
+      {
+        "name": "Financial Position",
+        "score": 14,
+        "maximum": 20,
+        "reason": "Doanh thu 45 tỷ VNĐ/năm, gross margin 32%, net margin 8%. Có báo cáo tài chính kiểm toán 3 năm gần nhất bởi EY. Tài sản cố định 25 tỷ (nhà xưởng, máy móc). Nợ vay ngân hàng 12 tỷ."
+      },
+      {
+        "name": "Cash Flow",
+        "score": 10,
+        "maximum": 15,
+        "reason": "Dòng tiền hoạt động dương 3.5 tỷ/năm. Tuy nhiên vòng quay vốn lưu động chậm (60 ngày), công nợ phải thu 8 tỷ. Cash balance 6 tỷ."
+      },
+      {
+        "name": "Governance",
+        "score": 8,
+        "maximum": 15,
+        "reason": "HĐQT 3 người (2 owners + 1 kế toán trưởng). Có kế toán đầy đủ nhưng chưa có CFO chuyên nghiệp. Quy trình vận hành chủ yếu dựa vào kinh nghiệm, chưa có ERP."
+      },
+      {
+        "name": "Legal Compliance",
+        "score": 10,
+        "maximum": 15,
+        "reason": "Công ty TNHH đầy đủ giấy phép sản xuất, ISO 9001, giấy phép môi trường. Tuy nhiên cần chuyển đổi sang công ty cổ phần để gọi vốn. Một số bằng sáng chế sản phẩm chưa đăng ký."
+      },
+      {
+        "name": "Valuation",
+        "score": 6,
+        "maximum": 15,
+        "reason": "Định giá dựa trên tài sản và lợi nhuận: ~180 tỷ VNĐ (4x net profit). Hợp lý cho manufacturing SME nhưng thấp so với potential nếu chuyển đổi số thành công."
+      }
+    ]
+  },
+  "analysis": {
+    "summary": "Tradeco là doanh nghiệp sản xuất thương mại 10 năm, doanh thu 45 tỷ/năm với 120 nhân viên. Mô hình kinh doanh truyền thống ổn định nhưng đang đối mặt với cạnh tranh từ hàng nhập khẩu và cần chuyển đổi số để tăng năng suất. Hồ sơ tài chính minh bạch (kiểm toán EY), pháp lý đầy đủ. Cần chuyển đổi sang công ty cổ phần và xây dựng kế hoạch chuyển đổi số rõ ràng trước khi gọi vốn.",
+    "financial_position": "Doanh thu 45 tỷ, tăng trưởng 15%/năm. Gross margin 32% - trung bình cho manufacturing. Net margin 8%. Tài sản cố định 25 tỷ, nợ vay 12 tỷ. Báo cáo tài chính kiểm toán bởi EY 3 năm.",
+    "governance": "Quản lý gia đình (2 anh em), có kế toán đầy đủ nhưng chưa có CFO. Quy trình vận hành manual, chưa có ERP. Cần chuyên nghiệp hóa quản trị trước khi gọi vốn.",
+    "cash_flow": "Dòng tiền dương 3.5 tỷ/năm. Vòng quay vốn lưu động chậm (60 ngày), công nợ 8 tỷ. Cần cải thiện working capital management.",
+    "capital_structure": "Công ty TNHH 2 thành viên, sở hữu 60-40. Không phù hợp cho VC investment. Cần chuyển sang công ty cổ phần và tạo Cap Table rõ ràng.",
+    "legal_compliance": "Đầy đủ giấy phép sản xuất, ISO 9001. Một số bằng sáng chế sản phẩm chưa đăng ký. Cần IP protection trước khi gọi vốn.",
+    "valuation": "Định giá 180 tỷ (4x net profit) hợp lý cho manufacturing SME. Có thể tăng lên 250-300 tỷ nếu chứng minh được chuyển đổi số tăng margin lên 12-15%.",
+    "financial_ratios": {
+      "gross_margin": "32%",
+      "ebitda_margin": "12%",
+      "roe": "18%",
+      "roa": "8%",
+      "current_ratio": 1.6,
+      "quick_ratio": 1.1,
+      "debt_to_equity": 0.6,
+      "ltv_cac": null,
+      "burn_rate": null,
+      "runway": null
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "Critical",
+      "category": "Legal Structure",
+      "recommendation": "Chuyển đổi từ công ty TNHH sang công ty cổ phần để đủ điều kiện gọi vốn.",
+      "financial_impact": "Điều kiện tiên quyết để phát hành cổ phần cho nhà đầu tư.",
+      "implementation": "Liên hệ luật sư doanh nghiệp, chi phí ~30-50 triệu VNĐ, thời gian 4-6 tuần."
+    },
+    {
+      "priority": "High",
+      "category": "Digital Transformation",
+      "recommendation": "Triển khai ERP (Odoo/SAP Business One) để tối ưu vận hành và tăng gross margin lên 38-40%.",
+      "financial_impact": "Tăng gross margin 6-8%, giảm working capital cycle từ 60 xuống 40 ngày. Tăng định giá 30-40%.",
+      "implementation": "Chi phí ERP ~1-2 tỷ, triển khai 6-9 tháng. Có thể vay ưu đãi từ quỹ chuyển đổi số."
+    },
+    {
+      "priority": "High",
+      "category": "Financial",
+      "recommendation": "Tuyển CFO có kinh nghiệm manufacturing và cải thiện working capital management.",
+      "financial_impact": "Giảm công nợ phải thu từ 60 xuống 40 ngày, giải phóng ~5 tỷ vốn lưu động.",
+      "implementation": "CFO salary ~50-70 triệu/tháng. Implement receivables management system."
+    },
+    {
+      "priority": "Medium",
+      "category": "IP Protection",
+      "recommendation": "Đăng ký bằng sáng chế cho 3 sản phẩm độc quyền và bảo vệ thương hiệu.",
+      "financial_impact": "Tăng moat, justify valuation premium. Chi phí ~200-300 triệu VNĐ.",
+      "implementation": "Thuê IP law firm, filing tại Việt Nam và các thị trường xuất khẩu chính."
+    },
+    {
+      "priority": "Medium",
+      "category": "Growth Strategy",
+      "recommendation": "Phát triển kênh ecommerce B2B để mở rộng thị trường ngoài khu vực miền Nam.",
+      "financial_impact": "Tăng doanh thu 30-50% trong 2 năm, diversify customer base.",
+      "implementation": "Build B2B portal, digital marketing, logistics partnerships. Budget: 2-3 tỷ."
+    }
+  ],
+  "risks": [
+    {
+      "category": "Legal Structure Risk",
+      "severity": "Critical",
+      "probability": "High",
+      "financial_impact": "Không thể gọi vốn VC nếu vẫn là công ty TNHH.",
+      "mitigation": "Chuyển đổi sang công ty cổ phần ngay lập tức."
+    },
+    {
+      "category": "Competition Risk",
+      "severity": "High",
+      "probability": "High",
+      "financial_impact": "Hàng nhập khẩu giá rẻ từ Trung Quốc đang侵蚀 market share (giảm 5% trong 2 năm).",
+      "mitigation": "Focus vào quality differentiation, custom manufacturing, và service excellence."
+    },
+    {
+      "category": "Succession Risk",
+      "severity": "Medium",
+      "probability": "Medium",
+      "financial_impact": "2 owners đều trên 50 tuổi, chưa có kế hoạch kế nhiệm rõ ràng.",
+      "mitigation": "Develop next generation leadership, professionalize management team."
+    },
+    {
+      "category": "Working Capital Risk",
+      "severity": "Medium",
+      "probability": "Medium",
+      "financial_impact": "Vòng quay vốn lưu động chậm (60 ngày) gây áp lực cash flow.",
+      "mitigation": "Implement receivables management, negotiate better payment terms với suppliers."
+    }
+  ],
+  "kpis": [
+    {
+      "name": "Doanh thu",
+      "current": 45000000000,
+      "target": 70000000000,
+      "unit": "VNĐ",
+      "deadline": "24 tháng"
+    },
+    {
+      "name": "Gross Margin",
+      "current": 32,
+      "target": 38,
+      "unit": "%",
+      "deadline": "18 tháng"
+    },
+    {
+      "name": "Vòng quay vốn lưu động",
+      "current": 60,
+      "target": 40,
+      "unit": "ngày",
+      "deadline": "12 tháng"
+    },
+    {
+      "name": "Số khách hàng B2B ngoài miền Nam",
+      "current": 15,
+      "target": 50,
+      "unit": "khách hàng",
+      "deadline": "18 tháng"
+    }
+  ],
+  "references": [
+    {
+      "type": "Law",
+      "name": "Luật Doanh nghiệp 2020",
+      "description": "Quy định về chuyển đổi loại hình doanh nghiệp."
+    },
+    {
+      "type": "Standard",
+      "name": "ISO 9001:2015",
+      "description": "Hệ thống quản lý chất lượng."
+    },
+    {
+      "type": "Guide",
+      "name": "Manufacturing Digital Transformation Guide",
+      "description": "Hướng dẫn chuyển đổi số cho doanh nghiệp sản xuất."
+    }
+  ]
+}
