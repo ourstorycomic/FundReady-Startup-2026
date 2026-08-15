@@ -1,4 +1,7 @@
-const API_BASE = "http://localhost:8001";
+// Tự động nhận diện môi trường: Nếu chạy trên máy tính (localhost) thì gọi cổng 8001, nếu trên Vercel thì gọi chính domain của Vercel.
+const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+    ? "http://localhost:8001" 
+    : "";
 
 // Mock data strictly for visual demonstration of the premium UI
 const mockFullData = {
