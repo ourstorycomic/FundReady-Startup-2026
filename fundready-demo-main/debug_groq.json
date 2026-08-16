@@ -1,0 +1,58 @@
+{
+  "score": 0,
+  "breakdown": [
+    {
+      "name": "Vấn đề và Giải pháp",
+      "score": 0,
+      "max": 15,
+      "reason": "Đang phân tích chi tiết..."
+    },
+    {
+      "name": "Thị trường mục tiêu và Cơ hội",
+      "score": 0,
+      "max": 15,
+      "reason": "Đang phân tích chi tiết..."
+    },
+    {
+      "name": "Sản phẩm và Lợi thế cạnh tranh",
+      "score": 0,
+      "max": 15,
+      "reason": "Đang phân tích chi tiết..."
+    },
+    {
+      "name": "Chỉ số tăng trưởng và Tài chính",
+      "score": 0,
+      "max": 20,
+      "reason": "Đang phân tích chi tiết..."
+    },
+    {
+      "name": "Năng lực đội ngũ sáng lập",
+      "score": 0,
+      "max": 15,
+      "reason": "Đang phân tích chi tiết..."
+    },
+    {
+      "name": "Dự báo tài chính và Mô hình lợi nhuận",
+      "score": 0,
+      "max": 10,
+      "reason": "Đang phân tích chi tiết..."
+    },
+    {
+      "name": "Nhu cầu gọi vốn, Phân bổ vốn và Lộ trình",
+      "score": 0,
+      "max": 10,
+      "reason": "Đang phân tích chi tiết..."
+    }
+  ],
+  "strengths": [
+    "Thông tin hạn chế"
+  ],
+  "weaknesses": [
+    "Cần bổ sung thêm chi tiết"
+  ],
+  "recommendations": [
+    "Cung cấp thêm thông tin chi tiết"
+  ],
+  "risk_if_missing": "Thiếu tài liệu quan trọng",
+  "risk_if_weak": "Tài liệu không đủ chi tiết"
+}

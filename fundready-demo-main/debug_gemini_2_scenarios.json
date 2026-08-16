@@ -1,0 +1,58 @@
+{
+  "score": 0,
+  "grade": "N/A",
+  "breakdown": [
+    {
+      "name": "Vấn đề và Giải pháp",
+      "score": 0,
+      "max": 15,
+      "reason": "Lỗi khi kết nối với AI (Timeout hoặc lỗi định dạng). Vui lòng thử lại."
+    },
+    {
+      "name": "Thị trường mục tiêu và Cơ hội",
+      "score": 0,
+      "max": 15,
+      "reason": "Lỗi khi kết nối với AI (Timeout hoặc lỗi định dạng). Vui lòng thử lại."
+    },
+    {
+      "name": "Sản phẩm và Lợi thế cạnh tranh",
+      "score": 0,
+      "max": 15,
+      "reason": "Lỗi khi kết nối với AI (Timeout hoặc lỗi định dạng). Vui lòng thử lại."
+    },
+    {
+      "name": "Chỉ số tăng trưởng và Tài chính",
+      "score": 0,
+      "max": 20,
+      "reason": "Lỗi khi kết nối với AI (Timeout hoặc lỗi định dạng). Vui lòng thử lại."
+    },
+    {
+      "name": "Năng lực đội ngũ sáng lập",
+      "score": 0,
+      "max": 15,
+      "reason": "Lỗi khi kết nối với AI (Timeout hoặc lỗi định dạng). Vui lòng thử lại."
+    },
+    {
+      "name": "Dự báo tài chính và Mô hình lợi nhuận",
+      "score": 0,
+      "max": 10,
+      "reason": "Lỗi khi kết nối với AI (Timeout hoặc lỗi định dạng). Vui lòng thử lại."
+    },
+    {
+      "name": "Nhu cầu gọi vốn, Phân bổ vốn và Lộ trình",
+      "score": 0,
+      "max": 10,
+      "reason": "Lỗi khi kết nối với AI (Timeout hoặc lỗi định dạng). Vui lòng thử lại."
+    }
+  ],
+  "strengths": [
+    "Lỗi khi kết nối với AI (Timeout hoặc lỗi định dạng). Vui lòng thử lại."
+  ],
+  "weaknesses": [
+    "Lỗi khi kết nối với AI (Timeout hoặc lỗi định dạng). Vui lòng thử lại."
+  ],
+  "recommendations": [
+    "Hãy kiểm tra lại API Key hoặc đợi một lúc rồi thử lại."
+  ],
+  "funding_scenario": null
+}

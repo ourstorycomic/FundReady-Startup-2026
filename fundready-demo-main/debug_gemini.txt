@@ -1,0 +1,173 @@
+Exception: Expecting ',' delimiter: line 167 column 8 (char 11256)
+
+Response:
+{
+  "score": 42,
+  "breakdown": [
+    {
+      "name": "Vấn đề và Giải pháp",
+      "score": 8,
+      "max": 15,
+      "reason": "Vấn đề quản lý truyền thông số cho SME là có thật và giải pháp SaaS là phù hợp. Tuy nhiên, tài liệu không mô tả chi tiết vấn đề cụ thể mà giải pháp của Nexus Digital giải quyết tốt hơn các phương án hiện có, cũng như sự độc đáo của giải pháp."
+    },
+    {
+      "name": "Thị trường mục tiêu và Cơ hội",
+      "score": 10,
+      "max": 15,
+      "reason": "Thị trường SME tại Việt Nam là rất lớn và có nhu cầu chuyển đổi số cao. Tuy nhiên, tài liệu thiếu các số liệu cụ thể về quy mô thị trường (TAM/SAM/SOM) và phân tích cạnh tranh để đánh giá rõ ràng cơ hội."
+    },
+    {
+      "name": "Sản phẩm và Lợi thế cạnh tranh",
+      "score": 7,
+      "max": 15,
+      "reason": "Sản phẩm là nền tảng SaaS, có tiềm năng. Tuy nhiên, tài liệu không trình bày rõ ràng các tính năng cốt lõi, lộ trình phát triển sản phẩm, và đặc biệt là lợi thế cạnh tranh hiện tại so với các đối thủ hoặc giải pháp thay thế. Việc 'nâng cấp AI' là một kế hoạch, chưa phải là lợi thế hiện hữu."
+    },
+    {
+      "name": "Chỉ số tăng trưởng và Tài chính",
+      "score": 4,
+      "max": 20,
+      "reason": "Doanh thu 15 triệu VND/tháng ở giai đoạn thử nghiệm là rất thấp. Không có báo cáo tài chính kiểm toán và thiếu các chỉ số tăng trưởng quan trọng (MRR growth, churn, CAC, LTV) khiến nhà đầu tư không thể đánh giá hiệu quả kinh doanh và tiềm năng mở rộng."
+    },
+    {
+      "name": "Năng lực đội ngũ sáng lập",
+      "score": 5,
+      "max": 15,
+      "reason": "Cấu trúc cổ đông 50-50 giữa hai founders là rủi ro lớn về quản trị (deadlock). Việc thiếu ESOP cho thấy chưa có kế hoạch thu hút và giữ chân nhân tài. Tài liệu không cung cấp thông tin về kinh nghiệm, chuyên môn của founders để đánh giá năng lực thực thi."
+    },
+    {
+      "name": "Dự báo tài chính và Mô hình lợi nhuận",
+      "score": 3,
+      "max": 10,
+      "reason": "Mục tiêu 3.5 triệu USD ARR trong 18 tháng từ mức 15 triệu VND/tháng hiện tại là cực kỳ phi thực tế và không có cơ sở tính toán rõ ràng. Tài liệu thiếu mô hình doanh thu, cơ cấu chi phí và lộ trình đạt lợi nhuận."
+    },
+    {
+      "name": "Nhu cầu gọi vốn, Phân bổ vốn và Lộ trình",
+      "score": 5,
+      "max": 10,
+      "reason": "Nhu cầu gọi 3 tỷ đồng cho vòng Seed là khá cao so với traction hiện tại. Việc phân bổ vốn cho R&D, Marketing và Cloud là hợp lý về mặt danh mục, nhưng thiếu chi tiết về kế hoạch sử dụng cụ thể và các cột mốc đạt được tương ứng với nguồn vốn."
+    }
+  ],
+  "strengths": [
+    "Thị trường mục tiêu lớn và đang phát triển: Tập trung vào phân khúc SME tại Việt Nam, một thị trường rộng lớn với nhu cầu chuyển đổi số ngày càng cao, tạo ra tiềm năng tăng trưởng đáng kể.",
+    "Mô hình kinh doanh SaaS: Mô hình SaaS có khả năng mở rộng cao, tạo ra doanh thu định kỳ và biên lợi nhuận tốt khi đạt được quy mô, hấp dẫn đối với nhà đầu tư.",
+    "Traction ban đầu: Mức doanh thu 15 triệu VND/tháng, dù nhỏ, cho thấy sản phẩm đã có những khách hàng đầu tiên và có sự chấp nhận nhất định trên thị trường thử nghiệm.",
+    "Định hướng phát triển công nghệ (AI): Kế hoạch nâng cấp AI cho thấy tầm nhìn về việc tạo ra lợi thế cạnh tranh bền vững và cải thiện hiệu quả sản phẩm trong tương lai."
+  ],
+  "weaknesses": [
+    "Traction tài chính rất hạn chế: Doanh thu hiện tại quá thấp (15 triệu VND/tháng) và không có báo cáo tài chính kiểm toán khiến việc đánh giá hiệu suất và định giá trở nên cực kỳ khó khăn và rủi ro cao.",
+    "Dự báo tài chính phi thực tế: Mục tiêu 3.5 triệu USD ARR trong 18 tháng từ mức doanh thu hiện tại là một sự tăng trưởng phi mã và không có cơ sở dữ liệu hay mô hình tài chính rõ ràng để chứng minh tính khả thi.",
+    "Cấu trúc cổ đông rủi ro: Tỷ lệ 50-50 giữa hai founders không có SHA chính thức tạo ra rủi ro cao về bế tắc quản trị và thiếu cơ chế giải quyết tranh chấp. Thiếu ESOP cũng là điểm yếu trong việc thu hút và giữ chân nhân tài.",
+    "Thiếu thông tin về lợi thế cạnh tranh và đội ngũ: Tài liệu không làm rõ sản phẩm có gì vượt trội so với đối thủ và không cung cấp thông tin về kinh nghiệm, chuyên môn của đội ngũ sáng lập, gây khó khăn cho nhà đầu tư trong việc đánh giá năng lực thực thi."
+  ],
+  "recommendations": [
+    "Xây dựng mô hình tài chính chi tiết và thực tế: Phát triển một dự báo tài chính bottom-up với các giả định rõ ràng, có thể đạt được, và chứng minh được unit economics (CAC, LTV) để hỗ trợ mục tiêu ARR.",
+    "Củng cố cấu trúc pháp lý và quản trị: Lập tức ký kết Hợp đồng cổ đông (SHA) để giải quyết vấn đề 50-50 và thiết lập quỹ ESOP để thu hút nhân tài chủ chốt, thể hiện sự chuyên nghiệp và tầm nhìn dài hạn.",
+    "Tập trung chứng minh Product-Market Fit và tăng trưởng bền vững: Thay vì mục tiêu ARR quá lớn, hãy tập trung vào việc đạt được các cột mốc MRR cụ thể, chứng minh khả năng mở rộng và giữ chân khách hàng trước khi gọi vốn lớn.",
+    "Hoàn thiện Pitch Deck với thông tin đầy đủ: Bổ sung các slide quan trọng về phân tích thị trường (TAM/SAM/SOM), đối thủ cạnh tranh, lộ trình sản phẩm chi tiết, và hồ sơ đội ngũ sáng lập để cung cấp bức tranh toàn diện cho nhà đầu tư."
+  ],
+  "risk_if_missing": "Nhà đầu tư không có đủ thông tin để đánh giá tiềm năng, rủi ro và định giá doanh nghiệp, dẫn đến từ chối đầu tư hoặc định giá thấp.",
+  "risk_if_weak": "Thông tin yếu kém, thiếu minh bạch hoặc không thực tế sẽ làm giảm nghiêm trọng niềm tin của nhà đầu tư, cho thấy sự thiếu chuyên nghiệp và hiểu biết sâu sắc về kinh doanh.",
+  "funding_scenario": {
+    "current_desire": "Công ty mong muốn huy động 3 tỷ đồng (Vòng Seed) để phát triển R&D (nâng cấp AI), mở rộng Marketing và chuẩn bị hạ tầng Cloud, với mục tiêu đạt 3.5 triệu USD ARR trong 18 tháng.",
+    "recommendation": {
+      "desired_amount": "3 tỷ VND",
+      "recommended_amount": "1.5 - 2 tỷ VND",
+      "difference": "-1.5 đến -1 tỷ VND",
+      "rationale": "Mức gọi vốn 3 tỷ đồng là quá cao so với mức độ traction hiện tại (15 triệu VND/tháng) và sự thiếu hụt thông tin chi tiết về tài chính, thị trường, và đội ngũ. Một vòng gọi vốn nhỏ hơn, tập trung vào việc đạt được các cột mốc quan trọng (ví dụ: 100-200 triệu VND MRR, chứng minh unit economics dương) sẽ hợp lý hơn, giảm thiểu rủi ro cho nhà đầu tư và tối ưu hóa định giá cho founders."
+    },
+    "scenarios": [
+      {
+        "name": "Phương án A – Đề xuất (Điều chỉnh)",
+        "focus": "Tập trung vào tăng trưởng nhanh và phát triển công nghệ đột phá để đạt mục tiêu ARR cao, chấp nhận rủi ro lớn và cần chứng minh khả năng thực thi vượt trội.",
+        "allocation": [
+          {
+            "category": "R&D (Nâng cấp AI)",
+            "percentage": "40%",
+            "amount": "1.2 tỷ VND",
+            "objective": "Phát triển và tích hợp các tính năng AI tiên tiến để tạo lợi thế cạnh tranh và nâng cao trải nghiệm người dùng."
+          },
+          {
+            "category": "Marketing & Sales",
+            "percentage": "35%",
+            "amount": "1.05 tỷ VND",
+            "objective": "Mở rộng thị trường, thu hút lượng lớn người dùng mới và xây dựng nhận diện thương hiệu nhanh chóng."
+          },
+          {
+            "category": "Hạ tầng Cloud",
+            "percentage": "20%",
+            "amount": "0.6 tỷ VND",
+            "objective": "Đảm bảo khả năng mở rộng, hiệu suất và độ ổn định của nền tảng để đáp ứng lượng người dùng tăng trưởng nhanh."
+          },
+          {
+            "category": "Chi phí vận hành dự phòng",
+            "percentage": "5%",
+            "amount": "0.15 tỷ VND",
+            "objective": "Dự phòng cho các chi phí phát sinh hoặc biến động không lường trước trong quá trình vận hành."
+          }
+        ],
+        "expected_results": [
+          "Đạt 3.5 triệu USD ARR (mục tiêu rất tham vọng và khó khả thi với dữ liệu hiện tại)",
+          "Hoàn thiện phiên bản AI nâng cấp và triển khai các tính năng mới",
+          "Mở rộng thị trường ra các thành phố lớn khác và tăng cường độ phủ thương hiệu"
+        ]
+      },
+      {
+        "name": "Phương án B – Tối ưu (Khuyến nghị)",
+        "focus": "Tập trung vào chứng minh Product-Market Fit sâu hơn, cải thiện unit economics và đạt các cột mốc tăng trưởng bền vững trước khi gọi vốn lớn hơn, giảm thiểu rủi ro cho nhà đầu tư.",
+        "allocation": [
+          {
+            "category": "R&D (Sản phẩm cốt lõi & AI cơ bản)",
+            "percentage": "35%",
+            "amount": "0.63 tỷ VND",
+            "objective": "Tối ưu hóa sản phẩm hiện có, tích hợp AI cơ bản để cải thiện tính năng cốt lõi và trải nghiệm người dùng, không tập trung vào AI đột phá ngay lập tức."
+          },
+          {
+            "category": "Marketing (Thu hút khách hàng mục tiêu)",
+            "percentage": "30%",
+            "amount": "0.54 tỷ VND",
+            "objective": "Tập trung vào các kênh marketing hiệu quả nhất, chứng minh CAC/LTV dương và tăng trưởng MRR bền vững."
+          },
+          {
+            "category": "Sales & Customer Success",
+            "percentage": "20%",
+            "amount": "0.36 tỷ VND",
+            "objective": "Xây dựng đội ngũ sales và chăm sóc khách hàng ban đầu để tăng tỷ lệ chuyển đổi, giữ chân khách hàng và thu thập phản hồi sản phẩm."
+          },
+          {
+            "category": "Hạ tầng & Vận hành",
+            "percentage": "10%",
+            "amount": "0.18 tỷ VND",
+            "objective": "Đảm bảo vận hành ổn định, chuẩn bị hạ tầng cho mở rộng vừa phải và các chi phí vận hành thiết yếu."
+          },
+          {
+            "category": "Pháp lý & Quản trị",
+            "percentage": "5%",
+            "amount": "0.09 tỷ VND",
+            "objective": "Hoàn thiện Hợp đồng cổ đông (SHA), thiết lập quỹ ESOP và các cấu trúc pháp lý cần thiết để chuẩn bị cho các vòng gọi vốn sau."
+          }
+        ],
+        "expected_results": [
+          "Đạt 100-200 triệu VND MRR bền vững trong 12 tháng",
+          "Chứng minh Unit Economics dương (LTV > 3x CAC)",
+          "Hoàn thiện SHA và quỹ ESOP, củng cố cấu trúc quản trị",
+          "Xây dựng đội ngũ sales/CSM ban đầu và thu thập phản hồi khách hàng để cải thiện sản phẩm"
+        ]
+      }
+    ],
+    "burn_rate_runway": "Với mức doanh thu hiện tại 15 triệu VND/tháng và giả định chi phí vận hành (burn rate) khoảng 100-150 triệu VND/tháng (chưa có thông tin cụ thể), số vốn 3 tỷ đồng có thể cung cấp runway khoảng 20-30 tháng. Tuy nhiên, nếu tăng cường R&D và Marketing như kế hoạch, burn rate sẽ tăng đáng kể, có thể rút ngắn runway xuống còn 12-18 tháng. Với mức gọi vốn tối ưu 1.5-2 tỷ, runway sẽ khoảng 8-12 tháng, đủ để đạt các cột mốc quan trọng trước vòng gọi vốn tiếp theo (Pre-Series A).",
+    "milestones": [
+      {
+        "phase": "Giai đoạn 1 (0-6 tháng)",
+        "goal": "Đạt 50 triệu VND MRR, hoàn thiện SHA & ESOP, tích hợp AI cơ bản vào 2 tính năng cốt lõi, tuyển dụng 1-2 nhân sự Sales/CSM."
+      },
+      {
+        "phase": "Giai đoạn 2 (6-12 tháng)",
+        "goal": "Đạt 150 triệu VND MRR, chứng minh LTV > 3x CAC, mở rộng đội ngũ sales/CSM lên 5 người, chuẩn bị tài liệu cho vòng Pre-Series A."
+      },
+      {
+        "phase": "Giai đoạn 3 (12-18 tháng)",
+        "goal": "Đạt 300 triệu VND MRR, mở rộng thị trường ra 2 tỉnh/thành phố lớn khác, hoàn thiện phiên bản AI nâng cao và tối ưu hóa quy trình onboarding khách hàng."
+      }
+    ],
+    "suggested_deal": {
+      "instrument": "SAFE (Simple Agreement for Future Equity) hoặc Convertible Note với cap hợp lý, hoặc Cổ phần Ưu đãi Tham gia (

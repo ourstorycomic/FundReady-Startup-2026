@@ -1,0 +1,164 @@
+{
+  "score": 51,
+  "breakdown": [
+    {
+      "name": "Vấn đề và Giải pháp",
+      "score": 10,
+      "max": 15,
+      "reason": "Vấn đề quản lý truyền thông số cho SME là có thật và phổ biến. Giải pháp SaaS là mô hình phù hợp, tuy nhiên tài liệu chưa làm rõ sự độc đáo hay hiệu quả vượt trội của giải pháp so với các công cụ hoặc dịch vụ hiện có trên thị trường."
+    },
+    {
+      "name": "Thị trường mục tiêu và Cơ hội",
+      "score": 12,
+      "max": 15,
+      "reason": "Thị trường SME tại Việt Nam rất lớn và đang trong quá trình chuyển đổi số mạnh mẽ, tạo ra cơ hội tăng trưởng đáng kể cho các nền tảng SaaS. Tuy nhiên, tài liệu thiếu phân tích sâu về quy mô thị trường cụ thể, phân khúc mục tiêu và chiến lược thâm nhập."
+    },
+    {
+      "name": "Sản phẩm và Lợi thế cạnh tranh",
+      "score": 8,
+      "max": 15,
+      "reason": "Sản phẩm đang ở giai đoạn thử nghiệm với doanh thu ban đầu rất thấp, cho thấy chưa đạt được sự trưởng thành. Lợi thế cạnh tranh không được trình bày rõ ràng, đặc biệt khi chưa có AI nâng cấp, khiến nhà đầu tư khó đánh giá khả năng vượt trội so với đối thủ."
+    },
+    {
+      "name": "Chỉ số tăng trưởng và Tài chính",
+      "score": 5,
+      "max": 20,
+      "reason": "Doanh thu 15 triệu/tháng ở giai đoạn thử nghiệm là rất thấp và chưa được kiểm toán, không đủ để chứng minh Product-Market Fit hay tiềm năng tăng trưởng. Thiếu các chỉ số quan trọng khác như số lượng khách hàng, tỷ lệ giữ chân, CAC, LTV, khiến việc đánh giá hiệu quả kinh doanh trở nên bất khả thi."
+    },
+    {
+      "name": "Năng lực đội ngũ sáng lập",
+      "score": 6,
+      "max": 15,
+      "reason": "Cơ cấu cổ đông 50-50 giữa hai founders mà không có SHA hay ESOP là rủi ro quản trị lớn, dễ dẫn đến bế tắc và khó thu hút nhân tài. Tài liệu hoàn toàn thiếu thông tin về kinh nghiệm, chuyên môn và thành tích của đội ngũ, gây khó khăn trong việc đánh giá khả năng thực thi."
+    },
+    {
+      "name": "Dự báo tài chính và Mô hình lợi nhuận",
+      "score": 4,
+      "max": 10,
+      "reason": "Mục tiêu 3.5 triệu USD ARR trong 18 tháng tới là cực kỳ tham vọng và thiếu cơ sở, đặc biệt khi doanh thu hiện tại rất nhỏ. Không có bất kỳ dự báo tài chính chi tiết, giả định tăng trưởng, cơ cấu chi phí hay lộ trình lợi nhuận nào được cung cấp, cho thấy sự thiếu hụt trong kế hoạch tài chính."
+    },
+    {
+      "name": "Nhu cầu gọi vốn, Phân bổ vốn và Lộ trình",
+      "score": 6,
+      "max": 10,
+      "reason": "Nhu cầu gọi vốn 3 tỷ đồng cho R&D (AI), Marketing và hạ tầng Cloud là hợp lý về mặt hạng mục, nhưng số tiền này có vẻ không đủ để đạt được mục tiêu ARR đã đề ra. Kế hoạch phân bổ vốn còn chung chung và thiếu lộ trình cụ thể, chi tiết theo từng giai đoạn."
+    }
+  ],
+  "strengths": [
+    "Giải quyết nhu cầu thị trường rõ ràng: Nền tảng SaaS quản lý truyền thông số cho SME giải quyết một điểm đau phổ biến của các doanh nghiệp nhỏ và vừa trong kỷ nguyên số.",
+    "Mô hình kinh doanh SaaS có khả năng mở rộng: Mô hình SaaS vốn có tiềm năng tăng trưởng nhanh và tạo ra doanh thu định kỳ, hấp dẫn nhà đầu tư nếu chứng minh được Product-Market Fit.",
+    "Tầm nhìn phát triển AI: Việc tập trung vào nâng cấp AI cho thấy tầm nhìn chiến lược về công nghệ, có thể tạo ra lợi thế cạnh tranh đáng kể trong tương lai nếu được thực hiện thành công.",
+    "Doanh thu ban đầu (dù nhỏ): Mức doanh thu 15 triệu/tháng, dù thấp, vẫn cho thấy sản phẩm đã có người dùng trả tiền và có một mức độ chấp nhận nhất định từ thị trường."
+  ],
+  "weaknesses": [
+    "Thiếu thông tin về đội ngũ sáng lập: Không có thông tin về kinh nghiệm, chuyên môn, hoặc thành tích của founders là một rủi ro lớn, khiến nhà đầu tư không thể đánh giá năng lực thực thi.",
+    "Cơ cấu quản trị yếu kém: Tỷ lệ cổ đông 50-50 và thiếu hợp đồng cổ đông (SHA) cùng ESOP là rủi ro quản trị nghiêm trọng, có thể dẫn đến bế tắc trong quyết định và khó thu hút nhân tài cấp cao.",
+    "Chỉ số tài chính và tăng trưởng chưa thuyết phục: Doanh thu rất thấp, chưa kiểm toán và thiếu các chỉ số tăng trưởng quan trọng khác cho thấy công ty đang ở giai đoạn quá sớm, chưa có đủ dữ liệu để đánh giá tiềm năng.",
+    "Mục tiêu ARR quá tham vọng và thiếu cơ sở: Mục tiêu 3.5 triệu USD ARR trong 18 tháng là phi thực tế với tình hình hiện tại và không được hỗ trợ bởi bất kỳ kế hoạch tài chính hay chiến lược chi tiết nào."
+  ],
+  "recommendations": [
+    "Hoàn thiện cơ cấu quản trị và đội ngũ: Xây dựng hợp đồng cổ đông (SHA) rõ ràng, cân nhắc lại tỷ lệ sở hữu để tránh bế tắc, và thiết lập quỹ ESOP để thu hút nhân tài. Cung cấp hồ sơ chi tiết về kinh nghiệm và chuyên môn của đội ngũ sáng lập.",
+    "Tập trung chứng minh Product-Market Fit và Traction: Thay vì đặt mục tiêu ARR quá lớn, hãy tập trung vào việc tăng trưởng số lượng khách hàng trả tiền, cải thiện các chỉ số như churn rate, CAC, LTV, và đạt được doanh thu bền vững hơn để chứng minh giá trị sản phẩm.",
+    "Xây dựng kế hoạch tài chính chi tiết và thực tế: Phát triển một mô hình tài chính rõ ràng với các giả định tăng trưởng hợp lý, dự báo doanh thu, chi phí, và lộ trình lợi nhuận. Điều này cần đi kèm với một chiến lược kinh doanh cụ thể để đạt được các mục tiêu đó.",
+    "Làm rõ lợi thế cạnh tranh và lộ trình sản phẩm: Xác định và truyền đạt rõ ràng những điểm khác biệt cốt lõi của sản phẩm so với đối thủ. Xây dựng lộ trình phát triển sản phẩm chi tiết, đặc biệt là kế hoạch tích hợp và nâng cấp AI, để chứng minh khả năng đổi mới."
+  ],
+  "risk_if_missing": "Nếu thiếu tài liệu này, nhà đầu tư sẽ không có bất kỳ cơ sở nào để đánh giá tiềm năng, rủi ro và nhu cầu vốn của doanh nghiệp, dẫn đến việc không thể đưa ra quyết định đầu tư.",
+  "risk_if_weak": "Nếu tài liệu này yếu kém, nhà đầu tư sẽ nhận thấy nhiều rủi ro (quản trị, tài chính, thực thi), thiếu niềm tin vào khả năng thành công của doanh nghiệp, dẫn đến việc từ chối đầu tư hoặc định giá rất thấp, gây bất lợi lớn cho founders.",
+  "funding_scenario": {
+    "desired_amount": "3 tỷ đồng",
+    "recommended_amount": "12 tỷ đồng",
+    "rationale": {
+      "why_recommended": "Mức gọi vốn 3 tỷ đồng (~120,000 USD) là hoàn toàn không đủ để Nexus Digital đạt được mục tiêu 3.5 triệu USD ARR trong 18 tháng, đặc biệt khi công ty đang ở giai đoạn thử nghiệm với doanh thu rất thấp và cần đầu tư lớn vào R&D (AI), Marketing và hạ tầng Cloud. Để có thể xây dựng một sản phẩm AI cạnh tranh, mở rộng thị trường một cách hiệu quả và duy trì hoạt động trong 12-18 tháng tới, một vòng Seed với 12 tỷ đồng (~500,000 USD) là mức tối thiểu cần thiết. Mức này sẽ cho phép công ty thuê nhân sự chủ chốt, đầu tư vào công nghệ lõi, triển khai các chiến dịch marketing quy mô và có đủ runway để chứng minh Product-Market Fit và đạt được các cột mốc quan trọng trước khi gọi vốn vòng Series A. Rủi ro nếu chỉ gọi 3 tỷ đồng là công ty sẽ nhanh chóng hết vốn, không thể thực hiện các kế hoạch phát triển sản phẩm và marketing cần thiết, dẫn đến thất bại sớm hoặc phải gọi vốn bridge round với định giá thấp hơn kỳ vọng.",
+      "investment_needs": [
+        "Nâng cấp công nghệ và phát triển AI cốt lõi",
+        "Mở rộng hoạt động Marketing và Sales để tăng trưởng khách hàng",
+        "Xây dựng và tối ưu hạ tầng Cloud",
+        "Vốn lưu động và dự phòng cho hoạt động vận hành"
+      ]
+    },
+    "scenarios": [
+      {
+        "name": "Phương án A - Tăng tốc phát triển sản phẩm và mở rộng thị trường",
+        "focus_explanation": "Phương án này tập trung vào việc đầu tư mạnh mẽ vào R&D để phát triển các tính năng AI đột phá, tạo lợi thế cạnh tranh rõ rệt, đồng thời đẩy mạnh các hoạt động marketing và sales để nhanh chóng mở rộng thị trường, tăng trưởng số lượng khách hàng và doanh thu. Đây là phương án phù hợp nhất cho một startup SaaS ở giai đoạn Seed muốn nhanh chóng chứng minh tiềm năng và đạt được các cột mốc quan trọng để chuẩn bị cho vòng gọi vốn tiếp theo. Trọng tâm là đạt được Product-Market Fit vững chắc và xây dựng nền tảng công nghệ vững mạnh.",
+        "allocation": [
+          {
+            "category": "R&D (Nâng cấp AI & Phát triển tính năng)",
+            "percentage": "40%",
+            "amount": "4.8 tỷ đồng",
+            "why_invest": "Khoản đầu tư này là cốt lõi để Nexus Digital xây dựng lợi thế cạnh tranh thông qua công nghệ AI, giúp sản phẩm trở nên thông minh và hiệu quả hơn trong việc quản lý truyền thông số. Nó sẽ bao gồm chi phí thuê kỹ sư AI, phát triển thuật toán, tích hợp dữ liệu và xây dựng các module mới, đảm bảo sản phẩm có thể đáp ứng nhu cầu ngày càng cao của SME và vượt trội so với đối thủ.",
+            "action_items": [
+              "Tuyển dụng 3-5 kỹ sư AI/Machine Learning",
+              "Phát triển thuật toán phân tích dữ liệu truyền thông số",
+              "Tích hợp tính năng tự động tạo nội dung/đề xuất chiến lược bằng AI",
+              "Nâng cấp giao diện người dùng và trải nghiệm (UX/UI)"
+            ]
+          },
+          {
+            "category": "Marketing & Sales (Thâm nhập thị trường)",
+            "percentage": "30%",
+            "amount": "3.6 tỷ đồng",
+            "why_invest": "Để đạt được mục tiêu tăng trưởng khách hàng và doanh thu, việc đầu tư vào marketing và sales là không thể thiếu. Khoản này sẽ được dùng để triển khai các chiến dịch digital marketing (SEO, SEM, Social Media Ads), xây dựng đội ngũ sales để tiếp cận trực tiếp SME, tổ chức webinar/workshop và xây dựng nội dung giá trị, nhằm tăng nhận diện thương hiệu và chuyển đổi khách hàng.",
+            "action_items": [
+              "Triển khai chiến dịch Digital Marketing đa kênh (Google Ads, Facebook Ads)",
+              "Xây dựng đội ngũ Sales Development Representative (SDR) và Account Executive (AE)",
+              "Phát triển chiến lược Content Marketing và SEO",
+              "Tham gia các sự kiện ngành, hội chợ SME"
+            ]
+          },
+          {
+            "category": "Hạ tầng Cloud & Vận hành",
+            "percentage": "15%",
+            "amount": "1.8 tỷ đồng",
+            "why_invest": "Với một nền tảng SaaS, hạ tầng Cloud ổn định, bảo mật và có khả năng mở rộng là yếu tố then chốt. Khoản đầu tư này sẽ đảm bảo hệ thống có thể xử lý lượng dữ liệu lớn, hỗ trợ số lượng người dùng tăng lên mà không gặp sự cố, đồng thời đảm bảo an ninh mạng và tuân thủ các quy định về dữ liệu. Nó cũng bao gồm chi phí vận hành cơ bản.",
+            "action_items": [
+              "Nâng cấp gói dịch vụ Cloud (AWS/Azure/GCP) để tăng cường hiệu suất và bảo mật",
+              "Triển khai các công cụ giám sát hệ thống và tối ưu hóa chi phí Cloud",
+              "Xây dựng quy trình backup và phục hồi dữ liệu",
+              "Thuê chuyên gia DevOps/Cloud Architect"
+            ]
+          },
+          {
+            "category": "Vốn lưu động & Dự phòng",
+            "percentage": "15%",
+            "amount": "1.8 tỷ đồng",
+            "why_invest": "Việc duy trì một khoản vốn lưu động đủ lớn là cần thiết để đảm bảo hoạt động kinh doanh diễn ra suôn sẻ, chi trả các chi phí phát sinh bất ngờ và có một 'đệm' tài chính trong trường hợp kế hoạch không diễn ra đúng như dự kiến. Điều này giúp công ty có đủ thời gian để điều chỉnh chiến lược hoặc tìm kiếm nguồn vốn bổ sung nếu cần.",
+            "action_items": [
+              "Duy trì quỹ dự phòng cho 3-6 tháng hoạt động",
+              "Quản lý dòng tiền chặt chẽ",
+              "Đầu tư vào các công cụ quản lý tài chính"
+            ]
+          }
+        ],
+        "expected_results": [
+          "Đạt 500-800 triệu đồng ARR trong 12 tháng, 1.5-2 triệu USD ARR trong 18 tháng (mục tiêu thực tế hơn)",
+          "Tăng số lượng khách hàng trả tiền lên 500-1000 SME",
+          "Ra mắt ít nhất 2 tính năng AI cốt lõi (ví dụ: phân tích xu hướng thị trường, gợi ý nội dung tự động)",
+          "Xây dựng đội ngũ R&D và Sales/Marketing vững mạnh (tổng 15-20 nhân sự)"
+        ]
+      }
+    ],
+    "burn_rate_runway": "Với mức gọi vốn 12 tỷ đồng và phân bổ như Phương án A, ước tính burn rate trung bình hàng tháng sẽ vào khoảng 600-800 triệu đồng (bao gồm lương nhân sự, chi phí marketing, chi phí hạ tầng và vận hành). Điều này sẽ mang lại một runway khoảng 15-20 tháng. Đây là một khoảng thời gian hợp lý cho một vòng Seed, đủ để công ty đạt được các cột mốc quan trọng về sản phẩm và thị trường, chứng minh được tiềm năng tăng trưởng và thu hút vòng gọi vốn Series A tiếp theo. Tuy nhiên, việc quản lý chi phí phải rất chặt chẽ, đặc biệt là trong giai đoạn đầu khi doanh thu chưa đủ lớn để bù đắp chi phí. Việc theo dõi burn rate và tối ưu hóa chi phí là cực kỳ quan trọng để kéo dài runway và đạt được mục tiêu.",
+    "milestones": [
+      {
+        "phase": "Giai đoạn 1 (0-6 tháng)",
+        "goal": "Hoàn thiện cơ cấu quản trị (SHA, ESOP), tuyển dụng 3 kỹ sư AI và 2 chuyên viên marketing. Ra mắt phiên bản sản phẩm với 1 tính năng AI cơ bản. Đạt 100 khách hàng trả tiền và 100 triệu đồng ARR."
+      },
+      {
+        "phase": "Giai đoạn 2 (7-12 tháng)",
+        "goal": "Mở rộng đội ngũ lên 15 nhân sự. Phát triển và tích hợp tính năng AI thứ hai (ví dụ: phân tích hiệu suất chiến dịch). Đạt 500 khách hàng trả tiền và 500 triệu đồng ARR. Tối ưu hóa CAC và cải thiện LTV."
+      },
+      {
+        "phase": "Giai đoạn 3 (13-18 tháng)",
+        "goal": "Đạt 1000 khách hàng trả tiền và 1.5-2 triệu USD ARR. Chuẩn bị dữ liệu và báo cáo tài chính để gọi vốn vòng Series A. Mở rộng thị trường ra các thành phố lớn khác tại Việt Nam."
+      }
+    ],
+    "suggested_deal": {
+      "instrument": "Cổ phần ưu đãi (Preferred Shares)",
+      "pre_money": "35 tỷ đồng",
+      "post_money": "47 tỷ đồng",
+      "dilution": "25.5%",
+      "note": "Định giá pre-money 35 tỷ đồng (~1.45 triệu USD) phản ánh tiềm năng của mô hình SaaS trong thị trường SME và tầm nhìn AI, nhưng cũng cân nhắc rủi ro cao ở giai đoạn rất sớm (doanh thu thấp, thiếu thông tin đội ngũ, quản trị chưa chặt chẽ). Mức pha loãng 25.5% là hợp lý cho vòng Seed, cho phép founders giữ lại phần lớn cổ phần cho các vòng gọi vốn sau."
+    },
+    "final_recommendation": "Nexus Digital nên theo đuổi phương án gọi vốn 12 tỷ đồng theo 'Phương án A - Tăng tốc phát triển sản phẩm và mở rộng thị trường'. Mức vốn này, dù cao hơn mong muốn ban đầu, là cần thiết để công ty có đủ nguồn lực thực hiện các mục tiêu phát triển AI, mở rộng thị trường và xây dựng một nền tảng vững chắc. Việc chỉ gọi 3 tỷ đồng sẽ khiến công ty rơi vào tình trạng thiếu vốn nghiêm trọng, không thể đạt được các cột mốc quan trọng và có nguy cơ thất bại cao. Đồng thời, các founders cần khẩn trương hoàn thiện cơ cấu quản trị, cung cấp thông tin chi tiết về năng lực đội ngũ và xây dựng một kế hoạch tài chính, chiến lược tăng trưởng thực tế hơn để thuyết phục nhà đầu tư. Việc chấp nhận mức pha loãng hợp lý ở vòng Seed là cần thiết để đổi lấy nguồn vốn và sự hỗ trợ chiến lược, tạo đà cho sự phát triển bền vững trong tương lai."
+  }
+}

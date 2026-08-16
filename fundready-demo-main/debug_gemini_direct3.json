@@ -1,0 +1,217 @@
+{
+  "score": 41,
+  "breakdown": [
+    {
+      "name": "Vấn đề và Giải pháp",
+      "score": 10,
+      "max": 15,
+      "reason": "Vấn đề quản lý truyền thông số cho SME là có thật và giải pháp SaaS là phù hợp. Tuy nhiên, tài liệu chưa thể hiện được sự độc đáo hay chiều sâu trong cách tiếp cận vấn đề."
+    },
+    {
+      "name": "Thị trường mục tiêu và Cơ hội",
+      "score": 11,
+      "max": 15,
+      "reason": "Thị trường SME tại Việt Nam rất lớn và nhu cầu chuyển đổi số đang tăng cao, tạo cơ hội đáng kể. Tuy nhiên, thiếu dữ liệu cụ thể về quy mô thị trường (TAM/SAM/SOM) và phân tích cạnh tranh."
+    },
+    {
+      "name": "Sản phẩm và Lợi thế cạnh tranh",
+      "score": 6,
+      "max": 15,
+      "reason": "Sản phẩm đang ở giai đoạn thử nghiệm với doanh thu thấp, chưa có thông tin chi tiết về tính năng cốt lõi hay lợi thế cạnh tranh rõ ràng. Việc 'nâng cấp AI' là kế hoạch tương lai, không phải lợi thế hiện tại."
+    },
+    {
+      "name": "Chỉ số tăng trưởng và Tài chính",
+      "score": 3,
+      "max": 20,
+      "reason": "Doanh thu 15 triệu/tháng ở giai đoạn thử nghiệm là rất thấp cho vòng Seed, không có báo cáo tài chính kiểm toán. Mục tiêu 3.5 triệu USD ARR trong 18 tháng là cực kỳ phi thực tế với nền tảng hiện tại."
+    },
+    {
+      "name": "Năng lực đội ngũ sáng lập",
+      "score": 4,
+      "max": 15,
+      "reason": "Cơ cấu cổ đông 50-50 giữa hai founders mà không có SHA hay ESOP là rủi ro quản trị lớn. Không có thông tin về kinh nghiệm, chuyên môn hay thành tích của đội ngũ, gây khó khăn trong việc đánh giá năng lực thực thi."
+    },
+    {
+      "name": "Dự báo tài chính và Mô hình lợi nhuận",
+      "score": 2,
+      "max": 10,
+      "reason": "Chỉ có một mục tiêu ARR rất tham vọng mà không có dự báo tài chính chi tiết, mô hình doanh thu, chi phí, hay lộ trình đạt lợi nhuận. Điều này cho thấy thiếu sự chuẩn bị và hiểu biết sâu sắc về tài chính."
+    },
+    {
+      "name": "Nhu cầu gọi vốn, Phân bổ vốn và Lộ trình",
+      "score": 5,
+      "max": 10,
+      "reason": "Nhu cầu gọi 3 tỷ đồng cho vòng Seed là hợp lý về mặt số tiền, và các hạng mục phân bổ (R&D, Marketing, Cloud) là tiêu chuẩn. Tuy nhiên, thiếu lộ trình chi tiết và sự liên kết giữa số vốn với mục tiêu ARR phi thực tế."
+    }
+  ],
+  "strengths": [
+    "Mô hình kinh doanh SaaS: Mô hình SaaS có tiềm năng mở rộng cao và tạo doanh thu định kỳ, phù hợp với xu hướng chuyển đổi số của doanh nghiệp SME.",
+    "Thị trường mục tiêu rõ ràng: Tập trung vào doanh nghiệp SME tại Việt Nam là một phân khúc thị trường lớn, đang có nhu cầu cao về quản lý truyền thông số.",
+    "Hướng phát triển công nghệ (AI): Kế hoạch nâng cấp AI cho thấy tầm nhìn về việc cải thiện sản phẩm và tạo lợi thế cạnh tranh trong tương lai, nếu được thực hiện hiệu quả.",
+    "Mục đích sử dụng vốn rõ ràng: Các hạng mục R&D, Marketing và hạ tầng Cloud là những khoản đầu tư cần thiết để phát triển sản phẩm và mở rộng thị trường."
+  ],
+  "weaknesses": [
+    "Traction và tài chính yếu: Doanh thu 15 triệu/tháng ở giai đoạn thử nghiệm và thiếu báo cáo tài chính kiểm toán là điểm yếu lớn, cho thấy sản phẩm chưa được thị trường chấp nhận rộng rãi.",
+    "Mục tiêu ARR phi thực tế: Mục tiêu 3.5 triệu USD ARR trong 18 tháng là quá tham vọng và thiếu cơ sở, không tương xứng với nguồn lực và tình hình hiện tại của công ty.",
+    "Rủi ro quản trị và cấu trúc cổ đông: Cơ cấu 50-50 giữa hai founders không có SHA và ESOP là rủi ro cao về tranh chấp nội bộ và khó khăn trong việc thu hút nhân tài chủ chốt.",
+    "Thiếu lợi thế cạnh tranh và dự báo tài chính chi tiết: Sản phẩm chưa thể hiện được sự khác biệt rõ ràng và thiếu các dự báo tài chính, mô hình lợi nhuận cụ thể, gây khó khăn cho nhà đầu tư trong việc đánh giá tiềm năng."
+  ],
+  "recommendations": [
+    "Hoàn thiện cấu trúc pháp lý và quản trị: Lập tức xây dựng Hợp đồng cổ đông (SHA) rõ ràng, cân nhắc lại tỷ lệ sở hữu hoặc cơ chế giải quyết tranh chấp, và thiết lập quỹ ESOP để thu hút nhân tài.",
+    "Xây dựng dự báo tài chính chi tiết và thực tế: Phát triển mô hình tài chính 3-5 năm với các giả định rõ ràng về doanh thu, chi phí, unit economics và lộ trình đạt lợi nhuận, đồng thời điều chỉnh mục tiêu ARR về mức khả thi hơn.",
+    "Tập trung chứng minh Product-Market Fit: Trước khi mở rộng, cần tập trung vào việc thu thập phản hồi từ người dùng, cải thiện sản phẩm để đạt được sự phù hợp với thị trường, và tăng trưởng doanh thu bền vững hơn.",
+    "Xây dựng hồ sơ đội ngũ sáng lập: Cung cấp thông tin chi tiết về kinh nghiệm, chuyên môn và vai trò của từng founder để nhà đầu tư có thể đánh giá năng lực thực thi và sự phù hợp của đội ngũ."
+  ],
+  "risk_if_missing": "Nếu thiếu tài liệu 'Pitch Deck' hoặc các thông tin cốt lõi, nhà đầu tư sẽ không có cơ sở để đánh giá tiềm năng, rủi ro và nhu cầu gọi vốn của doanh nghiệp, dẫn đến việc từ chối xem xét đầu tư.",
+  "risk_if_weak": "Một 'Pitch Deck' yếu kém, thiếu thông tin hoặc chứa đựng các mục tiêu phi thực tế sẽ làm giảm đáng kể sự tin tưởng của nhà đầu tư, khiến họ nghi ngờ về năng lực của đội ngũ và tính khả thi của dự án, dẫn đến việc không thể huy động vốn hoặc huy động với định giá thấp.",
+  "funding_scenario": {
+    "desired_amount": "3 tỷ đồng",
+    "recommended_amount": "5 tỷ đồng",
+    "rationale": {
+      "why_recommended": "Mức 3 tỷ đồng mà Nexus Digital mong muốn là quá thấp để đạt được mục tiêu 3.5 triệu USD ARR trong 18 tháng, một mục tiêu vốn đã phi thực tế. Để có một vòng Seed đủ sức tạo ra bước nhảy vọt về sản phẩm và thị trường, đồng thời kéo dài runway đủ để chứng minh traction trước vòng gọi vốn tiếp theo, 5 tỷ đồng (khoảng 200.000 USD) là mức hợp lý hơn. Mức này cho phép đầu tư mạnh hơn vào R&D (đặc biệt là AI), mở rộng marketing một cách có chiến lược, và xây dựng hạ tầng vững chắc. Rủi ro nếu chỉ gọi 3 tỷ đồng là công ty sẽ nhanh chóng cạn vốn, không đủ nguồn lực để thực hiện các kế hoạch tăng trưởng, dẫn đến thất bại trong việc đạt các cột mốc quan trọng và khó khăn trong việc gọi vốn vòng sau. Mức 5 tỷ đồng cũng giúp công ty có một runway dài hơn, giảm áp lực tài chính ngắn hạn và tập trung vào phát triển sản phẩm, thị trường.",
+      "investment_needs": [
+        "Nâng cấp công nghệ và AI",
+        "Mở rộng hoạt động Marketing và bán hàng",
+        "Xây dựng và tối ưu hạ tầng Cloud",
+        "Tuyển dụng và phát triển đội ngũ cốt lõi"
+      ]
+    },
+    "scenarios": [
+      {
+        "name": "Phương án A - Đầu tư mạnh mẽ và Tăng trưởng nhanh",
+        "focus_explanation": "Phương án này tập trung vào việc tận dụng tối đa nguồn vốn để đẩy nhanh quá trình phát triển sản phẩm, đặc biệt là tích hợp AI, và mở rộng thị trường một cách quyết liệt. Nó phù hợp nếu công ty có thể chứng minh được Product-Market Fit ban đầu và muốn chiếm lĩnh thị phần nhanh chóng. Tuy nhiên, phương án này đòi hỏi khả năng thực thi cao, quản lý chi phí chặt chẽ và chấp nhận rủi ro burn rate cao hơn để đạt được các mục tiêu tăng trưởng đầy tham vọng.",
+        "allocation": [
+          {
+            "category": "R&D (Nâng cấp AI & Tính năng)",
+            "percentage": "40%",
+            "amount": "2 tỷ đồng",
+            "why_invest": "Đầu tư mạnh vào R&D là cốt lõi để tạo ra lợi thế cạnh tranh bền vững thông qua công nghệ AI. Ngân sách này sẽ được dùng để thuê kỹ sư AI, mua sắm công cụ phát triển, và thử nghiệm các thuật toán mới, đảm bảo sản phẩm có khả năng tự động hóa và tối ưu hóa cao cho SME.",
+            "action_items": [
+              "Tuyển dụng 2 kỹ sư AI cấp cao",
+              "Phát triển module AI phân tích dữ liệu truyền thông",
+              "Tích hợp tính năng gợi ý nội dung thông minh"
+            ]
+          },
+          {
+            "category": "Marketing & Sales",
+            "percentage": "35%",
+            "amount": "1.75 tỷ đồng",
+            "why_invest": "Để đạt được tăng trưởng nhanh, cần có chiến lược marketing và sales mạnh mẽ. Ngân sách này sẽ được dùng cho các chiến dịch quảng cáo số, xây dựng kênh bán hàng, phát triển nội dung và các hoạt động tạo khách hàng tiềm năng, nhằm mở rộng độ phủ thị trường và thu hút người dùng mới.",
+            "action_items": [
+              "Triển khai chiến dịch Performance Marketing trên đa kênh",
+              "Xây dựng đội ngũ Sales B2B (2 nhân sự)",
+              "Phát triển nội dung giá trị (blog, webinar) để thu hút khách hàng"
+            ]
+          },
+          {
+            "category": "Hạ tầng Cloud & Vận hành",
+            "percentage": "15%",
+            "amount": "0.75 tỷ đồng",
+            "why_invest": "Hạ tầng vững chắc là yếu tố then chốt để đảm bảo sản phẩm hoạt động ổn định và có khả năng mở rộng. Ngân sách này sẽ chi trả cho dịch vụ cloud, bảo mật, và các công cụ vận hành, đảm bảo trải nghiệm người dùng mượt mà và khả năng phục vụ số lượng lớn khách hàng.",
+            "action_items": [
+              "Nâng cấp gói dịch vụ Cloud lên Enterprise",
+              "Triển khai giải pháp bảo mật dữ liệu nâng cao",
+              "Tối ưu hóa hiệu suất hệ thống"
+            ]
+          },
+          {
+            "category": "Chi phí vận hành & Dự phòng",
+            "percentage": "10%",
+            "amount": "0.5 tỷ đồng",
+            "why_invest": "Khoản này dùng để chi trả các chi phí hành chính, pháp lý, và các chi phí phát sinh không lường trước. Nó cũng đóng vai trò là quỹ dự phòng, giúp công ty linh hoạt ứng phó với các tình huống bất ngờ trong quá trình tăng trưởng nhanh.",
+            "action_items": [
+              "Chi trả lương, văn phòng phẩm",
+              "Chi phí tư vấn pháp lý (SHA, ESOP)",
+              "Quỹ dự phòng rủi ro"
+            ]
+          }
+        ],
+        "expected_results": [
+          "Tăng trưởng doanh thu ARR lên 500.000 USD trong 12 tháng đầu (mục tiêu thực tế hơn)",
+          "Ra mắt ít nhất 3 tính năng AI cốt lõi được người dùng đón nhận",
+          "Mở rộng thị phần, đạt 500 khách hàng SME trả phí",
+          "Xây dựng đội ngũ cốt lõi 10-12 người"
+        ]
+      },
+      {
+        "name": "Phương án B - Tinh gọn, Tối ưu sản phẩm và Kéo dài Runway",
+        "focus_explanation": "Phương án này ưu tiên sự bền vững và tối ưu hóa nguồn lực, tập trung vào việc hoàn thiện sản phẩm cốt lõi và chứng minh giá trị trước khi mở rộng quy mô. Nó phù hợp nếu công ty muốn giảm thiểu rủi ro, kéo dài thời gian sống sót (runway) và tìm kiếm Product-Market Fit một cách chắc chắn hơn. Mặc dù tốc độ tăng trưởng có thể chậm hơn, nhưng rủi ro tài chính sẽ được kiểm soát tốt hơn, tạo nền tảng vững chắc cho các vòng gọi vốn sau.",
+        "allocation": [
+          {
+            "category": "R&D (Hoàn thiện sản phẩm cốt lõi & AI cơ bản)",
+            "percentage": "50%",
+            "amount": "2.5 tỷ đồng",
+            "why_invest": "Tập trung tối đa vào việc hoàn thiện các tính năng cốt lõi hiện có và tích hợp AI ở mức độ cơ bản nhưng hiệu quả. Ngân sách này sẽ đảm bảo sản phẩm ổn định, dễ sử dụng và giải quyết được vấn đề chính của SME, tạo nền tảng vững chắc cho các phát triển sau này.",
+            "action_items": [
+              "Tối ưu hóa hiệu suất và UX/UI của nền tảng hiện có",
+              "Phát triển module AI tự động hóa tác vụ cơ bản",
+              "Thu thập và phân tích phản hồi người dùng để cải tiến sản phẩm"
+            ]
+          },
+          {
+            "category": "Marketing & Sales (Tập trung kênh hiệu quả)",
+            "percentage": "25%",
+            "amount": "1.25 tỷ đồng",
+            "why_invest": "Với ngân sách tinh gọn, marketing sẽ tập trung vào các kênh hiệu quả nhất và chiến lược inbound marketing. Mục tiêu là thu hút khách hàng tiềm năng chất lượng cao với chi phí thấp, thông qua nội dung giá trị và tối ưu hóa SEO, thay vì chi tiêu lớn cho quảng cáo đại trà.",
+            "action_items": [
+              "Tập trung vào SEO và Content Marketing",
+              "Xây dựng chương trình Referral từ khách hàng hiện tại",
+              "Tham gia các sự kiện ngành để tạo networking"
+            ]
+          },
+          {
+            "category": "Hạ tầng Cloud & Vận hành",
+            "percentage": "15%",
+            "amount": "0.75 tỷ đồng",
+            "why_invest": "Đảm bảo hạ tầng đủ mạnh để phục vụ số lượng người dùng hiện tại và tăng trưởng vừa phải. Ngân sách này sẽ tập trung vào việc tối ưu hóa chi phí cloud, duy trì hoạt động ổn định và đảm bảo an toàn dữ liệu, tránh các chi phí không cần thiết.",
+            "action_items": [
+              "Tối ưu hóa chi phí Cloud hiện tại",
+              "Đảm bảo an toàn dữ liệu và sao lưu định kỳ",
+              "Xây dựng quy trình hỗ trợ khách hàng hiệu quả"
+            ]
+          },
+          {
+            "category": "Chi phí vận hành & Dự phòng",
+            "percentage": "10%",
+            "amount": "0.5 tỷ đồng",
+            "why_invest": "Giữ một quỹ dự phòng hợp lý để đối phó với các rủi ro và chi phí vận hành cơ bản. Khoản này giúp công ty duy trì hoạt động ổn định trong thời gian dài hơn, giảm áp lực phải gọi vốn gấp rút.",
+            "action_items": [
+              "Chi trả lương, chi phí hành chính",
+              "Chi phí pháp lý cơ bản",
+              "Quỹ dự phòng cho 3-6 tháng"
+            ]
+          }
+        ],
+        "expected_results": [
+          "Tăng trưởng doanh thu ARR lên 200.000 USD trong 12 tháng đầu",
+          "Sản phẩm cốt lõi đạt mức độ hài lòng cao từ người dùng (NPS > 50)",
+          "Đạt 200 khách hàng SME trả phí với tỷ lệ giữ chân cao",
+          "Kéo dài runway lên 18-24 tháng"
+        ]
+      }
+    ],
+    "burn_rate_runway": "Với mức gọi vốn 5 tỷ đồng (khoảng 200.000 USD), nếu Nexus Digital theo Phương án A (Đầu tư mạnh mẽ), burn rate có thể lên tới 100-150 triệu VND/tháng (4.000-6.000 USD/tháng) ban đầu cho R&D và Marketing, chưa kể lương đội ngũ. Điều này sẽ cho runway khoảng 10-12 tháng nếu không có doanh thu tăng trưởng đáng kể. Đây là mức khá rủi ro. Nếu theo Phương án B (Tinh gọn), burn rate có thể được kiểm soát ở mức 70-100 triệu VND/tháng (2.800-4.000 USD/tháng), kéo dài runway lên 18-24 tháng. Việc kiểm soát burn rate và đạt được các cột mốc doanh thu sớm là cực kỳ quan trọng để kéo dài thời gian sống sót và chứng minh giá trị trước khi cần gọi vốn vòng tiếp theo.",
+    "milestones": [
+      {
+        "phase": "Giai đoạn 1 (0-6 tháng)",
+        "goal": "Hoàn thiện SHA và ESOP, đạt 50 khách hàng trả phí, doanh thu 50 triệu VND/tháng, ra mắt tính năng AI cơ bản (ví dụ: phân tích hiệu suất bài đăng), tối ưu hóa chi phí hạ tầng Cloud."
+      },
+      {
+        "phase": "Giai đoạn 2 (7-12 tháng)",
+        "goal": "Đạt 200 khách hàng trả phí, doanh thu 200 triệu VND/tháng, ra mắt module AI nâng cao (ví dụ: gợi ý chiến lược nội dung), mở rộng đội ngũ Marketing và Sales, chuẩn bị báo cáo tài chính sơ bộ."
+      },
+      {
+        "phase": "Giai đoạn 3 (13-18 tháng)",
+        "goal": "Đạt 500 khách hàng trả phí, doanh thu 500 triệu VND/tháng, sản phẩm AI hoàn thiện với các tính năng tự động hóa, chuẩn bị cho vòng gọi vốn Series A với các chỉ số tăng trưởng và tài chính rõ ràng."
+      }
+    ],
+    "suggested_deal": {
+      "instrument": "Convertible Note (SAFE) hoặc Cổ phần ưu đãi chuyển đổi",
+      "pre_money": "12 tỷ - 18 tỷ đồng (khoảng 500.000 - 750.000 USD)",
+      "post_money": "17 tỷ - 23 tỷ đồng (khoảng 700.000 - 950.000 USD)",
+      "dilution": "20% - 30%",
+      "note": "Định giá pre-money ở giai đoạn này rất khó do thiếu traction và báo cáo tài chính. Mức này dựa trên tiềm năng thị trường và mô hình SaaS, nhưng sẽ có điều khoản bảo vệ nhà đầu tư (ví dụ: discount rate, valuation cap) trong Convertible Note. Tỷ lệ pha loãng có thể cao hơn nếu công ty không đạt được các cột mốc quan trọng."
+    },
+    "final_recommendation": "Nexus Digital nên ưu tiên Phương án B - Tinh gọn, Tối ưu sản phẩm và Kéo dài Runway. Mặc dù Phương án A có vẻ hấp dẫn với tốc độ tăng trưởng nhanh, nhưng với tình hình hiện tại (doanh thu thấp, thiếu báo cáo tài chính, rủi ro quản trị), việc theo đuổi tăng trưởng quá nhanh sẽ dẫn đến burn rate không bền vững và rủi ro thất bại cao. Phương án B cho phép công ty tập trung vào việc xây dựng nền tảng vững chắc, chứng minh Product-Market Fit, hoàn thiện sản phẩm cốt lõi và kiểm soát rủi ro tài chính. Điều này sẽ tạo ra một câu chuyện hấp dẫn hơn và các chỉ số thực tế hơn cho vòng gọi vốn tiếp theo, đồng thời giúp đội ngũ có thời gian giải quyết các vấn đề về quản trị và cấu trúc cổ đông một cách bài bản."
+  }
+}

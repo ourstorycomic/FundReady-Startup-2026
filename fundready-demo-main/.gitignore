@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+*.log
+.DS_Store
+*.db
+node_modules/
+.vercel
+cache/
+.fly/
