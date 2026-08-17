@@ -14,8 +14,15 @@ load_dotenv(override=True)
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 # Cache directory
-CACHE_DIR = Path(__file__).parent / "cache"
-CACHE_DIR.mkdir(exist_ok=True)
+if os.environ.get('VERCEL'):
+    CACHE_DIR = Path('/tmp/cache')
+else:
+    CACHE_DIR = Path(__file__).parent / "cache"
+
+try:
+    CACHE_DIR.mkdir(exist_ok=True)
+except OSError:
+    pass
 
 DOCUMENT_CRITERIA = {
     "hsgt": {

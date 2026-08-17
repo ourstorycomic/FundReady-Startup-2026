@@ -18,8 +18,15 @@ except ImportError:
     print("Warning: OCR libraries not available. PDF scan files won't be readable.")
 
 # Cache directory
-CACHE_DIR = Path(__file__).parent / "cache"
-CACHE_DIR.mkdir(exist_ok=True)
+if os.environ.get('VERCEL'):
+    CACHE_DIR = Path('/tmp/cache')
+else:
+    CACHE_DIR = Path(__file__).parent / "cache"
+
+try:
+    CACHE_DIR.mkdir(exist_ok=True)
+except OSError:
+    pass
 
 def get_file_hash(content: bytes) -> str:
     """Generate hash for file content to use as cache key"""
