@@ -189,7 +189,7 @@ async def analyze_with_groq(document_type: str, content: str, desired_amount: st
 
 **PHONG CÁCH PHÂN TÍCH BẮT BUỘC:**
 - Dùng ngôn ngữ CHUYÊN NGHIỆP, SẮC BÉN của dân đầu tư
-- Đưa ra nhận định DỨT KHOÁT, KHÔNG CHUNG CHUNG
+- Đưa ra nhận định DỨT KHOÁT, KHÔNG CHUNG CHUNG, VIẾT RẤT DÀI VÀ CỰC KỲ CHI TIẾT
 - Mỗi điểm phải có BẰNG CHỨNG CỤ THỂ từ tài liệu
 - Dùng số liệu THỰC TẾ, so sánh benchmark ngành
 - Phân tích sâu theo framework: Strengths -> Risks -> Opportunities -> Recommendations
@@ -202,7 +202,7 @@ Phân tích tài liệu "{doc_info['name']}" theo bộ tiêu chí chuyên gia:
 **NỘI DUNG TÀI LIỆU:**
 {content[:4000]}
 
-**YÊU CẦU TRẢ LỜI (JSON format) - PHẢI ĐẦY ĐỦ VÀ CHI TIẾT:**
+**YÊU CẦU TRẢ LỜI (JSON format) - BẮT BUỘC PHẢI RẤT DÀI, CHI TIẾT VÀ BỔ SUNG TẤT CẢ THÔNG TIN QUAN TRỌNG:**
 {{
   "score": <điểm 0-100>,
   "breakdown": [
@@ -210,29 +210,29 @@ Phân tích tài liệu "{doc_info['name']}" theo bộ tiêu chí chuyên gia:
       "name": "<tên tiêu chí>",
       "score": <điểm cụ thể>,
       "max": <điểm tối đa>,
-      "reason": "<PHÂN TÍCH SẮC BÉN TỐI THIỂU 100 CHỮ. Trích dẫn số liệu cụ thể. So sánh benchmark. Dùng thuật ngữ chuyên môn>"
+      "reason": "<PHÂN TÍCH SẮC BÉN CỰC KỲ CHI TIẾT TỐI THIỂU 250 CHỮ. Trích dẫn số liệu cụ thể. So sánh benchmark. Dùng thuật ngữ chuyên môn>"
     }}
   ],
   "strengths": [
-    "<điểm mạnh 1: CỤ THỂ, phân tích tối thiểu 50 chữ, có số liệu chứng minh từ tài liệu>",
-    "<điểm mạnh 2: INSIGHT SÂU mà người thường không thấy, tối thiểu 50 chữ>",
-    "<điểm mạnh 3: LỢI THẾ CẠNH TRANH, tối thiểu 50 chữ>"
+    "<điểm mạnh 1: CỤ THỂ, phân tích cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể, có số liệu chứng minh từ tài liệu>",
+    "<điểm mạnh 2: INSIGHT SÂU mà người thường không thấy, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
+    "<điểm mạnh 3: LỢI THẾ CẠNH TRANH, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>"
   ],
   "weaknesses": [
-    "<điểm yếu 1: CHỈ RA RỦI RO CỤ THỂ, có số liệu, tối thiểu 50 chữ>",
-    "<điểm yếu 2: PHÂN TÍCH TÁC ĐỘNG tài chính và chiến lược, tối thiểu 50 chữ>",
-    "<điểm yếu 3: SO SÁNH BENCHMARK, chỉ ra gap, tối thiểu 50 chữ>"
+    "<điểm yếu 1: CHỈ RA RỦI RO CỤ THỂ, có số liệu, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
+    "<điểm yếu 2: PHÂN TÍCH TÁC ĐỘNG tài chính và chiến lược, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
+    "<điểm yếu 3: SO SÁNH BENCHMARK, chỉ ra gap, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>"
   ],
   "recommendations": [
-    "<khuyến nghị 1: ACTION ITEM CỤ THỂ, có timeline rõ ràng, phân tích tối thiểu 50 chữ>",
-    "<khuyến nghị 2: CHIẾN LƯỢC DÀI HẠN, có mục tiêu định lượng, tối thiểu 50 chữ>",
-    "<khuyến nghị 3: TỐI ƯU HÓA, có KPI cụ thể, tối thiểu 50 chữ>"
+    "<khuyến nghị 1: ACTION ITEM CỤ THỂ, có timeline rõ ràng, phân tích cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
+    "<khuyến nghị 2: CHIẾN LƯỢC DÀI HẠN, có mục tiêu định lượng, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
+    "<khuyến nghị 3: TỐI ƯU HÓA, có KPI cụ thể, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>"
   ],
   "funding_scenario": {{
     "desired_amount": "<Số tiền doanh nghiệp mong muốn, lấy từ {desired_amount} hoặc suy luận>",
     "recommended_amount": "<Số tiền hệ thống khuyến nghị để đạt hiệu quả cao nhất (Vd: 5 tỷ, 10 tỷ)>",
     "rationale": {{
-      "why_recommended": "<PHÂN TÍCH SẮC BÉN VÀ DÀI (Ít nhất 150 chữ): Tại sao hệ thống đề xuất mức này? Phân tích sự chênh lệch so với mức mong muốn. Rủi ro nếu chỉ gọi mức mong muốn là gì?>",
+      "why_recommended": "<PHÂN TÍCH SẮC BÉN VÀ DÀI (Ít nhất 300 chữ, mổ xẻ mọi góc độ): Tại sao hệ thống đề xuất mức này? Phân tích sự chênh lệch so với mức mong muốn. Rủi ro nếu chỉ gọi mức mong muốn là gì?>",
       "investment_needs": [
         "<Nhu cầu cốt lõi 1 (Vd: Nâng cấp công nghệ và AI)>",
         "<Nhu cầu cốt lõi 2>",
@@ -242,13 +242,13 @@ Phân tích tài liệu "{doc_info['name']}" theo bộ tiêu chí chuyên gia:
     "scenarios": [
       {{
         "name": "<Tên Kịch Bản (Vd: Phương án A - Tập trung tối ưu sản phẩm)>",
-        "focus_explanation": "<PHÂN TÍCH SÂU (Ít nhất 100 chữ): Trọng tâm của phương án này là gì? Thích hợp trong trường hợp nào?>",
+        "focus_explanation": "<PHÂN TÍCH SÂU (Ít nhất 250 chữ, phân tích chuyên sâu): Trọng tâm của phương án này là gì? Thích hợp trong trường hợp nào?>",
         "allocation": [
           {{ 
             "category": "<Tên Hạng mục (Vd: R&D, Marketing)>", 
             "percentage": "<%>", 
             "amount": "<Số tiền cụ thể>", 
-            "why_invest": "<PHÂN TÍCH SÂU (Ít nhất 70 chữ): Tại sao hạng mục này cần ngân sách như vậy?>",
+            "why_invest": "<PHÂN TÍCH SÂU (Ít nhất 150 chữ): Tại sao hạng mục này cần ngân sách như vậy?>",
             "action_items": [
               "<Việc cần làm 1 (Vd: Xây dựng thuật toán Matching)>",
               "<Việc cần làm 2>"
@@ -263,13 +263,13 @@ Phân tích tài liệu "{doc_info['name']}" theo bộ tiêu chí chuyên gia:
       }},
       {{
         "name": "<Tên Kịch Bản (Vd: Phương án B - Tinh gọn & Dự phòng rủi ro)>",
-        "focus_explanation": "<PHÂN TÍCH SÂU (Ít nhất 100 chữ): Trọng tâm của phương án B là gì?>",
+        "focus_explanation": "<PHÂN TÍCH SÂU (Ít nhất 250 chữ, phân tích chuyên sâu): Trọng tâm của phương án B là gì?>",
         "allocation": [
           {{ 
             "category": "<Tên Hạng mục>", 
             "percentage": "<%>", 
             "amount": "<Số tiền cụ thể>", 
-            "why_invest": "<PHÂN TÍCH SÂU (Ít nhất 70 chữ)>",
+            "why_invest": "<PHÂN TÍCH SÂU (Ít nhất 150 chữ)>",
             "action_items": [
               "<Việc cần làm 1>"
             ]
@@ -280,7 +280,7 @@ Phân tích tài liệu "{doc_info['name']}" theo bộ tiêu chí chuyên gia:
         ]
       }}
     ],
-    "burn_rate_runway": "<Đánh giá chi tiết (Ít nhất 100 chữ) về tốc độ đốt tiền (Burn Rate) và thời gian sống sót (Runway). Lập luận sắc bén.>",
+    "burn_rate_runway": "<Đánh giá chi tiết (Ít nhất 250 chữ, phân tích chuyên sâu) về tốc độ đốt tiền (Burn Rate) và thời gian sống sót (Runway). Lập luận sắc bén.>",
     "milestones": [
       {{ "phase": "<Giai đoạn 1>", "goal": "<Mục tiêu kinh doanh và công nghệ cần đạt>" }},
       {{ "phase": "<Giai đoạn 2>", "goal": "<Mục tiêu kinh doanh và công nghệ cần đạt>" }}
@@ -292,7 +292,7 @@ Phân tích tài liệu "{doc_info['name']}" theo bộ tiêu chí chuyên gia:
       "dilution": "<% pha loãng ước tính>",
       "note": "<Lưu ý thêm về định giá (nếu có)>"
     }},
-    "final_recommendation": "<KHUYẾN NGHỊ CUỐI CÙNG (Ít nhất 100 chữ): Tổng kết lại nhà sáng lập nên chọn phương án nào và tại sao?>"
+    "final_recommendation": "<KHUYẾN NGHỊ CUỐI CÙNG (Ít nhất 250 chữ, phân tích chuyên sâu): Tổng kết lại nhà sáng lập nên chọn phương án nào và tại sao?>"
   }}
 }}
 

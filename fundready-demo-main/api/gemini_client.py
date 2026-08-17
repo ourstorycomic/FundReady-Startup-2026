@@ -260,16 +260,16 @@ FORMAT JSON:
   "breakdown": [
     {{"name": "<tên tiêu chí>", "score": <điểm đạt được>, "max": <điểm tối đa>, "reason": "<phân tích cực kỳ chi tiết, sắc bén, tối thiểu 4-5 câu>"}}
   ],
-  "strengths": ["<điểm mạnh 1: CỤ THỂ, phân tích tối thiểu 50 chữ, có số liệu chứng minh>", "<điểm mạnh 2: INSIGHT SÂU, tối thiểu 50 chữ>"],
-  "weaknesses": ["<điểm yếu 1: CHỈ RA RỦI RO CỤ THỂ, có số liệu, tối thiểu 50 chữ>", "<điểm yếu 2: PHÂN TÍCH TÁC ĐỘNG, tối thiểu 50 chữ>"],
-  "recommendations": ["<khuyến nghị 1: ACTION ITEM CỤ THỂ, có timeline rõ ràng, tối thiểu 50 chữ>", "<khuyến nghị 2: CHIẾN LƯỢC DÀI HẠN, tối thiểu 50 chữ>"],
+  "strengths": ["<điểm mạnh 1: CỤ THỂ, phân tích cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể, có số liệu chứng minh>", "<điểm mạnh 2: INSIGHT SÂU, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>"],
+  "weaknesses": ["<điểm yếu 1: CHỈ RA RỦI RO CỤ THỂ, có số liệu, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>", "<điểm yếu 2: PHÂN TÍCH TÁC ĐỘNG, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>"],
+  "recommendations": ["<khuyến nghị 1: ACTION ITEM CỤ THỂ, có timeline rõ ràng, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>", "<khuyến nghị 2: CHIẾN LƯỢC DÀI HẠN, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>"],
   "risk_if_missing": "<rủi ro nếu thiếu tài liệu này>",
   "risk_if_weak": "<rủi ro nếu tài liệu yếu>",
   "funding_scenario": {{
     "desired_amount": "<Số tiền doanh nghiệp mong muốn, lấy từ {desired_amount} hoặc suy luận>",
     "recommended_amount": "<Số tiền hệ thống khuyến nghị để đạt hiệu quả cao nhất (Vd: 5 tỷ, 10 tỷ)>",
     "rationale": {{
-      "why_recommended": "<PHÂN TÍCH SẮC BÉN VÀ DÀI (Ít nhất 150 chữ): Tại sao hệ thống đề xuất mức này? Phân tích sự chênh lệch so với mức mong muốn. Rủi ro nếu chỉ gọi mức mong muốn là gì?>",
+      "why_recommended": "<PHÂN TÍCH SẮC BÉN VÀ DÀI (Ít nhất 300 chữ, mổ xẻ mọi góc độ): Tại sao hệ thống đề xuất mức này? Phân tích sự chênh lệch so với mức mong muốn. Rủi ro nếu chỉ gọi mức mong muốn là gì?>",
       "investment_needs": [
         "<Nhu cầu cốt lõi 1 (Vd: Nâng cấp công nghệ và AI)>",
         "<Nhu cầu cốt lõi 2>",
@@ -279,13 +279,13 @@ FORMAT JSON:
     "scenarios": [
       {{
         "name": "<Tên Kịch Bản (Vd: Phương án A - Tập trung tối ưu sản phẩm) - BẮT BUỘC CÓ 2 PHƯƠNG ÁN (A và B)>",
-        "focus_explanation": "<PHÂN TÍCH SÂU (Ít nhất 100 chữ): Trọng tâm của phương án này là gì? Thích hợp trong trường hợp nào?>",
+        "focus_explanation": "<PHÂN TÍCH SÂU (Ít nhất 250 chữ, phân tích chuyên sâu): Trọng tâm của phương án này là gì? Thích hợp trong trường hợp nào?>",
         "allocation": [
           {{ 
             "category": "<Tên Hạng mục (Vd: R&D, Marketing)>", 
             "percentage": "<%>", 
             "amount": "<Số tiền cụ thể>", 
-            "why_invest": "<PHÂN TÍCH SÂU (Ít nhất 70 chữ): Tại sao hạng mục này cần ngân sách như vậy?>",
+            "why_invest": "<PHÂN TÍCH SÂU (Ít nhất 150 chữ): Tại sao hạng mục này cần ngân sách như vậy?>",
             "action_items": [
               "<Việc cần làm 1 (Vd: Xây dựng thuật toán Matching)>",
               "<Việc cần làm 2>"
@@ -299,7 +299,7 @@ FORMAT JSON:
         ]
       }}
     ],
-    "burn_rate_runway": "<Đánh giá chi tiết (Ít nhất 100 chữ) về tốc độ đốt tiền (Burn Rate) và thời gian sống sót (Runway). Lập luận sắc bén.>",
+    "burn_rate_runway": "<Đánh giá chi tiết (Ít nhất 250 chữ, phân tích chuyên sâu) về tốc độ đốt tiền (Burn Rate) và thời gian sống sót (Runway). Lập luận sắc bén.>",
     "milestones": [
       {{ "phase": "<Giai đoạn 1>", "goal": "<Mục tiêu kinh doanh và công nghệ cần đạt>" }},
       {{ "phase": "<Giai đoạn 2>", "goal": "<Mục tiêu kinh doanh và công nghệ cần đạt>" }}
@@ -311,7 +311,7 @@ FORMAT JSON:
       "dilution": "<% pha loãng ước tính>",
       "note": "<Lưu ý thêm về định giá (nếu có)>"
     }},
-    "final_recommendation": "<KHUYẾN NGHỊ CUỐI CÙNG (Ít nhất 100 chữ): Tổng kết lại nhà sáng lập nên chọn phương án nào và tại sao?>"
+    "final_recommendation": "<KHUYẾN NGHỊ CUỐI CÙNG (Ít nhất 250 chữ, phân tích chuyên sâu): Tổng kết lại nhà sáng lập nên chọn phương án nào và tại sao?>"
   }}
 }}
 
