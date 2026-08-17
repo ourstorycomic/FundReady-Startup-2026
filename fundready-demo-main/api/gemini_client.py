@@ -234,7 +234,7 @@ async def analyze_with_gemini(document_type: str, content: str, desired_amount: 
         for c in doc_info["criteria"]
     ])
     
-    prompt = f"""Bạn là chuyên gia thẩm định hồ sơ gọi vốn doanh nghiệp tại Việt Nam.
+    prompt = f"""Bạn là **Tổng Giám đốc Đầu tư (Managing Partner)** tại một quỹ Venture Capital hàng đầu thế giới. Bạn nổi tiếng với những bản phân tích (Due Diligence) cực kỳ khắt khe, dài dòng, và chi tiết đến từng ngóc ngách.
 
 Hãy phân tích tài liệu "{doc_info['name']}" sau và chấm điểm theo bộ tiêu chí:
 
@@ -248,70 +248,103 @@ YÊU CẦU BẮT BUỘC:
 2. KHÔNG sử dụng markdown, KHÔNG có ```json.
 3. Đảm bảo JSON valid tuyệt đối, không có trailing commas.
 4. PHÂN TÍCH CHUYÊN MÔN SÂU: Mọi nhận xét phải mang tính chuyên gia tài chính cấp cao (VC/PE). VIẾT THẬT DÀI, CHI TIẾT VÀ SẮC BÉN.
-5. Mỗi "reason" trong breakdown phải phân tích cặn kẽ lý do được điểm đó (tối thiểu 4-5 câu, đưa ra bằng chứng thực tế).
-6. Cung cấp 3-4 "strengths", "weaknesses", và "recommendations". MỖI MỤC PHẢI VIẾT DÀI TỐI THIỂU 50-80 CHỮ, có dẫn chứng/giải thích rõ ràng, chuyên sâu.
-7. Trong "funding_scenario", các chiến lược và lộ trình phải được mô tả thuyết phục, bao quát rủi ro và tiềm năng (mỗi phần tối thiểu 100 chữ).
+5. Mỗi "reason" trong breakdown phải phân tích cặn kẽ lý do được điểm đó (Tối thiểu 300 chữ, đưa ra bằng chứng thực tế).
+6. Bắt buộc MỖI mảng (strengths, weaknesses, recommendations) phải có đúng 5 ý, MỖI Ý DÀI TỐI THIỂU 150 CHỮ.
+7. Trong "funding_scenario", các chiến lược phải cực kỳ chi tiết, mỗi phần tối thiểu 250 chữ.
 8. BẮT BUỘC cung cấp 2 phương án (scenarios) khác nhau (Phương án A - Đầu tư mạnh mẽ và Phương án B - Tinh gọn/Dự phòng).
-9. KIỂM TRA KỸ ĐỊNH DẠNG JSON. Tuyệt đối không được thiếu dấu phẩy (,) giữa các phần tử trong mảng hoặc giữa các trường trong object. Đảm bảo JSON hoàn toàn hợp lệ.
+9. Mọi câu chữ phải trích dẫn data từ tài liệu và so sánh với Benchmark ngành.
 
 FORMAT JSON:
 {{
   "score": <tổng điểm 0-100>,
   "breakdown": [
-    {{"name": "<tên tiêu chí>", "score": <điểm đạt được>, "max": <điểm tối đa>, "reason": "<phân tích cực kỳ chi tiết, sắc bén, tối thiểu 4-5 câu>"}}
+    {{"name": "<tên tiêu chí>", "score": <điểm đạt được>, "max": <điểm tối đa>, "reason": "<PHÂN TÍCH SẮC BÉN DÀI TỐI THIỂU 300 CHỮ>"}}
   ],
-  "strengths": ["<điểm mạnh 1: CỤ THỂ, phân tích cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể, có số liệu chứng minh>", "<điểm mạnh 2: INSIGHT SÂU, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>"],
-  "weaknesses": ["<điểm yếu 1: CHỈ RA RỦI RO CỤ THỂ, có số liệu, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>", "<điểm yếu 2: PHÂN TÍCH TÁC ĐỘNG, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>"],
-  "recommendations": ["<khuyến nghị 1: ACTION ITEM CỤ THỂ, có timeline rõ ràng, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>", "<khuyến nghị 2: CHIẾN LƯỢC DÀI HẠN, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>"],
+  "strengths": [
+    "<điểm mạnh 1: Lợi thế cốt lõi, RẤT CHI TIẾT tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
+    "<điểm mạnh 2: Rào cản gia nhập/Công nghệ, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
+    "<điểm mạnh 3: Thị trường/Business Model, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
+    "<điểm mạnh 4: Đội ngũ/Tài chính, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
+    "<điểm mạnh 5: Insight đặc biệt, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>"
+  ],
+  "weaknesses": [
+    "<điểm yếu 1: Rủi ro thị trường/đối thủ, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
+    "<điểm yếu 2: Rủi ro thực thi (Execution), cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
+    "<điểm yếu 3: Kẽ hở trong mô hình kinh doanh, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
+    "<điểm yếu 4: Vấn đề dòng tiền/Burn Rate, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
+    "<điểm yếu 5: Rủi ro phụ thuộc (Dependencies), cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>"
+  ],
+  "recommendations": [
+    "<khuyến nghị 1: Chiến lược tăng trưởng ngắn hạn, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
+    "<khuyến nghị 2: Tối ưu hóa sản phẩm/vận hành, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
+    "<khuyến nghị 3: Quản trị dòng tiền, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
+    "<khuyến nghị 4: Chiến lược Pivot/Dự phòng, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
+    "<khuyến nghị 5: Lời khuyên gọi vốn tiếp theo, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>"
+  ],
   "risk_if_missing": "<rủi ro nếu thiếu tài liệu này>",
   "risk_if_weak": "<rủi ro nếu tài liệu yếu>",
   "funding_scenario": {{
     "desired_amount": "<Số tiền doanh nghiệp mong muốn, lấy từ {desired_amount} hoặc suy luận>",
     "recommended_amount": "<Số tiền hệ thống khuyến nghị để đạt hiệu quả cao nhất (Vd: 5 tỷ, 10 tỷ)>",
     "rationale": {{
-      "why_recommended": "<PHÂN TÍCH SẮC BÉN VÀ DÀI (Ít nhất 300 chữ, mổ xẻ mọi góc độ): Tại sao hệ thống đề xuất mức này? Phân tích sự chênh lệch so với mức mong muốn. Rủi ro nếu chỉ gọi mức mong muốn là gì?>",
+      "why_recommended": "<PHÂN TÍCH ĐỊNH GIÁ & VỐN (Ít nhất 400 chữ, mổ xẻ mọi góc độ): Tại sao mức tiền này là chuẩn nhất? Nó giúp startup sống được bao lâu (runway)?>",
       "investment_needs": [
-        "<Nhu cầu cốt lõi 1 (Vd: Nâng cấp công nghệ và AI)>",
+        "<Nhu cầu cốt lõi 1>",
         "<Nhu cầu cốt lõi 2>",
-        "<Nhu cầu cốt lõi 3>"
+        "<Nhu cầu cốt lõi 3>",
+        "<Nhu cầu cốt lõi 4>",
+        "<Nhu cầu cốt lõi 5>"
       ]
     }},
     "scenarios": [
       {{
-        "name": "<Tên Kịch Bản (Vd: Phương án A - Tập trung tối ưu sản phẩm) - BẮT BUỘC CÓ 2 PHƯƠNG ÁN (A và B)>",
-        "focus_explanation": "<PHÂN TÍCH SÂU (Ít nhất 250 chữ, phân tích chuyên sâu): Trọng tâm của phương án này là gì? Thích hợp trong trường hợp nào?>",
+        "name": "<Phương án A - Tăng trưởng Đột phá (Hyper-growth)>",
+        "focus_explanation": "<PHÂN TÍCH TẦM NHÌN (Ít nhất 250 chữ, phân tích chuyên sâu): Kịch bản này dành cho việc chiếm lĩnh thị trường ra sao?>",
         "allocation": [
           {{ 
-            "category": "<Tên Hạng mục (Vd: R&D, Marketing)>", 
+            "category": "<Hạng mục 1>", 
             "percentage": "<%>", 
-            "amount": "<Số tiền cụ thể>", 
-            "why_invest": "<PHÂN TÍCH SÂU (Ít nhất 150 chữ): Tại sao hạng mục này cần ngân sách như vậy?>",
-            "action_items": [
-              "<Việc cần làm 1 (Vd: Xây dựng thuật toán Matching)>",
-              "<Việc cần làm 2>"
-            ]
+            "amount": "<Số tiền>", 
+            "why_invest": "<LÝ DO CHI TIẾT (Ít nhất 150 chữ)>",
+            "action_items": ["<Hành động 1 rất chi tiết>", "<Hành động 2 rất chi tiết>", "<Hành động 3>"]
           }}
         ],
         "expected_results": [
-          "<Kết quả kỳ vọng chi tiết 1>",
-          "<Kết quả kỳ vọng chi tiết 2>",
-          "<Kết quả kỳ vọng chi tiết 3>"
+          "<Kỳ vọng 1>", "<Kỳ vọng 2>", "<Kỳ vọng 3>", "<Kỳ vọng 4>"
+        ]
+      }},
+      {{
+        "name": "<Phương án B - Tinh gọn & Sống sót (Bootstrapping & Survival)>",
+        "focus_explanation": "<PHÂN TÍCH TẦM NHÌN (Ít nhất 250 chữ, phân tích chuyên sâu): Kịch bản phòng thủ, cắt giảm chi phí?>",
+        "allocation": [
+          {{ 
+            "category": "<Hạng mục 1>", 
+            "percentage": "<%>", 
+            "amount": "<Số tiền>", 
+            "why_invest": "<LÝ DO CHI TIẾT (Ít nhất 150 chữ)>",
+            "action_items": ["<Hành động 1 rất chi tiết>", "<Hành động 2 rất chi tiết>"]
+          }}
+        ],
+        "expected_results": [
+          "<Kỳ vọng 1>", "<Kỳ vọng 2>", "<Kỳ vọng 3>"
         ]
       }}
     ],
-    "burn_rate_runway": "<Đánh giá chi tiết (Ít nhất 250 chữ, phân tích chuyên sâu) về tốc độ đốt tiền (Burn Rate) và thời gian sống sót (Runway). Lập luận sắc bén.>",
+    "burn_rate_runway": "<ĐÁNH GIÁ TÀI CHÍNH (Ít nhất 250 chữ, phân tích chuyên sâu): Tốc độ đốt tiền dự kiến? Bao nhiêu tháng thì hết vốn?>",
     "milestones": [
-      {{ "phase": "<Giai đoạn 1>", "goal": "<Mục tiêu kinh doanh và công nghệ cần đạt>" }},
-      {{ "phase": "<Giai đoạn 2>", "goal": "<Mục tiêu kinh doanh và công nghệ cần đạt>" }}
+      {{ "phase": "<Tháng 1-3>", "goal": "<Mục tiêu rất chi tiết 1>" }},
+      {{ "phase": "<Tháng 4-6>", "goal": "<Mục tiêu rất chi tiết 2>" }},
+      {{ "phase": "<Tháng 7-12>", "goal": "<Mục tiêu rất chi tiết 3>" }},
+      {{ "phase": "<Tháng 12-18>", "goal": "<Mục tiêu rất chi tiết 4>" }}
     ],
     "suggested_deal": {{
       "instrument": "<Công cụ: SAFE, Cổ phần ưu đãi...>",
-      "pre_money": "<Định giá Pre-money ước tính>",
+      "pre_money": "<Định giá Pre-money>",
       "post_money": "<Định giá Post-money>",
-      "dilution": "<% pha loãng ước tính>",
-      "note": "<Lưu ý thêm về định giá (nếu có)>"
+      "dilution": "<% pha loãng>",
+      "note": "<GHI CHÚ ĐÀM PHÁN (Ít nhất 200 chữ): Lời khuyên đàm phán Term Sheet>"
     }},
-    "final_recommendation": "<KHUYẾN NGHỊ CUỐI CÙNG (Ít nhất 250 chữ, phân tích chuyên sâu): Tổng kết lại nhà sáng lập nên chọn phương án nào và tại sao?>"
+    "final_recommendation": "<TỔNG KẾT VÀ QUYẾT ĐỊNH (Ít nhất 300 chữ, mổ xẻ mọi góc độ): Tóm lại quỹ có nên đầu tư không?>"
   }}
 }}
 
