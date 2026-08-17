@@ -322,7 +322,7 @@ LƯU Ý QUAN TRỌNG: TRẢ VỀ JSON HỢP LỆ. TUYỆT ĐỐI KHÔNG SỬ D�
 
     try:
         response = get_client().models.generate_content(
-            model='gemini-2.5-pro',
+            model='gemini-2.5-flash',
             contents=prompt,
             config=types.GenerateContentConfig(
                 temperature=0.3,

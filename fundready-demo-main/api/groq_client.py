@@ -278,7 +278,7 @@ Phân tích tài liệu "{doc_info['name']}" theo bộ tiêu chí chuyên gia:
 4. Mỗi recommendation PHẢI có action item cụ thể, timeline, và KPI định lượng
 5. MỖI LUẬN ĐIỂM Ở `reason`, `strengths`, `weaknesses` PHẢI DÀI ÍT NHẤT 50-80 CHỮ. KHÔNG ĐƯỢC LÀM SƠ SÀI. VIẾT THẬT DÀI VÀ CHUYÊN SÂU NHƯ MỘT BÁO CÁO TÀI CHÍNH!
 6. BẮT BUỘC cung cấp ít nhất 2 phương án (scenarios) khác nhau (Ví dụ: Phương án A - Đầu tư mạnh mẽ và Phương án B - Tinh gọn/Dự phòng).
-7. KIỂM TRA KỸ ĐỊNH DẠNG JSON. Đảm bảo JSON hoàn toàn hợp lệ.
+7. KIỂM TRA KỸ ĐỊNH DẠNG JSON. Đảm bảo JSON hoàn toàn hợp lệ."""
 
     try:
         # Retry logic với exponential backoff
