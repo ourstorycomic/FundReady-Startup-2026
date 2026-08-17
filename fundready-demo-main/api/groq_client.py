@@ -253,6 +253,24 @@ Phân tích tài liệu "{doc_info['name']}" theo bộ tiêu chí chuyên gia:
           "<Kết quả kỳ vọng chi tiết 2>",
           "<Kết quả kỳ vọng chi tiết 3>"
         ]
+      }},
+      {{
+        "name": "<Tên Kịch Bản (Vd: Phương án B - Tinh gọn & Dự phòng rủi ro)>",
+        "focus_explanation": "<PHÂN TÍCH SÂU (Ít nhất 100 chữ): Trọng tâm của phương án B là gì?>",
+        "allocation": [
+          {{ 
+            "category": "<Tên Hạng mục>", 
+            "percentage": "<%>", 
+            "amount": "<Số tiền cụ thể>", 
+            "why_invest": "<PHÂN TÍCH SÂU (Ít nhất 70 chữ)>",
+            "action_items": [
+              "<Việc cần làm 1>"
+            ]
+          }}
+        ],
+        "expected_results": [
+          "<Kết quả kỳ vọng chi tiết 1>"
+        ]
       }}
     ],
     "burn_rate_runway": "<Đánh giá chi tiết (Ít nhất 100 chữ) về tốc độ đốt tiền (Burn Rate) và thời gian sống sót (Runway). Lập luận sắc bén.>",
