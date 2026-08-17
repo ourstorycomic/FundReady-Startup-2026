@@ -88,7 +88,7 @@ DOCUMENT_CRITERIA = {
 
 def get_cache_key(content: str) -> str:
     """Generate cache key from content"""
-    return hashlib.md5(content.encode()).hexdigest()
+    return hashlib.md5((content + "_v3_ultimate").encode()).hexdigest()
 
 def get_cached_result(cache_key: str) -> Dict[str, Any]:
     """Get cached result if exists"""
