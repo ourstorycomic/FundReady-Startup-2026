@@ -247,21 +247,22 @@ YÊU CẦU BẮT BUỘC:
 1. Trả lời CHỈ bằng JSON hợp lệ, KHÔNG có text nào khác ngoài JSON.
 2. KHÔNG sử dụng markdown, KHÔNG có ```json.
 3. Đảm bảo JSON valid tuyệt đối, không có trailing commas.
-4. PHÂN TÍCH CHUYÊN MÔN SÂU: Mọi nhận xét phải mang tính chuyên gia tài chính cấp cao (VC/PE), có giải thích rõ ràng nhưng súc tích, tránh lan man.
-5. Mỗi "reason" trong breakdown phải phân tích cặn kẽ lý do được điểm đó (1-2 câu).
-6. Cung cấp 3-4 "strengths", "weaknesses", và "recommendations", mỗi mục có dẫn chứng/giải thích rõ ràng.
-7. Trong "funding_scenario", các chiến lược và lộ trình phải được mô tả thuyết phục, bao quát rủi ro và tiềm năng.
+4. PHÂN TÍCH CHUYÊN MÔN SÂU: Mọi nhận xét phải mang tính chuyên gia tài chính cấp cao (VC/PE). VIẾT THẬT DÀI, CHI TIẾT VÀ SẮC BÉN.
+5. Mỗi "reason" trong breakdown phải phân tích cặn kẽ lý do được điểm đó (tối thiểu 4-5 câu, đưa ra bằng chứng thực tế).
+6. Cung cấp 3-4 "strengths", "weaknesses", và "recommendations". MỖI MỤC PHẢI VIẾT DÀI TỐI THIỂU 50-80 CHỮ, có dẫn chứng/giải thích rõ ràng, chuyên sâu.
+7. Trong "funding_scenario", các chiến lược và lộ trình phải được mô tả thuyết phục, bao quát rủi ro và tiềm năng (mỗi phần tối thiểu 100 chữ).
 8. BẮT BUỘC cung cấp 2 phương án (scenarios) khác nhau (Phương án A - Đầu tư mạnh mẽ và Phương án B - Tinh gọn/Dự phòng).
+9. KIỂM TRA KỸ ĐỊNH DẠNG JSON. Tuyệt đối không được thiếu dấu phẩy (,) giữa các phần tử trong mảng hoặc giữa các trường trong object. Đảm bảo JSON hoàn toàn hợp lệ.
 
 FORMAT JSON:
 {{
   "score": <tổng điểm 0-100>,
   "breakdown": [
-    {{"name": "<tên tiêu chí>", "score": <điểm đạt được>, "max": <điểm tối đa>, "reason": "<lý do ngắn gọn>"}}
+    {{"name": "<tên tiêu chí>", "score": <điểm đạt được>, "max": <điểm tối đa>, "reason": "<phân tích cực kỳ chi tiết, sắc bén, tối thiểu 4-5 câu>"}}
   ],
-  "strengths": ["<điểm mạnh 1>", "<điểm mạnh 2>"],
-  "weaknesses": ["<điểm yếu 1>", "<điểm yếu 2>"],
-  "recommendations": ["<khuyến nghị 1>", "<khuyến nghị 2>"],
+  "strengths": ["<điểm mạnh 1: CỤ THỂ, phân tích tối thiểu 50 chữ, có số liệu chứng minh>", "<điểm mạnh 2: INSIGHT SÂU, tối thiểu 50 chữ>"],
+  "weaknesses": ["<điểm yếu 1: CHỈ RA RỦI RO CỤ THỂ, có số liệu, tối thiểu 50 chữ>", "<điểm yếu 2: PHÂN TÍCH TÁC ĐỘNG, tối thiểu 50 chữ>"],
+  "recommendations": ["<khuyến nghị 1: ACTION ITEM CỤ THỂ, có timeline rõ ràng, tối thiểu 50 chữ>", "<khuyến nghị 2: CHIẾN LƯỢC DÀI HẠN, tối thiểu 50 chữ>"],
   "risk_if_missing": "<rủi ro nếu thiếu tài liệu này>",
   "risk_if_weak": "<rủi ro nếu tài liệu yếu>",
   "funding_scenario": {{
@@ -314,13 +315,14 @@ FORMAT JSON:
   }}
 }}
 
-Chấm điểm vô cùng khắt khe, khách quan và chuyên sâu dựa trên bằng chứng thực tế trong tài liệu. Đồng thời xây dựng kịch bản gọi vốn, cấu trúc deal (Deal Structure) và lộ trình (Runway/Milestones) chi tiết ở mức độ chuyên gia ngân hàng đầu tư. Trả về JSON hợp lệ."""
+Chấm điểm vô cùng khắt khe, khách quan và chuyên sâu dựa trên bằng chứng thực tế trong tài liệu. Đồng thời xây dựng kịch bản gọi vốn, cấu trúc deal (Deal Structure) và lộ trình (Runway/Milestones) chi tiết ở mức độ chuyên gia ngân hàng đầu tư.
+LƯU Ý QUAN TRỌNG: TRẢ VỀ JSON HỢP LỆ. TUYỆT ĐỐI KHÔNG SỬ DỤNG DẤU NGOẶC KÉP (") BÊN TRONG NỘI DUNG CÁC TRƯỜNG VĂN BẢN (NẾU CẦN TRÍCH DẪN, HÃY DÙNG DẤU NGOẶC ĐƠN (')). KHÔNG SỬ DỤNG KÝ TỰ XUỐNG DÒNG (\n) CHƯA ĐƯỢC ESCAPE."""
 
 
 
     try:
         response = get_client().models.generate_content(
-            model='gemini-2.5-flash',
+            model='gemini-2.5-pro',
             contents=prompt,
             config=types.GenerateContentConfig(
                 temperature=0.3,
@@ -329,6 +331,20 @@ Chấm điểm vô cùng khắt khe, khách quan và chuyên sâu dựa trên b�
             )
         )
         result_text = response.text.strip()
+        
+        # Xử lý trường hợp model trả về markdown code blocks
+        if "```json" in result_text:
+            result_text = result_text.split("```json")[1].split("```")[0].strip()
+        elif "```" in result_text:
+            result_text = result_text.split("```")[1].split("```")[0].strip()
+            
+        import re
+        json_match = re.search(r'\{[\s\S]*\}', result_text)
+        if json_match:
+            result_text = json_match.group(0)
+            
+        result_text = re.sub(r',(\s*[}\]])', r'\1', result_text)
+            
         result = json.loads(result_text)
         
         # Ensure required fields exist

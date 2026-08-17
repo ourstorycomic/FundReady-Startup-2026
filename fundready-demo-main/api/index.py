@@ -82,10 +82,23 @@ async def analyze_document(request: DocumentAnalysisRequest):
             }
             
         # Map fields to what frontend api.js expects
+        final_score = result.get("score", 0)
+        final_grade = result.get("grade", "N/A")
+        
+        if final_grade == "N/A" or not final_grade:
+            if final_score >= 85:
+                final_grade = "A (Rất tốt)"
+            elif final_score >= 70:
+                final_grade = "B (Khá)"
+            elif final_score >= 50:
+                final_grade = "C (Trung bình)"
+            else:
+                final_grade = "D (Cần cải thiện)"
+                
         return {
-            "score": result.get("score", 0),
+            "score": final_score,
             "max_score": 100,
-            "grade": result.get("grade", "N/A"),
+            "grade": final_grade,
             "breakdown": result.get("breakdown", []),
             "strengths": result.get("strengths", []),
             "weaknesses": result.get("weaknesses", []),

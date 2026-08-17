@@ -157,7 +157,7 @@ async def analyze_with_groq(document_type: str, content: str, desired_amount: st
     base_result = calculate_base_score(content, document_type)
     
     # Step 2: Chỉ gọi AI nếu cần qualitative analysis
-    if base_result["score"] < 20 or len(content) < 500:
+    if base_result["score"] < 20 or len(content) < 50:
         # Không đủ thông tin, trả về base result
         result = {
             "score": base_result["score"],
@@ -276,7 +276,9 @@ Phân tích tài liệu "{doc_info['name']}" theo bộ tiêu chí chuyên gia:
 2. KHÔNG khen ngợi chung chung, PHẢI có bằng chứng cụ thể từ tài liệu
 3. Dùng thuật ngữ chuyên môn: TAM/SAM/SOM, CAC/LTV, burn rate, runway, unit economics, moat, CAGR, EBITDA, v.v.
 4. Mỗi recommendation PHẢI có action item cụ thể, timeline, và KPI định lượng
-5. MỖI LUẬN ĐIỂM Ở `reason`, `strengths`, `weaknesses` PHẢI DÀI ÍT NHẤT 50 CHỮ. KHÔNG ĐƯỢC LÀM SƠ SÀI. VIẾT THẬT DÀI VÀ CHUYÊN SÂU NHƯ MỘT BÁO CÁO TÀI CHÍNH!"""
+5. MỖI LUẬN ĐIỂM Ở `reason`, `strengths`, `weaknesses` PHẢI DÀI ÍT NHẤT 50-80 CHỮ. KHÔNG ĐƯỢC LÀM SƠ SÀI. VIẾT THẬT DÀI VÀ CHUYÊN SÂU NHƯ MỘT BÁO CÁO TÀI CHÍNH!
+6. BẮT BUỘC cung cấp ít nhất 2 phương án (scenarios) khác nhau (Ví dụ: Phương án A - Đầu tư mạnh mẽ và Phương án B - Tinh gọn/Dự phòng).
+7. KIỂM TRA KỸ ĐỊNH DẠNG JSON. Đảm bảo JSON hoàn toàn hợp lệ.
 
     try:
         # Retry logic với exponential backoff
@@ -294,9 +296,10 @@ YÊU CẦU BẮT BUỘC:
 2. KHÔNG khen ngợi suông, PHẢI có bằng chứng cụ thể từ tài liệu
 3. TRÍCH DẪN SỐ LIỆU thực tế từ tài liệu để chứng minh mỗi điểm
 4. Mỗi recommendation PHẢI có action item cụ thể, timeline, và KPI định lượng
-5. Độ dài tối thiểu: reason 4-5 câu, strengths/weaknesses 2-3 câu, recommendations 2-3 câu
+5. Độ dài tối thiểu: reason 4-5 câu, strengths/weaknesses 4-5 câu (tối thiểu 50-80 chữ), recommendations 4-5 câu. Phân tích CỰC KỲ DÀI VÀ CHI TIẾT.
 6. So sánh với benchmark ngành khi có thể
 7. Đưa ra nhận định DỨT KHOÁT về investment readiness
+8. BẮT BUỘC trả về 2 phương án (scenarios) gọi vốn khác nhau trong mảng scenarios.
 
 VÍ DỤ VỀ PHÂN TÍCH SẮC BÉN:
 - TỐT: "Doanh thu tăng trưởng 253% CAGR (từ 10 tỷ lên 35 tỷ) vượt xa benchmark ngành SaaS 30%. Unit economics xuất sắc với LTV/CAC 13.8x so với benchmark 3x. Tuy nhiên, burn rate 500 triệu/tháng cao hơn mức an toàn 300 triệu, runway chỉ còn 6 tháng."
@@ -336,6 +339,7 @@ Luôn trả lời bằng JSON hợp lệ với đầy đủ các field yêu cầ
             "strengths": ai_result.get("strengths", []),
             "weaknesses": ai_result.get("weaknesses", []),
             "recommendations": ai_result.get("recommendations", []),
+            "funding_scenario": ai_result.get("funding_scenario", None),
             "expert_insight": ai_result.get("expert_insight", ""),
             "investment_thesis": ai_result.get("investment_thesis", ""),
             "risk_if_missing": ai_result.get("risk_if_missing", "Không xác định"),
