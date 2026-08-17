@@ -355,7 +355,7 @@ LƯU Ý QUAN TRỌNG: TRẢ VỀ JSON HỢP LỆ. TUYỆT ĐỐI KHÔNG SỬ D�
 
     try:
         response = get_client().models.generate_content(
-            model='gemini-2.5-pro',
+            model='gemini-1.5-pro',
             contents=prompt,
             config=types.GenerateContentConfig(
                 temperature=0.3,
@@ -509,7 +509,7 @@ Chấm điểm KHÁCH QUAN, dựa trên BẰNG CHỨNG trong mô tả. Không su
 
     try:
         response = get_client().models.generate_content(
-            model='gemini-3.6-flash',
+            model='gemini-1.5-flash',
             contents=prompt,
             config=types.GenerateContentConfig(
                 temperature=0.3,
