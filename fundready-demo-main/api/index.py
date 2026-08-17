@@ -189,7 +189,8 @@ async def upload_document(
 async def upload_multiple_documents(
     files: List[UploadFile] = File(...),
     document_type: str = Form("pitchdeck"),
-    desired_amount: Optional[str] = Form(None)
+    desired_amount: Optional[str] = Form(None),
+    content: Optional[str] = Form(None)
 ):
     """
     Gom tất cả file thành 1 prompt duy nhất, gọi Groq 1 lần.
@@ -238,6 +239,14 @@ async def upload_multiple_documents(
             except Exception as e:
                 logger.error(f"Error processing {file.filename}: {str(e)}")
                 errors.append({"filename": file.filename, "error": str(e)})
+                
+        if content and len(content.strip()) > 0:
+            extracted.append({
+                "filename": "Mô tả người dùng nhập",
+                "content": content.strip(),
+                "content_length": len(content.strip())
+            })
+            logger.info(f"Added manual description text of length {len(content.strip())}")
         
         if not extracted:
             raise HTTPException(status_code=400, detail=f"Không thể đọc file nào. Lỗi: {errors}")

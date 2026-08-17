@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Pitch Deck - Nexus Digital JSC</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .slide {
+            background-color: #1e293b;
+            width: 900px;
+            height: 525px;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            page-break-after: always;
+            border-left: 8px solid #38bdf8;
+        }
+        .slide-header {
+            border-bottom: 2px solid #334155;
+            padding-bottom: 15px;
+        }
+        .slide-header h2 {
+            margin: 0;
+            color: #38bdf8;
+            font-size: 22pt;
+            text-transform: uppercase;
+        }
+        .slide-header p {
+            margin: 5px 0 0;
+            color: #94a3b8;
+            font-size: 11pt;
+        }
+        .slide-body {
+            font-size: 14pt;
+            line-height: 1.6;
+            color: #e2e8f0;
+            flex-grow: 1;
+            margin-top: 20px;
+        }
+        ul { margin: 0; padding-left: 20px; }
+        li { margin-bottom: 12px; }
+        .highlight { color: #38bdf8; font-weight: bold; }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .card {
+            background-color: #0f172a;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+        .card h4 { margin: 0 0 8px 0; color: #f43f5e; font-size: 13pt; }
+        .card-green h4 { color: #34d399; }
+        .slide-footer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10pt;
+            color: #64748b;
+            border-top: 1px solid #334155;
+            padding-top: 10px;
+        }
+        @media print {
+            body { background-color: #fff; padding: 0; }
+            .slide { 
+                background-color: #fff; 
+                color: #000; 
+                box-shadow: none; 
+                border: 1px solid #ccc; 
+                border-left: 8px solid #003366;
+                width: 100%; 
+                height: 100vh;
+            }
+            .slide-header h2 { color: #003366; }
+            .slide-body { color: #222; }
+            .card { background-color: #f8fafc; border: 1px solid #ccc; }
+            .highlight { color: #003366; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SLIDE 1 -->
+    <div class="slide">
+        <div class="slide-header">
+            <h2>NEXUS DIGITAL JSC</h2>
+            <p>Hệ sinh thái B2B SaaS Quản trị & Tối ưu hóa Thương mại Điện tử Đa kênh</p>
+        </div>
+        <div class="slide-body" style="text-align: center; display: flex; flex-direction: column; justify-content: center;">
+            <h1 style="font-size: 28pt; color: #38bdf8; margin-bottom: 10px;">BỨT PHÁ DOANH THU TMĐT BẰNG AI</h1>
+            <p style="font-size: 16pt; color: #94a3b8;">Tự động hóa vận hành - Tối ưu chi phí CSKH - Phân tích dữ liệu thông minh</p>
+            <p style="margin-top: 30px; font-style: italic;">Đơn vị tiền tệ báo cáo quy chuẩn: <strong>VND</strong></p>
+        </div>
+        <div class="slide-footer">
+            <span>Pitch Deck 2026</span>
+            <span>Trình bày bởi: Ban Giám đốc Nexus Digital</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide">
+        <div class="slide-header">
+            <h2>1. VẤN ĐỀ THỊ TRƯỜNG (THE PROBLEM)</h2>
+            <p>Thách thức lớn của các nhà bán lẻ đa kênh & Thương hiệu D2C</p>
+        </div>
+        <div class="slide-body grid-2">
+            <div class="card">
+                <h4>Quản lý vận hành phân tán</h4>
+                <p>Tốn 4-6 giờ/ngày để đồng bộ thủ công tồn kho, đơn hàng và giá bán giữa Shopee, TikTok Shop, Lazada.</p>
+            </div>
+            <div class="card">
+                <h4>Chi phí CSKH cao</h4>
+                <p>Chi phí thuê nhân sự trực chat 24/7 đắt đỏ nhưng vẫn bị sót đơn và tỷ lệ chuyển đổi chốt đơn thấp.</p>
+            </div>
+            <div class="card">
+                <h4>Mù mờ chỉ số tài chính</h4>
+                <p>Không tính toán chính xác được lợi nhuận thực tế sau khi trừ chi phí sàn, chi phí quảng cáo và hàng hoàn.</p>
+            </div>
+            <div class="card">
+                <h4>Tồn kho không tối ưu</h4>
+                <p>Dễ đứt gãy chuỗi cung ứng hoặc tồn kho kéo dài do thiếu công cụ dự báo nhu cầu chính xác.</p>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Nexus Digital</span>
+            <span>Trang 2</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide">
+        <div class="slide-header">
+            <h2>2. GIẢI PHÁP HỆ SINH THÁI NEXUS (THE SOLUTION)</h2>
+            <p>Bộ giải pháp SaaS toàn diện dành cho thương mại điện tử</p>
+        </div>
+        <div class="slide-body grid-2">
+            <div class="card card-green">
+                <h4>Nexus E-Com Hub</h4>
+                <p>Nền tảng quản trị đa sàn: Đồng bộ tồn kho, giá bán và xử lý đơn hàng tự động thời gian thực (Real-time).</p>
+            </div>
+            <div class="card card-green">
+                <h4>Nexus AI Care[cite: 1]</h4>
+                <p>Trợ lý Chatbot AI tư vấn thông minh, tự động chốt đơn 24/7 giúp giảm 60% chi phí nhân sự[cite: 1].</p>
+            </div>
+            <div class="card card-green" style="grid-column: span 2;">
+                <h4>Nexus BI & Analytics[cite: 1]</h4>
+                <p>Hệ thống Trí tuệ kinh doanh phân tích lợi nhuận thực tế và dự báo nhu cầu hàng tồn kho bằng thuật toán AI[cite: 1].</p>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Nexus Digital</span>
+            <span>Trang 3</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="slide">
+        <div class="slide-header">
+            <h2>3. MÔ HÌNH KINH DOANH SAAS (BUSINESS MODEL)</h2>
+            <p>Nguồn thu đăng ký định kỳ linh hoạt cho mọi quy mô doanh nghiệp</p>
+        </div>
+        <div class="slide-body">
+            <ul>
+                <li><span class="highlight">Gói Starter:</span> <strong>725.000 VND / tháng</strong> (hoặc <em>8.700.000 VND / năm</em>)<br>Dành cho gian hàng SMBs mới mở rộng, đồng bộ 02 gian hàng đa sàn.</li>
+                <li><span class="highlight">Gói Professional:</span> <strong>1.975.000 VND / tháng</strong> (hoặc <em>23.700.000 VND / năm</em>)<br>Dành cho thương hiệu D2C, tích hợp Nexus AI Care & BI Analytics tự động[cite: 1].</li>
+                <li><span class="highlight">Gói Enterprise:</span> <strong>Thỏa thuận theo nhu cầu</strong><br>Hệ thống tùy chỉnh (Customized), hạ tầng Server riêng biệt và kết nối API chuyên sâu.</li>
+            </ul>
+        </div>
+        <div class="slide-footer">
+            <span>Nexus Digital</span>
+            <span>Trang 4</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 5 -->
+    <div class="slide">
+        <div class="slide-header">
+            <h2>4. KẾT QUẢ KINH DOANH & CHỈ SỐ TRACTION</h2>
+            <p>Hiệu quả tài chính & Tăng trưởng ấn tượng</p>
+        </div>
+        <div class="slide-body grid-2">
+            <div class="card card-green">
+                <h4>ARR (Doanh thu hàng năm)</h4>
+                <p class="highlight" style="font-size: 20pt; margin: 5px 0;">10.500.000.000 VND</p>
+                <p>(Tương đương ~35.000 USD/tháng)</p>
+            </div>
+            <div class="card card-green">
+                <h4>Tập Khách Hàng Trả Phí</h4>
+                <p class="highlight" style="font-size: 20pt; margin: 5px 0;">> 500 Doanh nghiệp</p>
+                <p>SMBs & Thương hiệu D2C toàn quốc</p>
+            </div>
+            <div class="card card-green" style="grid-column: span 2;">
+                <h4>Hiệu Quả Kinh Tế Đơn Vị (Unit Economics)</h4>
+                <p>• <strong>CAC (Chi phí thu hút KH):</strong> 2.625.000 VND / KH</p>
+                <p>• <strong>LTV (Giá trị vòng đời KH):</strong> 36.250.000 VND / KH</p>
+                <p>• <strong>Tỷ lệ LTV / CAC:</strong> <span class="highlight">13,8x</span> (Hiệu quả tăng trưởng vượt trội)</p>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Nexus Digital</span>
+            <span>Trang 5</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 6 -->
+    <div class="slide">
+        <div class="slide-header">
+            <h2>5. KẾ HOẠCH SỬ DỤNG VỐN (SERIES A)</h2>
+            <p>Huy động thành công 5.000.000.000 VND từ 02 Nhà đầu tư</p>
+        </div>
+        <div class="slide-body">
+            <p>Tổng nguồn vốn huy động <strong>5,0 tỷ VND</strong> (Từ Quỹ Alpha & Bà Trần Hương Liên) sẽ được phân bổ[cite: 1]:</p>
+            <ul>
+                <li><span class="highlight">50% (2.500.000.000 VND) - R&D Công nghệ:</span> Nâng cấp AI Engine, hoàn thiện hệ sinh thái Nexus và kết nối API quốc tế[cite: 1].</li>
+                <li><span class="highlight">30% (1.500.000.000 VND) - Marketing & Sales:</span> Mở rộng đội ngũ tư vấn B2B và thực hiện các chiến dịch thu hút khách hàng mới[cite: 1].</li>
+                <li><span class="highlight">20% (1.000.000.000 VND) - Vận hành & Hạ tầng:</span> Tuyển dụng nhân sự cấp cao, nâng cấp hạ tầng Cloud Server và duy trì chứng nhận ISO/IEC 27001, DPIA[cite: 1].</li>
+            </ul>
+        </div>
+        <div class="slide-footer">
+            <span>Nexus Digital</span>
+            <span>Trang 6</span>
+        </div>
+    </div>
+
+</body>
+</html>

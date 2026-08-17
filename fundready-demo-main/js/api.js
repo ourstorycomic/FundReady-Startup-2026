@@ -4,6 +4,8 @@ const API_BASE = window.location.hostname === 'localhost' || window.location.hos
     : "";
 
 // Mock data strictly for visual demonstration of the premium UI
+let globalUploadedFiles = [];
+
 const mockFullData = {
     "score": {
         "total": 34, "maximum": 100, "grade": "Seed - Chưa đủ điều kiện gọi vốn VC",
@@ -33,9 +35,9 @@ async function handleAnalyze() {
     const descInput = document.getElementById('descInput');
     const desc = descInput ? descInput.value.trim() : '';
     
-    if (!desc) {
+    if (!desc && globalUploadedFiles.length === 0) {
         // Optional: show a clean inline error instead of alert
-        alert("Vui lòng nhập mô tả doanh nghiệp.");
+        alert("Vui lòng nhập mô tả doanh nghiệp hoặc tải lên tài liệu.");
         return;
     }
 
@@ -58,11 +60,27 @@ async function handleAnalyze() {
         const fundingInput = document.getElementById('fundingAmount');
         const desired_amount = fundingInput ? fundingInput.value.trim() : '';
 
-        const response = await fetch(`${API_BASE}/api/analyze-document`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ document_type: docType, content: desc, desired_amount: desired_amount })
-        });
+        let response;
+        if (globalUploadedFiles.length > 0) {
+            const formData = new FormData();
+            formData.append('document_type', docType);
+            if (desired_amount) formData.append('desired_amount', desired_amount);
+            if (desc) formData.append('content', desc);
+            globalUploadedFiles.forEach(file => {
+                formData.append('files', file);
+            });
+            
+            response = await fetch(`${API_BASE}/api/upload-multiple-documents`, {
+                method: 'POST',
+                body: formData
+            });
+        } else {
+            response = await fetch(`${API_BASE}/api/analyze-document`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ document_type: docType, content: desc, desired_amount: desired_amount })
+            });
+        }
 
         if (!response.ok) throw new Error("Server error " + response.status);
         
@@ -178,6 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const fileInput = document.getElementById('fileInput');
     const uploadText = document.getElementById('uploadText');
     const uploadSubtext = document.getElementById('uploadSubtext');
+    const fileListContainer = document.getElementById('fileListContainer');
 
     if (uploadZone && fileInput) {
         uploadZone.addEventListener('click', () => {
@@ -198,32 +217,64 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             uploadZone.classList.remove('bg-brand-50', 'border-brand-500');
             if (e.dataTransfer.files.length > 0) {
-                handleFileUpload(e.dataTransfer.files[0]);
+                handleFileUpload(e.dataTransfer.files);
             }
         });
 
         fileInput.addEventListener('change', (e) => {
             if (e.target.files.length > 0) {
-                handleFileUpload(e.target.files[0]);
+                handleFileUpload(e.target.files);
             }
         });
     }
 
-    function handleFileUpload(file) {
-        uploadText.innerHTML = `<span class="text-green-600 font-bold flex items-center justify-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Đã đính kèm tài liệu thành công!</span>`;
-        uploadSubtext.textContent = `File: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+    function handleFileUpload(files) {
+        Array.from(files).forEach(file => {
+            if (!globalUploadedFiles.some(f => f.name === file.name)) {
+                globalUploadedFiles.push(file);
+            }
+        });
+        renderFileList();
+    }
+    
+    window.removeFile = function(index) {
+        globalUploadedFiles.splice(index, 1);
+        renderFileList();
+    };
+
+    function renderFileList() {
+        if (!fileListContainer) return;
         
-        // Optionally read text file to fill description (if txt/json)
-        if (file.name.endsWith('.txt') || file.name.endsWith('.json')) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                const descInput = document.getElementById('descInput');
-                if (descInput) {
-                    descInput.value = e.target.result;
-                }
-            };
-            reader.readAsText(file);
+        if (globalUploadedFiles.length === 0) {
+            uploadText.innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg> Tải lên hồ sơ (PDF, DOCX, XLSX) – tùy chọn`;
+            uploadSubtext.classList.add('hidden');
+            fileListContainer.innerHTML = '';
+            
+            // Allow re-uploading the same file
+            if (fileInput) fileInput.value = '';
+            return;
         }
+
+        uploadText.innerHTML = `<span class="text-green-600 font-bold flex items-center justify-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Đã đính kèm ${globalUploadedFiles.length} tài liệu!</span>`;
+        uploadSubtext.classList.add('hidden');
+        
+        fileListContainer.innerHTML = globalUploadedFiles.map((file, idx) => `
+            <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg shadow-sm">
+                <div class="flex items-center gap-3 overflow-hidden">
+                    <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <div class="truncate">
+                        <p class="text-sm font-semibold text-gray-800 truncate">${file.name}</p>
+                        <p class="text-xs text-gray-500">${(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                    </div>
+                </div>
+                <button type="button" onclick="removeFile(${idx})" class="text-red-500 hover:bg-red-50 p-1.5 rounded-md transition-colors flex-shrink-0">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+        `).join('');
+        
+        // Allow re-uploading the same file
+        if (fileInput) fileInput.value = '';
     }
 });
 
