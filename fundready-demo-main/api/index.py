@@ -201,7 +201,7 @@ async def upload_multiple_documents(
     
     try:
         from file_parser import extract_text_from_file
-        from groq_client import analyze_combined_documents
+        from groq_client import analyze_with_groq
         
         logger.info(f"Received {len(files)} files for analysis")
         
@@ -218,7 +218,8 @@ async def upload_multiple_documents(
         
         for file in files:
             try:
-                logger.info(f"Processing file: {file.filename}, size: {file.size}")
+                safe_filename = file.filename.encode('utf-8', 'ignore').decode('utf-8')
+                logger.info(f"Processing file: {safe_filename}, size: {file.size}")
                 
                 if file.size and file.size > 10 * 1024 * 1024:
                     errors.append({"filename": file.filename, "error": "File quá lớn (tối đa 10MB)"})
@@ -235,9 +236,10 @@ async def upload_multiple_documents(
                     "content": content,
                     "content_length": len(content)
                 })
-                logger.info(f"Successfully extracted {len(content)} chars from {file.filename}")
+                logger.info(f"Successfully extracted {len(content)} chars from {safe_filename}")
             except Exception as e:
-                logger.error(f"Error processing {file.filename}: {str(e)}")
+                safe_filename = file.filename.encode('utf-8', 'ignore').decode('utf-8')
+                logger.error(f"Error processing {safe_filename}: {str(e)}")
                 errors.append({"filename": file.filename, "error": str(e)})
                 
         if content and len(content.strip()) > 0:
@@ -253,8 +255,15 @@ async def upload_multiple_documents(
         
         logger.info(f"Calling Groq API with {len(extracted)} documents")
         
-        # Gom tất cả vào 1 prompt, gọi Groq 1 lần
-        combined_result = await analyze_combined_documents(extracted, document_type)
+        # Tạo nội dung tổng hợp từ các file
+        combined_content = ""
+        chars_per_file = 12000 // max(1, len(extracted))
+        for i, doc in enumerate(extracted, 1):
+            content_preview = doc['content'][:chars_per_file]
+            combined_content += f"\n\n=== TÀI LIỆU {i}: {doc['filename']} ===\n{content_preview}"
+        
+        # Dùng chung hàm analyze_with_groq để giữ nguyên cấu trúc JSON trả về cho UI
+        combined_result = await analyze_with_groq(document_type, combined_content, desired_amount or "Tùy chọn")
         
         logger.info("Groq API analysis completed successfully")
         

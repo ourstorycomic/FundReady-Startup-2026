@@ -82,7 +82,17 @@ async function handleAnalyze() {
             });
         }
 
-        if (!response.ok) throw new Error("Server error " + response.status);
+        if (!response.ok) {
+            let errMsg = `Server error ${response.status}`;
+            try {
+                const errData = await response.json();
+                if (errData.detail) {
+                    // FastAPI sometimes returns detail as an array of validation errors, or a string
+                    errMsg = typeof errData.detail === 'string' ? errData.detail : JSON.stringify(errData.detail);
+                }
+            } catch (e) {}
+            throw new Error(errMsg);
+        }
         
         const data = await response.json();
         renderResults(data);
@@ -229,12 +239,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleFileUpload(files) {
+        let addedCount = 0;
+        let limitReached = false;
+        
         Array.from(files).forEach(file => {
+            if (globalUploadedFiles.length >= 5) {
+                limitReached = true;
+                return;
+            }
             if (!globalUploadedFiles.some(f => f.name === file.name)) {
                 globalUploadedFiles.push(file);
+                addedCount++;
             }
         });
-        renderFileList();
+        
+        if (limitReached) {
+            alert("Hệ thống chỉ cho phép tải lên tối đa 5 tài liệu. Các tài liệu vượt quá giới hạn đã bị bỏ qua.");
+        }
+        
+        if (addedCount > 0 || files.length > 0) {
+            renderFileList();
+        }
     }
     
     window.removeFile = function(index) {

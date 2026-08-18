@@ -88,7 +88,7 @@ DOCUMENT_CRITERIA = {
 
 def get_cache_key(content: str) -> str:
     """Generate cache key from content"""
-    return hashlib.md5((content + "_v3_ultimate").encode()).hexdigest()
+    return hashlib.md5((content + "_v9_perfect").encode()).hexdigest()
 
 def get_cached_result(cache_key: str) -> Dict[str, Any]:
     """Get cached result if exists"""
@@ -187,117 +187,49 @@ async def analyze_with_groq(document_type: str, content: str, desired_amount: st
     
     prompt = f"""Bạn là **Tổng Giám đốc Đầu tư (Managing Partner)** tại một quỹ Venture Capital hàng đầu thế giới. Bạn nổi tiếng với những bản phân tích (Due Diligence) cực kỳ khắt khe, dài dòng, và chi tiết đến từng ngóc ngách.
 
-**PHONG CÁCH PHÂN TÍCH BẮT BUỘC:**
-- Bản báo cáo phải RẤT DÀI, RẤT CỤ THỂ, phân tích mổ xẻ mọi góc độ (Market, Product, Team, Financials, Risks).
-- Không được phép dùng những câu ngắn gọn. Mỗi câu phải chứa đựng data, insight, hoặc phân tích logic nhân quả.
-- Trích dẫn mọi con số, luận điểm từ tài liệu. Đưa ra so sánh với các Benchmark ngành (Ví dụ: tỷ suất lợi nhuận SaaS trung bình, CAC/LTV ngành E-commerce...).
-
 **NHIỆM VỤ:**
 Phân tích tài liệu "{doc_info['name']}" theo bộ tiêu chí chuyên gia:
-
 {criteria_text}
 
 **NỘI DUNG TÀI LIỆU:**
-{content[:25000]}
+{content[:1000]}
 
-**YÊU CẦU TRẢ LỜI (JSON format) - BẮT BUỘC PHẢI DÀI VÀ SIÊU CHI TIẾT (TỐI THIỂU 2000 TỪ TỔNG CỘNG):**
+YÊU CẦU BẮT BUỘC (SIÊU CHI TIẾT):
+1. CHỈ JSON hợp lệ, KHÔNG markdown.
+2. MỖI "reason" trong breakdown: mổ xẻ SÂU 250+ chữ/ý, lấy số liệu thực tế chứng minh.
+3. strengths, weaknesses, recommendations: MỖI mảng đúng 5 ý, MỖI Ý 100+ CHỮ.
+4. funding_scenario: Ghi rõ 2 phương án A (Tăng trưởng) & B (Tinh gọn), phân bổ tiền nong chi li từng cắc.
+
+FORMAT JSON:
 {{
-  "score": <điểm 0-100>,
-  "breakdown": [
-    {{
-      "name": "<tên tiêu chí>",
-      "score": <điểm cụ thể>,
-      "max": <điểm tối đa>,
-      "reason": "<PHÂN TÍCH SẮC BÉN DÀI TỐI THIỂU 300 CHỮ MỖI TIÊU CHÍ. Mổ xẻ sâu mọi điểm mạnh yếu, so sánh rủi ro, đưa ra lập luận chặt chẽ>"
-    }}
-  ],
-  "strengths": [
-    "<điểm mạnh 1: Lợi thế cốt lõi, RẤT CHI TIẾT tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
-    "<điểm mạnh 2: Rào cản gia nhập/Công nghệ, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
-    "<điểm mạnh 3: Thị trường/Business Model, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
-    "<điểm mạnh 4: Đội ngũ/Tài chính, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
-    "<điểm mạnh 5: Insight đặc biệt, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>"
-  ],
-  "weaknesses": [
-    "<điểm yếu 1: Rủi ro thị trường/đối thủ, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
-    "<điểm yếu 2: Rủi ro thực thi (Execution), cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
-    "<điểm yếu 3: Kẽ hở trong mô hình kinh doanh, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
-    "<điểm yếu 4: Vấn đề dòng tiền/Burn Rate, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
-    "<điểm yếu 5: Rủi ro phụ thuộc (Dependencies), cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>"
-  ],
-  "recommendations": [
-    "<khuyến nghị 1: Chiến lược tăng trưởng ngắn hạn, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
-    "<khuyến nghị 2: Tối ưu hóa sản phẩm/vận hành, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
-    "<khuyến nghị 3: Quản trị dòng tiền, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
-    "<khuyến nghị 4: Chiến lược Pivot/Dự phòng, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>",
-    "<khuyến nghị 5: Lời khuyên gọi vốn tiếp theo, cực kỳ chi tiết tối thiểu 150 chữ, trích dẫn số liệu cụ thể>"
-  ],
+  "score": <0-100>,
+  "breakdown": [{{"name": "...", "score": <int>, "max": <int>, "reason": "<phân tích chuyên sâu 250+ chữ>"}}],
+  "strengths": ["<ý 1: 100+ chữ>", "<ý 2: 100+ chữ>", "<ý 3: 100+ chữ>", "<ý 4: 100+ chữ>", "<ý 5: 100+ chữ>"],
+  "weaknesses": ["<ý 1: 100+ chữ>", "<ý 2: 100+ chữ>", "<ý 3: 100+ chữ>", "<ý 4: 100+ chữ>", "<ý 5: 100+ chữ>"],
+  "recommendations": ["<ý 1: 100+ chữ>", "<ý 2: 100+ chữ>", "<ý 3: 100+ chữ>", "<ý 4: 100+ chữ>", "<ý 5: 100+ chữ>"],
   "funding_scenario": {{
-    "desired_amount": "<Số tiền doanh nghiệp mong muốn, lấy từ {desired_amount} hoặc suy luận>",
-    "recommended_amount": "<Số tiền hệ thống khuyến nghị để đạt hiệu quả cao nhất (Vd: 5 tỷ, 10 tỷ)>",
+    "desired_amount": "<số tiền>",
+    "recommended_amount": "<số tiền quỹ khuyên>",
     "rationale": {{
-      "why_recommended": "<PHÂN TÍCH ĐỊNH GIÁ & VỐN (Ít nhất 400 chữ, mổ xẻ mọi góc độ): Tại sao mức tiền này là chuẩn nhất? Nó giúp startup sống được bao lâu (runway)? So sánh với số tiền startup muốn gọi.>",
-      "investment_needs": [
-        "<Nhu cầu cốt lõi 1>",
-        "<Nhu cầu cốt lõi 2>",
-        "<Nhu cầu cốt lõi 3>",
-        "<Nhu cầu cốt lõi 4>",
-        "<Nhu cầu cốt lõi 5>"
-      ]
+      "why_recommended": "<lý do 200+ chữ>",
+      "investment_needs": ["<nhu cầu 1>", "<nhu cầu 2>", "<nhu cầu 3>"]
     }},
     "scenarios": [
       {{
-        "name": "<Phương án A - Tăng trưởng Đột phá (Hyper-growth)>",
-        "focus_explanation": "<PHÂN TÍCH TẦM NHÌN (Ít nhất 250 chữ, phân tích chuyên sâu): Kịch bản này dành cho việc chiếm lĩnh thị trường ra sao? Cần thực thi thế nào?>",
+        "name": "<Phương án A - Hyper-growth>",
+        "focus_explanation": "<phân tích 150+ chữ>",
         "allocation": [
-          {{ 
-            "category": "<Hạng mục 1>", 
-            "percentage": "<%>", 
-            "amount": "<Số tiền>", 
-            "why_invest": "<LÝ DO CHI TIẾT (Ít nhất 150 chữ)>",
-            "action_items": ["<Hành động 1 rất chi tiết>", "<Hành động 2 rất chi tiết>", "<Hành động 3>"]
-          }},
-          {{ 
-            "category": "<Hạng mục 2>", 
-            "percentage": "<%>", 
-            "amount": "<Số tiền>", 
-            "why_invest": "<LÝ DO CHI TIẾT (Ít nhất 150 chữ)>",
-            "action_items": ["<Hành động 1>", "<Hành động 2>", "<Hành động 3>"]
-          }},
-          {{ 
-            "category": "<Hạng mục 3>", 
-            "percentage": "<%>", 
-            "amount": "<Số tiền>", 
-            "why_invest": "<LÝ DO CHI TIẾT (Ít nhất 150 chữ)>",
-            "action_items": ["<Hành động 1>", "<Hành động 2>"]
-          }}
+          {{"category": "<hạng mục 1>", "percentage": "<%>", "amount": "<tiền>", "why_invest": "<lý do 100+ chữ>", "action_items": ["<hành động 1>", "<hành động 2>"]}}
         ],
-        "expected_results": [
-          "<Kỳ vọng 1>", "<Kỳ vọng 2>", "<Kỳ vọng 3>", "<Kỳ vọng 4>"
-        ]
+        "expected_results": ["<kết quả 1>", "<kết quả 2>"]
       }},
       {{
-        "name": "<Phương án B - Tinh gọn & Sống sót (Bootstrapping & Survival)>",
-        "focus_explanation": "<PHÂN TÍCH TẦM NHÌN (Ít nhất 250 chữ, phân tích chuyên sâu): Kịch bản phòng thủ, cắt giảm chi phí, tập trung dòng tiền dương?>",
+        "name": "<Phương án B - Bootstrapping>",
+        "focus_explanation": "<phân tích 150+ chữ>",
         "allocation": [
-          {{ 
-            "category": "<Hạng mục 1>", 
-            "percentage": "<%>", 
-            "amount": "<Số tiền>", 
-            "why_invest": "<LÝ DO CHI TIẾT (Ít nhất 150 chữ)>",
-            "action_items": ["<Hành động 1 rất chi tiết>", "<Hành động 2 rất chi tiết>"]
-          }},
-          {{ 
-            "category": "<Hạng mục 2>", 
-            "percentage": "<%>", 
-            "amount": "<Số tiền>", 
-            "why_invest": "<LÝ DO CHI TIẾT (Ít nhất 150 chữ)>",
-            "action_items": ["<Hành động 1>", "<Hành động 2>"]
-          }}
+          {{"category": "<hạng mục 1>", "percentage": "<%>", "amount": "<tiền>", "why_invest": "<lý do 100+ chữ>", "action_items": ["<hành động 1>", "<hành động 2>"]}}
         ],
-        "expected_results": [
-          "<Kỳ vọng 1>", "<Kỳ vọng 2>", "<Kỳ vọng 3>"
-        ]
+        "expected_results": ["<kết quả 1>", "<kết quả 2>"]
       }}
     ],
     "burn_rate_runway": "<ĐÁNH GIÁ TÀI CHÍNH (Ít nhất 250 chữ, phân tích chuyên sâu): Tốc độ đốt tiền dự kiến? Bao nhiêu tháng thì hết vốn? Điểm hòa vốn ở đâu?>",
@@ -322,10 +254,8 @@ Phân tích tài liệu "{doc_info['name']}" theo bộ tiêu chí chuyên gia:
 1. Điểm số phải phản ánh ĐÚNG chất lượng (60-70 = trung bình, 80+ = tốt, 90+ = xuất sắc)
 2. KHÔNG khen ngợi chung chung, PHẢI có bằng chứng cụ thể từ tài liệu
 3. Dùng thuật ngữ chuyên môn: TAM/SAM/SOM, CAC/LTV, burn rate, runway, unit economics, moat, CAGR, EBITDA, v.v.
-4. Mỗi recommendation PHẢI có action item cụ thể, timeline, và KPI định lượng
-5. MỖI LUẬN ĐIỂM Ở `reason`, `strengths`, `weaknesses` PHẢI DÀI ÍT NHẤT 50-80 CHỮ. KHÔNG ĐƯỢC LÀM SƠ SÀI. VIẾT THẬT DÀI VÀ CHUYÊN SÂU NHƯ MỘT BÁO CÁO TÀI CHÍNH!
-6. BẮT BUỘC cung cấp ít nhất 2 phương án (scenarios) khác nhau (Ví dụ: Phương án A - Đầu tư mạnh mẽ và Phương án B - Tinh gọn/Dự phòng).
-7. KIỂM TRA KỸ ĐỊNH DẠNG JSON. Đảm bảo JSON hoàn toàn hợp lệ."""
+4. BẮT BUỘC cung cấp ít nhất 2 phương án (scenarios) khác nhau. MỖI LUẬN ĐIỂM Ở reason, strengths, weaknesses PHẢI DÀI ÍT NHẤT 150 CHỮ. KHÔNG ĐƯỢC LÀM SƠ SÀI. VIẾT THẬT DÀI VÀ CHUYÊN SÂU NHƯ MỘT BÁO CÁO TÀI CHÍNH!
+5. KIỂM TRA KỸ ĐỊNH DẠNG JSON. Đảm bảo JSON hoàn toàn hợp lệ."""
 
     try:
         # Retry logic với exponential backoff
@@ -363,11 +293,12 @@ Luôn trả lời bằng JSON hợp lệ với đầy đủ các field yêu cầ
                             "content": prompt
                         }
                     ],
-                    model="llama-3.3-70b-versatile",
+                    model="openai/gpt-oss-120b",
                     temperature=0.6,
-                    max_tokens=8000,
+                    max_tokens=5200,
                     response_format={"type": "json_object"}
                 )
+                print(f"Groq API Usage: {chat_completion.usage}", flush=True)
                 break
             except Exception as e:
                 if "413" in str(e) and attempt < max_retries - 1:
@@ -399,7 +330,12 @@ Luôn trả lời bằng JSON hợp lệ với đầy đủ các field yêu cầ
         return result
         
     except Exception as e:
-        print(f"Groq API error: {e}")
+        import traceback
+        import sys
+        print(f"Groq API error: {str(e)}", flush=True)
+        print("Traceback:", flush=True)
+        traceback.print_exc(file=sys.stdout)
+        sys.stdout.flush()
         # Fallback to base result
         result = {
             "score": base_result["score"],
@@ -554,7 +490,7 @@ Phân tích {len(documents)} tài liệu từ một doanh nghiệp theo bộ ti�
                             "content": prompt
                         }
                     ],
-                    model="llama-3.3-70b-versatile",
+                    model="openai/gpt-oss-120b",
                     temperature=0.6,  # Cân bằng giữa sáng tạo và chính xác
                     max_tokens=8000,
                     response_format={"type": "json_object"}

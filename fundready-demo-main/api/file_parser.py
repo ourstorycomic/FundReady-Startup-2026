@@ -66,7 +66,8 @@ async def extract_text_from_file(file: UploadFile) -> str:
     file_hash = get_file_hash(content)
     cached_text = get_cached_text(file_hash)
     if cached_text:
-        print(f"Cache hit for {filename}")
+        safe_filename = filename.encode('utf-8', 'ignore').decode('utf-8')
+        print(f"Cache hit for {safe_filename}")
         return cached_text
     
     # Extract text based on file type
