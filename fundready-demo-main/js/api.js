@@ -506,54 +506,82 @@ function renderSimulation(data) {
 
 
 window.downloadPDF = function() {
-    const element = document.getElementById('resultSection');
+    const originalElement = document.getElementById('resultSection');
     
-    // Capture original inline style to restore later
-    const originalStyle = element.getAttribute('style') || '';
+    // Hide buttons in original to avoid clone copying them
+    const buttons = originalElement.querySelectorAll('button');
+    const originalBtnDisplays = [];
+    buttons.forEach(btn => {
+        originalBtnDisplays.push(btn.style.display);
+        btn.style.display = 'none';
+    });
+
+    // Create a clone
+    const clone = originalElement.cloneNode(true);
     
-    // Temporarily fix styles for html2canvas
-    const animatedElements = element.querySelectorAll('.animate-on-scroll');
+    // Create a wrapper container at the top left of the document
+    const wrapper = document.createElement('div');
+    wrapper.style.position = 'absolute';
+    wrapper.style.top = '0';
+    wrapper.style.left = '0';
+    wrapper.style.width = '1024px'; // Fixed width for perfect A4 scaling
+    wrapper.style.background = '#ffffff';
+    wrapper.style.zIndex = '-9999'; // Hide behind other elements
+    wrapper.style.padding = '20px';
+    
+    // Fix animations and overflow in clone
+    const animatedElements = clone.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach(el => {
         el.style.opacity = '1';
         el.style.transform = 'none';
         el.classList.remove('animate-on-scroll');
     });
 
-    const hiddenElements = element.querySelectorAll('.overflow-hidden');
+    const hiddenElements = clone.querySelectorAll('.overflow-hidden');
     hiddenElements.forEach(el => {
         el.style.overflow = 'visible';
         el.classList.remove('overflow-hidden');
     });
     
-    // Hide buttons during capture
-    const buttons = element.querySelectorAll('button');
-    const originalBtnDisplays = [];
-    buttons.forEach(btn => {
-        originalBtnDisplays.push(btn.style.display);
-        btn.style.display = 'none';
-    });
-    
-    // Remove margins to prevent "cut off on the left"
-    element.style.setProperty('height', 'auto', 'important');
-    element.style.setProperty('overflow', 'visible', 'important');
-    element.style.setProperty('margin', '0', 'important');
-    element.style.setProperty('padding', '20px', 'important');
-    // DO NOT force width to 1200px, let it be fluid so html2pdf can scale it properly!
+    clone.style.height = 'auto';
+    clone.style.overflow = 'visible';
+
+    wrapper.appendChild(clone);
+    document.body.appendChild(wrapper);
 
     const opt = {
-        margin:       [10, 10, 10, 10], // Use mm margins instead of inches for better control
+        margin:       [10, 10, 10, 10], // 10mm margin
         filename:     'Bao-Cao-Goi-Von.pdf',
         image:        { type: 'jpeg', quality: 1.0 },
-        html2canvas:  { scale: 2, useCORS: true, scrollX: 0, scrollY: 0, windowWidth: 1024 }, // 1024px viewport
+        html2canvas:  { scale: 3, useCORS: true, scrollX: 0, scrollY: 0, windowWidth: 1024 }, // scale 3 for high res
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
         pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
     };
-
-    html2pdf().set(opt).from(element).save().then(() => {
-        // Restore styles and buttons
-        element.setAttribute('style', originalStyle);
+    
+    // Show loading state on original buttons
+    let oldText = "";
+    const primaryBtn = document.querySelector('button[onclick="downloadPDF()"]');
+    if(primaryBtn) {
+        oldText = primaryBtn.innerHTML;
         buttons.forEach((btn, i) => {
             btn.style.display = originalBtnDisplays[i];
+            btn.disabled = true;
         });
+        primaryBtn.innerHTML = '<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Đang tạo PDF...';
+    }
+
+    // Scroll to top to avoid any weird html2canvas scroll offset bugs
+    const currentScrollY = window.scrollY;
+    window.scrollTo(0, 0);
+
+    html2pdf().set(opt).from(wrapper).save().then(() => {
+        // Cleanup
+        document.body.removeChild(wrapper);
+        window.scrollTo(0, currentScrollY);
+        
+        if(primaryBtn) {
+            primaryBtn.innerHTML = oldText;
+            buttons.forEach(btn => btn.disabled = false);
+        }
     });
 };
