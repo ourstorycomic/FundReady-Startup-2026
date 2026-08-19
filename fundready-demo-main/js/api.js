@@ -506,38 +506,40 @@ function renderSimulation(data) {
 
 
 window.downloadPDF = function() {
-    const element = document.getElementById('resultSection');
-    if (!element) return;
+    const original = document.getElementById('resultSection');
+    if (!original) return;
 
-    // Change button text to show loading state (subtle)
-    const buttons = element.querySelectorAll('button');
-    const originalBtnDisplays = [];
-    buttons.forEach(btn => {
-        originalBtnDisplays.push(btn.style.display);
-        btn.style.display = 'none'; // Hide buttons from PDF
-    });
+    // Show beautiful loading screen
+    const loadingOverlay = document.createElement('div');
+    loadingOverlay.id = 'pdf-loading-overlay';
+    loadingOverlay.style.zIndex = '99999';
+    loadingOverlay.innerHTML = '<div class="fixed inset-0 bg-white/90 backdrop-blur-sm flex flex-col items-center justify-center transition-all duration-300"><svg class="animate-spin h-14 w-14 text-brand-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="text-2xl font-extrabold text-gray-900 mb-2">Đang xử lý Báo Cáo PDF</span><span class="text-gray-500 font-medium">Vui lòng đợi trong giây lát...</span></div>';
+    document.body.appendChild(loadingOverlay);
 
-    const animatedElements = element.querySelectorAll('.animate-on-scroll');
-    animatedElements.forEach(el => {
+    // Create a detached clone for perfect rendering
+    const clone = original.cloneNode(true);
+    
+    // Completely strip all animation classes
+    clone.classList.remove('hidden', 'animate-on-scroll', 'is-visible', 'fade-in-section');
+    clone.style.opacity = '1';
+    clone.style.transform = 'none';
+    
+    // CRITICAL: Match the original container width (max-w-4xl = 896px) to prevent left/right layout shifts!
+    clone.style.width = '896px'; 
+    clone.style.maxWidth = '896px';
+    clone.style.margin = '0';
+    clone.style.padding = '20px';
+    clone.style.backgroundColor = '#ffffff';
+
+    const allDescendants = clone.querySelectorAll('*');
+    allDescendants.forEach(el => {
         el.style.opacity = '1';
         el.style.transform = 'none';
-        el.classList.remove('animate-on-scroll');
+        el.classList.remove('animate-on-scroll', 'overflow-hidden', 'fade-in-section');
+        if (el.tagName.toLowerCase() === 'button') {
+            el.remove(); // Remove buttons from PDF
+        }
     });
-
-    const hiddenElements = element.querySelectorAll('.overflow-hidden, [style*="overflow: hidden"]');
-    hiddenElements.forEach(el => {
-        el.style.overflow = 'visible';
-        el.classList.remove('overflow-hidden');
-    });
-
-    // CRITICAL: Disable smooth scrolling temporarily to make scrollTo INSTANT
-    const originalScrollBehavior = document.documentElement.style.scrollBehavior;
-    document.documentElement.style.scrollBehavior = 'auto';
-    
-    const currentScrollY = window.scrollY;
-    
-    // Jump to top instantly to prevent html2canvas coordinate bugs
-    window.scrollTo(0, 0);
 
     const opt = {
         margin:       [15, 10, 15, 10], 
@@ -545,18 +547,18 @@ window.downloadPDF = function() {
         image:        { type: 'jpeg', quality: 1.0 },
         html2canvas:  { 
             scale: 2, 
-            useCORS: true, 
-            scrollY: 0,
-            scrollX: 0
+            useCORS: true,
+            scrollY: 0,           // CRITICAL: Fixes the blank space at the top of the PDF!
+            scrollX: 0,
+            windowWidth: 896      // CRITICAL: Matches clone width to prevent left cutoff!
         }, 
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
 
-    // Give the browser 50ms to register the instant scroll
+    // Give a short timeout for browser to prepare memory
     setTimeout(() => {
-        html2pdf().set(opt).from(element).toPdf().get('pdf').then(function (pdf) {
+        html2pdf().set(opt).from(clone).toPdf().get('pdf').then(function (pdf) {
             const totalPages = pdf.internal.getNumberOfPages();
-            
             for (let i = 1; i <= totalPages; i++) {
                 pdf.setPage(i);
                 pdf.setFontSize(10);
@@ -575,13 +577,7 @@ window.downloadPDF = function() {
                 pdf.line(10, 282, 200, 282); 
             }
         }).save().then(() => {
-            // Restore everything
-            document.documentElement.style.scrollBehavior = originalScrollBehavior;
-            window.scrollTo(0, currentScrollY);
-            
-            buttons.forEach((btn, i) => {
-                btn.style.display = originalBtnDisplays[i];
-            });
+            document.body.removeChild(loadingOverlay);
         });
-    }, 50);
+    }, 150);
 };
