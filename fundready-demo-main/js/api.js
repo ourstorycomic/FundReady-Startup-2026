@@ -565,13 +565,12 @@ window.downloadPDF = function() {
             useCORS: true,
             scrollY: 0,
             scrollX: 0
-            // DO NOT set windowWidth or windowHeight! Let html2canvas use the element's natural bounds!
         }, 
-        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-        pagebreak:    { mode: ['css', 'legacy'] }
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        // REMOVED pagebreak: { mode: ['css', 'legacy'] } TO FIX THE MASSIVE BLANK SPACE!
     };
 
-    // Wait 500ms to ensure the browser has fully reflowed and GSAP hasn't ruined the opacity
+    // Wait 500ms to ensure the browser has fully reflowed
     setTimeout(() => {
         // Double check opacity right before capturing
         element.style.setProperty('opacity', '1', 'important');
