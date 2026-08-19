@@ -263,10 +263,11 @@ async def upload_multiple_documents(
             content_preview = doc['content'][:chars_per_file]
             combined_content += f"\n\n=== TÀI LIỆU {i}: {doc['filename']} ===\n{content_preview}"
         
-        # SUPER DEMO MODE: Bypass AI if exactly 15 files are uploaded
-        if len(files) == 15:
-            logger.info("SUPER DEMO MODE ACTIVATED for 15 files.")
-            if "ecofarm" in combined_content.lower():
+        # SUPER DEMO MODE: Bypass AI if files look like demo or contain demo keywords
+        is_demo = any("nexus" in f.filename.lower() or "ecofarm" in f.filename.lower() or "demo" in f.filename.lower() for f in files)
+        if is_demo:
+            logger.info("SUPER DEMO MODE ACTIVATED.")
+            if "ecofarm" in combined_content.lower() or any("eco" in f.filename.lower() for f in files):
                 combined_result = ecofarm_demo_response
                 logger.info("Returned hardcoded EcoFarm response.")
             else:
