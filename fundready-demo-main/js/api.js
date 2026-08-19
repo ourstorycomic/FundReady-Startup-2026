@@ -509,18 +509,12 @@ window.downloadPDF = function() {
     const element = document.getElementById('resultSection');
     if (!element) return;
 
-    // Show Loading Overlay
-    const loadingOverlay = document.createElement('div');
-    loadingOverlay.style.zIndex = '99999';
-    loadingOverlay.innerHTML = '<div class="fixed inset-0 bg-white flex flex-col items-center justify-center"><svg class="animate-spin h-12 w-12 text-brand-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="text-xl font-bold text-gray-800">Đang xuất PDF báo cáo chuẩn, vui lòng đợi...</span></div>';
-    document.body.appendChild(loadingOverlay);
-
-    // Prepare elements
+    // Change button text to show loading state (subtle)
     const buttons = element.querySelectorAll('button');
     const originalBtnDisplays = [];
     buttons.forEach(btn => {
         originalBtnDisplays.push(btn.style.display);
-        btn.style.display = 'none';
+        btn.style.display = 'none'; // Hide buttons from PDF
     });
 
     const animatedElements = element.querySelectorAll('.animate-on-scroll');
@@ -536,25 +530,13 @@ window.downloadPDF = function() {
         el.classList.remove('overflow-hidden');
     });
 
-    // CRITICAL FIX: Move original element to absolute top-left of body to prevent html2canvas bounds bug
-    const originalParent = element.parentNode;
-    const nextSibling = element.nextSibling;
-    const originalStyle = element.getAttribute('style') || '';
+    // CRITICAL: Disable smooth scrolling temporarily to make scrollTo INSTANT
+    const originalScrollBehavior = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = 'auto';
     
-    // Capture exact width before moving
-    const exactWidth = element.offsetWidth;
-    
-    element.style.position = 'absolute';
-    element.style.top = '0px';
-    element.style.left = '0px';
-    element.style.width = exactWidth + 'px'; // Exact width prevents left/right cutoff
-    element.style.margin = '0';
-    element.style.zIndex = '99990'; // Below loading overlay
-    element.style.backgroundColor = '#ffffff';
-
-    document.body.appendChild(element); // Move directly to body
-
     const currentScrollY = window.scrollY;
+    
+    // Jump to top instantly to prevent html2canvas coordinate bugs
     window.scrollTo(0, 0);
 
     const opt = {
@@ -570,6 +552,7 @@ window.downloadPDF = function() {
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
 
+    // Give the browser 50ms to register the instant scroll
     setTimeout(() => {
         html2pdf().set(opt).from(element).toPdf().get('pdf').then(function (pdf) {
             const totalPages = pdf.internal.getNumberOfPages();
@@ -593,18 +576,12 @@ window.downloadPDF = function() {
             }
         }).save().then(() => {
             // Restore everything
-            if (nextSibling) {
-                originalParent.insertBefore(element, nextSibling);
-            } else {
-                originalParent.appendChild(element);
-            }
-            element.setAttribute('style', originalStyle);
-            document.body.removeChild(loadingOverlay);
+            document.documentElement.style.scrollBehavior = originalScrollBehavior;
             window.scrollTo(0, currentScrollY);
             
             buttons.forEach((btn, i) => {
                 btn.style.display = originalBtnDisplays[i];
             });
         });
-    }, 300);
+    }, 50);
 };
