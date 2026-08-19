@@ -190,7 +190,7 @@ function renderResults(data) {
     
     // Scroll to results smoothly
     setTimeout(() => {
-        resultSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // resultSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
 }
 
@@ -500,7 +500,7 @@ function renderSimulation(data) {
     
     // Scroll to results smoothly
     setTimeout(() => {
-        simResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // simResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 200);
 }
 
@@ -562,3 +562,4 @@ window.downloadPDF = function() {
         }
     });
 };
+
