@@ -508,6 +508,11 @@ function renderSimulation(data) {
 window.downloadPDF = function() {
     const element = document.getElementById('resultSection');
     
+    // Show a global SOLID loading overlay to hide the UI jump
+    const loadingOverlay = document.createElement('div');
+    loadingOverlay.innerHTML = '<div class="fixed inset-0 bg-white z-[9999] flex flex-col items-center justify-center"><svg class="animate-spin h-12 w-12 text-brand-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="text-xl font-bold text-gray-800">Đang xuất PDF nét cao, vui lòng đợi...</span></div>';
+    document.body.appendChild(loadingOverlay);
+
     // Hide buttons
     const buttons = element.querySelectorAll('button');
     const originalBtnDisplays = [];
@@ -530,12 +535,27 @@ window.downloadPDF = function() {
         el.classList.remove('overflow-hidden');
     });
 
-    // Remove margin/padding from the resultSection to avoid left offsets
+    // Save original position in DOM
+    const parent = element.parentNode;
+    const nextSibling = element.nextSibling;
     const originalStyle = element.getAttribute('style') || '';
+
+    // Create a temporary container at absolute 0,0 to fix all cutoff issues
+    const tempContainer = document.createElement('div');
+    tempContainer.style.position = 'absolute';
+    tempContainer.style.top = '0';
+    tempContainer.style.left = '0';
+    tempContainer.style.width = '1280px'; // Fixed width for A4 ratio
+    tempContainer.style.backgroundColor = '#ffffff';
+    tempContainer.style.zIndex = '1000'; // Below the loading overlay
+    
+    // Move element to tempContainer
+    tempContainer.appendChild(element);
+    document.body.appendChild(tempContainer);
+
     element.style.setProperty('margin', '0', 'important');
-    element.style.setProperty('padding', '20px', 'important');
+    element.style.setProperty('padding', '40px', 'important'); // Add padding for aesthetics
     element.style.setProperty('width', '100%', 'important');
-    element.style.setProperty('max-width', '1280px', 'important');
     element.style.setProperty('height', 'auto', 'important');
     element.style.setProperty('overflow', 'visible', 'important');
 
@@ -543,30 +563,31 @@ window.downloadPDF = function() {
         margin:       [10, 10, 10, 10], // mm
         filename:     'Bao-Cao-Goi-Von.pdf',
         image:        { type: 'jpeg', quality: 1.0 },
-        html2canvas:  { scale: 2, useCORS: true, scrollX: 0, scrollY: 0, windowWidth: 1280 }, // 1280px viewport
+        html2canvas:  { scale: 2, useCORS: true, scrollX: 0, scrollY: 0, windowWidth: 1280 }, 
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
         pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
     };
     
-    // Show a global loading overlay
-    const loadingOverlay = document.createElement('div');
-    loadingOverlay.innerHTML = '<div class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-50 flex items-center justify-center"><div class="bg-white p-6 rounded-xl shadow-2xl flex items-center gap-4"><svg class="animate-spin h-8 w-8 text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="text-lg font-bold text-gray-800">Đang xuất PDF nét cao, vui lòng đợi...</span></div></div>';
-    document.body.appendChild(loadingOverlay);
-
-    // Scroll to top to ensure html2canvas captures from 0
+    // Scroll to top
     const currentScrollY = window.scrollY;
     window.scrollTo(0, 0);
 
-    // Use a small timeout to let browser layout changes settle before capturing
     setTimeout(() => {
         html2pdf().set(opt).from(element).save().then(() => {
             // Restore everything
+            if (nextSibling) {
+                parent.insertBefore(element, nextSibling);
+            } else {
+                parent.appendChild(element);
+            }
+            document.body.removeChild(tempContainer);
             document.body.removeChild(loadingOverlay);
             window.scrollTo(0, currentScrollY);
+            
             element.setAttribute('style', originalStyle);
             buttons.forEach((btn, i) => {
                 btn.style.display = originalBtnDisplays[i];
             });
         });
-    }, 150);
+    }, 300); // 300ms to ensure browser reflows the DOM completely
 };
