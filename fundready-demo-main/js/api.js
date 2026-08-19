@@ -509,7 +509,6 @@ window.downloadPDF = function() {
     const element = document.getElementById('resultSection');
     if (!element) return;
 
-    // Show loading screen
     const loadingOverlay = document.createElement('div');
     loadingOverlay.id = 'pdf-loading-overlay';
     loadingOverlay.style.zIndex = '99999';
@@ -523,6 +522,7 @@ window.downloadPDF = function() {
         btn.style.display = 'none';
     });
 
+    // Remove all animation artifacts
     const animatedElements = element.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach(el => {
         el.style.opacity = '1';
@@ -532,18 +532,29 @@ window.downloadPDF = function() {
     element.classList.remove('hidden', 'animate-on-scroll', 'is-visible', 'fade-in-section');
     element.style.opacity = '1';
     element.style.transform = 'none';
+    
+    // Save original placement
+    const originalParent = element.parentNode;
+    const nextSibling = element.nextSibling;
+    
+    // THE ULTIMATE FIX: Create a temp container that exactly matches max-w-4xl (896px)
+    // Place it exactly at 0,0 to avoid all html2canvas scrolling and clipping bugs
+    const tempContainer = document.createElement('div');
+    tempContainer.style.position = 'absolute';
+    tempContainer.style.top = '0px';
+    tempContainer.style.left = '0px';
+    tempContainer.style.width = '896px';
+    tempContainer.style.margin = '0';
+    tempContainer.style.padding = '0';
+    tempContainer.style.zIndex = '99990';
+    tempContainer.style.backgroundColor = '#ffffff';
 
-    const hiddenElements = element.querySelectorAll('.overflow-hidden, [style*="overflow: hidden"]');
-    hiddenElements.forEach(el => {
-        el.style.overflow = 'visible';
-        el.classList.remove('overflow-hidden');
-    });
+    // Move the actual element into the temp container
+    tempContainer.appendChild(element);
+    document.body.appendChild(tempContainer);
 
-    // DO NOT scroll the window. DO NOT clone. DO NOT move.
-    // Instead, tell html2canvas the EXACT bounding box to capture!
-    const rect = element.getBoundingClientRect();
-    const absoluteX = rect.left + window.scrollX;
-    const absoluteY = rect.top + window.scrollY;
+    const currentScrollY = window.scrollY;
+    window.scrollTo(0, 0);
 
     const opt = {
         margin:       [15, 10, 15, 10], 
@@ -552,11 +563,9 @@ window.downloadPDF = function() {
         html2canvas:  { 
             scale: 2, 
             useCORS: true,
-            x: absoluteX,
-            y: absoluteY,
-            width: element.offsetWidth,
-            height: element.offsetHeight,
-            scrollY: -window.scrollY // This is the official html2pdf workaround for scrolled elements
+            windowWidth: 896,
+            scrollY: 0,
+            scrollX: 0
         }, 
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
         pagebreak:    { mode: ['css', 'legacy'] }
@@ -583,10 +592,19 @@ window.downloadPDF = function() {
                 pdf.line(10, 282, 200, 282); 
             }
         }).save().then(() => {
+            // Restore everything
+            if (nextSibling) {
+                originalParent.insertBefore(element, nextSibling);
+            } else {
+                originalParent.appendChild(element);
+            }
+            document.body.removeChild(tempContainer);
             document.body.removeChild(loadingOverlay);
+            
             buttons.forEach((btn, i) => {
                 btn.style.display = originalBtnDisplays[i];
             });
+            window.scrollTo(0, currentScrollY);
         });
     }, 150);
 };
