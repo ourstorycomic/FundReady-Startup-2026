@@ -516,12 +516,10 @@ window.downloadPDF = function() {
         btn.style.display = 'none';
     });
 
-    // Show a global SOLID loading overlay to hide the UI jump
     const loadingOverlay = document.createElement('div');
-    loadingOverlay.innerHTML = '<div class="fixed inset-0 bg-white z-[9999] flex flex-col items-center justify-center"><svg class="animate-spin h-12 w-12 text-brand-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="text-xl font-bold text-gray-800">Đang xuất PDF, vui lòng đợi...</span></div>';
+    loadingOverlay.innerHTML = '<div class="fixed inset-0 bg-white z-[9999] flex flex-col items-center justify-center"><svg class="animate-spin h-12 w-12 text-brand-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="text-xl font-bold text-gray-800">Đang xuất PDF báo cáo chuẩn, vui lòng đợi...</span></div>';
     document.body.appendChild(loadingOverlay);
 
-    // Strip animations and overflow hidden
     const animatedElements = element.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach(el => {
         el.style.opacity = '1';
@@ -536,17 +534,44 @@ window.downloadPDF = function() {
     });
 
     const opt = {
-        margin:       10, // 10mm
+        margin:       [15, 10, 15, 10], // top, left, bottom, right (mm) - extra space for header/footer
         filename:     'Bao-Cao-Goi-Von.pdf',
         image:        { type: 'jpeg', quality: 1.0 },
-        html2canvas:  { scale: 2, useCORS: true }, 
+        // CRITICAL: scrollY: 0 prevents the blank space at the top caused by user scrolling down!
+        html2canvas:  { scale: 2, useCORS: true, scrollY: 0 }, 
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
     
+    const currentScrollY = window.scrollY;
+    window.scrollTo(0, 0); // Double ensure no scroll offset
+
     setTimeout(() => {
-        html2pdf().set(opt).from(element).save().then(() => {
-            // Restore everything
+        html2pdf().set(opt).from(element).toPdf().get('pdf').then(function (pdf) {
+            const totalPages = pdf.internal.getNumberOfPages();
+            
+            for (let i = 1; i <= totalPages; i++) {
+                pdf.setPage(i);
+                pdf.setFontSize(10);
+                pdf.setTextColor(100, 116, 139); // Tailwind slate-500
+                
+                // Add Header
+                pdf.text('Báo cáo Sẵn sàng Gọi vốn Chuyên sâu', 10, 10);
+                pdf.text('FundReady AI', 200, 10, null, null, 'right');
+                
+                // Add Footer
+                const date = new Date().toLocaleDateString('vi-VN');
+                pdf.text('Ngày xuất: ' + date, 10, 287);
+                pdf.text('Trang ' + i + ' / ' + totalPages, 200, 287, null, null, 'right');
+                
+                // Draw decorative lines
+                pdf.setDrawColor(226, 232, 240); // slate-200
+                pdf.setLineWidth(0.5);
+                pdf.line(10, 12, 200, 12); // Header line
+                pdf.line(10, 282, 200, 282); // Footer line
+            }
+        }).save().then(() => {
             document.body.removeChild(loadingOverlay);
+            window.scrollTo(0, currentScrollY);
             buttons.forEach((btn, i) => {
                 btn.style.display = originalBtnDisplays[i];
             });
