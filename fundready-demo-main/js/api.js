@@ -509,11 +509,23 @@ window.downloadPDF = function() {
     const element = document.getElementById('resultSection');
     if (!element) return;
 
-    // Show loading screen - FIXED Z-INDEX and POSITION
+    // Show loading screen - FIXED INLINE Z-INDEX
     const loadingOverlay = document.createElement('div');
     loadingOverlay.id = 'pdf-loading-overlay';
-    // Apply fixed and z-index directly to the wrapper so it overlays everything
-    loadingOverlay.className = 'fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-white/90 backdrop-blur-sm transition-all duration-300';
+    loadingOverlay.style.position = 'fixed';
+    loadingOverlay.style.top = '0';
+    loadingOverlay.style.left = '0';
+    loadingOverlay.style.right = '0';
+    loadingOverlay.style.bottom = '0';
+    loadingOverlay.style.zIndex = '999999';
+    loadingOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+    loadingOverlay.style.backdropFilter = 'blur(4px)';
+    loadingOverlay.style.display = 'flex';
+    loadingOverlay.style.flexDirection = 'column';
+    loadingOverlay.style.alignItems = 'center';
+    loadingOverlay.style.justifyContent = 'center';
+    loadingOverlay.style.transition = 'all 0.3s';
+    
     loadingOverlay.innerHTML = '<svg class="animate-spin h-14 w-14 text-brand-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="text-2xl font-extrabold text-gray-900 mb-2">Đang xuất PDF báo cáo chuẩn</span><span class="text-gray-500 font-medium">Quá trình này mất khoảng vài giây...</span>';
     document.body.appendChild(loadingOverlay);
 
@@ -525,7 +537,7 @@ window.downloadPDF = function() {
         btn.style.display = 'none';
     });
 
-    // CRITICAL FIX: Kill all GSAP ScrollTrigger side-effects that cause elements to turn invisible when scrolling!
+    // Clean GSAP Side-effects
     element.classList.remove('animate-on-scroll', 'is-visible', 'fade-in-section');
     element.style.setProperty('opacity', '1', 'important');
     element.style.setProperty('transform', 'none', 'important');
@@ -539,7 +551,6 @@ window.downloadPDF = function() {
         el.style.setProperty('visibility', 'visible', 'important');
     });
 
-    // Remove overflow hidden which clips content
     const hiddenElements = element.querySelectorAll('.overflow-hidden, [style*="overflow: hidden"]');
     hiddenElements.forEach(el => {
         el.style.setProperty('overflow', 'visible', 'important');
@@ -568,9 +579,11 @@ window.downloadPDF = function() {
             scrollX: 0
         }, 
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-        // CRITICAL FIX: Force html2pdf to NEVER avoid breaking any element!
-        // This stops it from moving huge blocks to the next page and leaving blank spaces!
-        pagebreak:    { mode: 'avoid-all', avoid: '.dummy-class-that-does-not-exist' }
+        
+        // CRITICAL FIX FOR THE BLANK SPACE BUG!
+        // Mode 'css' (WITHOUT 'legacy') tells html2pdf to NEVER automatically avoid breaking large blocks.
+        // It will strictly fill up 100% of the page before slicing to the next page!
+        pagebreak:    { mode: 'css' }
     };
 
     // Wait 500ms to ensure the browser has fully reflowed
