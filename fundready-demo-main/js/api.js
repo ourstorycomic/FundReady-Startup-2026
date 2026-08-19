@@ -518,7 +518,7 @@ window.downloadPDF = function() {
     loadingOverlay.style.right = '0';
     loadingOverlay.style.bottom = '0';
     loadingOverlay.style.zIndex = '999999';
-    loadingOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+    loadingOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
     loadingOverlay.style.backdropFilter = 'blur(4px)';
     loadingOverlay.style.display = 'flex';
     loadingOverlay.style.flexDirection = 'column';
@@ -529,99 +529,129 @@ window.downloadPDF = function() {
     loadingOverlay.innerHTML = '<svg class="animate-spin h-14 w-14 text-brand-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="text-2xl font-extrabold text-gray-900 mb-2">Đang xuất PDF báo cáo chuẩn</span><span class="text-gray-500 font-medium">Quá trình này mất khoảng vài giây...</span>';
     document.body.appendChild(loadingOverlay);
 
-    // Hide buttons from PDF
-    const buttons = element.querySelectorAll('button');
-    const originalBtnDisplays = [];
-    buttons.forEach(btn => {
-        originalBtnDisplays.push(btn.style.display);
-        btn.style.display = 'none';
+    // Dynamic Script Loading for native html2canvas and jsPDF
+    const loadScript = (src) => new Promise((resolve) => {
+        if (document.querySelector(script[src=""])) return resolve();
+        const script = document.createElement('script');
+        script.src = src;
+        script.onload = resolve;
+        document.head.appendChild(script);
     });
 
-    // Clean GSAP Side-effects
-    element.classList.remove('animate-on-scroll', 'is-visible', 'fade-in-section');
-    element.style.setProperty('opacity', '1', 'important');
-    element.style.setProperty('transform', 'none', 'important');
-    element.style.setProperty('visibility', 'visible', 'important');
-
-    const animatedElements = element.querySelectorAll('.animate-on-scroll, .fade-in-section');
-    animatedElements.forEach(el => {
-        el.classList.remove('animate-on-scroll', 'fade-in-section', 'is-visible');
-        el.style.setProperty('opacity', '1', 'important');
-        el.style.setProperty('transform', 'none', 'important');
-        el.style.setProperty('visibility', 'visible', 'important');
-    });
-
-    const hiddenElements = element.querySelectorAll('.overflow-hidden, [style*="overflow: hidden"]');
-    hiddenElements.forEach(el => {
-        el.style.setProperty('overflow', 'visible', 'important');
-        el.classList.remove('overflow-hidden');
-    });
-
-    // Save current scroll position
-    const currentScrollY = window.scrollY;
-    
-    // Disable smooth scroll temporarily
-    const originalScrollBehavior = document.documentElement.style.scrollBehavior;
-    document.documentElement.style.scrollBehavior = 'auto';
-    document.body.style.scrollBehavior = 'auto';
-    
-    // Jump to top instantly to prevent html2canvas offset bugs
-    window.scrollTo(0, 0);
-
-    const opt = {
-        margin:       [15, 10, 15, 10], 
-        filename:     'Bao-Cao-Goi-Von.pdf',
-        image:        { type: 'jpeg', quality: 1.0 },
-        html2canvas:  { 
-            scale: 2, 
-            useCORS: true,
-            scrollY: 0,
-            scrollX: 0
-        }, 
-        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-        
-        // CRITICAL FIX FOR THE BLANK SPACE BUG!
-        // Mode 'css' (WITHOUT 'legacy') tells html2pdf to NEVER automatically avoid breaking large blocks.
-        // It will strictly fill up 100% of the page before slicing to the next page!
-        pagebreak:    { mode: 'css' }
-    };
-
-    // Wait 500ms to ensure the browser has fully reflowed
-    setTimeout(() => {
-        // Double check opacity right before capturing
-        element.style.setProperty('opacity', '1', 'important');
-
-        html2pdf().set(opt).from(element).toPdf().get('pdf').then(function (pdf) {
-            const totalPages = pdf.internal.getNumberOfPages();
-            for (let i = 1; i <= totalPages; i++) {
-                pdf.setPage(i);
-                pdf.setFontSize(10);
-                pdf.setTextColor(100, 116, 139); 
-                
-                pdf.text('Bao cao Danh gia Doanh nghiep', 10, 10);
-                pdf.text('FundReady AI', 200, 10, null, null, 'right');
-                
-                const date = new Date().toLocaleDateString('vi-VN');
-                pdf.text('Ngay xuat: ' + date, 10, 287);
-                pdf.text('Trang ' + i + ' / ' + totalPages, 200, 287, null, null, 'right');
-                
-                pdf.setDrawColor(226, 232, 240); 
-                pdf.setLineWidth(0.5);
-                pdf.line(10, 12, 200, 12); 
-                pdf.line(10, 282, 200, 282); 
-            }
-        }).save().then(() => {
-            // Restore everything
-            if (document.getElementById('pdf-loading-overlay')) {
-                document.body.removeChild(loadingOverlay);
-            }
-            document.documentElement.style.scrollBehavior = originalScrollBehavior;
-            document.body.style.scrollBehavior = originalScrollBehavior;
-            window.scrollTo(0, currentScrollY);
-            
-            buttons.forEach((btn, i) => {
-                btn.style.display = originalBtnDisplays[i];
-            });
+    Promise.all([
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js'),
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js')
+    ]).then(() => {
+        // Hide buttons from PDF
+        const buttons = element.querySelectorAll('button');
+        const originalBtnDisplays = [];
+        buttons.forEach(btn => {
+            originalBtnDisplays.push(btn.style.display);
+            btn.style.display = 'none';
         });
-    }, 500);
+
+        // Clean GSAP Side-effects
+        element.classList.remove('animate-on-scroll', 'is-visible', 'fade-in-section');
+        element.style.setProperty('opacity', '1', 'important');
+        element.style.setProperty('transform', 'none', 'important');
+        element.style.setProperty('visibility', 'visible', 'important');
+
+        const animatedElements = element.querySelectorAll('.animate-on-scroll, .fade-in-section');
+        animatedElements.forEach(el => {
+            el.classList.remove('animate-on-scroll', 'fade-in-section', 'is-visible');
+            el.style.setProperty('opacity', '1', 'important');
+            el.style.setProperty('transform', 'none', 'important');
+            el.style.setProperty('visibility', 'visible', 'important');
+        });
+
+        const hiddenElements = element.querySelectorAll('.overflow-hidden, [style*="overflow: hidden"]');
+        hiddenElements.forEach(el => {
+            el.style.setProperty('overflow', 'visible', 'important');
+            el.classList.remove('overflow-hidden');
+        });
+
+        // Wait 500ms for browser paint
+        setTimeout(() => {
+            // MANUAL SLICING ALGORITHM - 100% BULLETPROOF
+            window.html2canvas(element, {
+                scale: 2,
+                useCORS: true,
+                backgroundColor: '#ffffff'
+            }).then(canvas => {
+                const imgData = canvas.toDataURL('image/jpeg', 1.0);
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = pdf.internal.pageSize.getHeight();
+                
+                const margin = 15; // 15mm margin
+                const contentWidth = pdfWidth - margin * 2;
+                const contentHeight = pdfHeight - margin * 2;
+                
+                const imgHeightInMm = (canvas.height * contentWidth) / canvas.width;
+                let heightLeft = imgHeightInMm;
+                let position = margin;
+                let pageNum = 1;
+                const date = new Date().toLocaleDateString('vi-VN');
+
+                // PAGE 1
+                pdf.addImage(imgData, 'JPEG', margin, position, contentWidth, imgHeightInMm);
+                
+                // Draw white rectangles to cover margins and hide overflowing sliced image parts
+                pdf.setFillColor(255, 255, 255);
+                pdf.rect(0, 0, pdfWidth, margin, 'F'); 
+                pdf.rect(0, pdfHeight - margin, pdfWidth, margin, 'F'); 
+                
+                // Header/Footer
+                pdf.setFontSize(10);
+                pdf.setTextColor(100, 116, 139);
+                pdf.text('Bao cao Danh gia Doanh nghiep', margin, 10);
+                pdf.text('FundReady AI', pdfWidth - margin, 10, null, null, 'right');
+                pdf.text('Ngay xuat: ' + date, margin, pdfHeight - 10);
+                pdf.text('Trang ' + pageNum, pdfWidth - margin, pdfHeight - 10, null, null, 'right');
+                pdf.setDrawColor(226, 232, 240);
+                pdf.setLineWidth(0.5);
+                pdf.line(margin, 12, pdfWidth - margin, 12);
+                pdf.line(margin, pdfHeight - 14, pdfWidth - margin, pdfHeight - 14);
+                
+                heightLeft -= contentHeight;
+
+                // SUBSEQUENT PAGES
+                while (heightLeft > 0) {
+                    position = position - contentHeight; 
+                    pdf.addPage();
+                    pageNum++;
+                    
+                    pdf.addImage(imgData, 'JPEG', margin, position, contentWidth, imgHeightInMm);
+                    
+                    pdf.setFillColor(255, 255, 255);
+                    pdf.rect(0, 0, pdfWidth, margin, 'F'); 
+                    pdf.rect(0, pdfHeight - margin, pdfWidth, margin, 'F'); 
+                    
+                    pdf.setFontSize(10);
+                    pdf.setTextColor(100, 116, 139);
+                    pdf.text('Bao cao Danh gia Doanh nghiep', margin, 10);
+                    pdf.text('FundReady AI', pdfWidth - margin, 10, null, null, 'right');
+                    pdf.text('Ngay xuat: ' + date, margin, pdfHeight - 10);
+                    pdf.text('Trang ' + pageNum, pdfWidth - margin, pdfHeight - 10, null, null, 'right');
+                    pdf.setDrawColor(226, 232, 240);
+                    pdf.setLineWidth(0.5);
+                    pdf.line(margin, 12, pdfWidth - margin, 12);
+                    pdf.line(margin, pdfHeight - 14, pdfWidth - margin, pdfHeight - 14);
+
+                    heightLeft -= contentHeight;
+                }
+
+                pdf.save('Bao-Cao-Goi-Von.pdf');
+
+                // Restore UI
+                if (document.getElementById('pdf-loading-overlay')) {
+                    document.body.removeChild(loadingOverlay);
+                }
+                buttons.forEach((btn, i) => {
+                    btn.style.display = originalBtnDisplays[i];
+                });
+            });
+        }, 500);
+    });
 };
