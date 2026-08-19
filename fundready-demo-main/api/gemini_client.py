@@ -305,7 +305,7 @@ FORMAT JSON:
             "category": "<Hạng mục 1>", 
             "percentage": "<%>", 
             "amount": "<Số tiền>", 
-            "why_invest": "<LÝ DO CHI TIẾT (Ít nhất 150 chữ)>",
+            "why_invest": "<LÝ DO CHI TIẾT (Ít nhất 300 chữ, mổ xẻ mọi góc độ)>",
             "action_items": ["<Hành động 1 rất chi tiết>", "<Hành động 2 rất chi tiết>", "<Hành động 3>"]
           }}
         ],
@@ -321,7 +321,7 @@ FORMAT JSON:
             "category": "<Hạng mục 1>", 
             "percentage": "<%>", 
             "amount": "<Số tiền>", 
-            "why_invest": "<LÝ DO CHI TIẾT (Ít nhất 150 chữ)>",
+            "why_invest": "<LÝ DO CHI TIẾT (Ít nhất 300 chữ, mổ xẻ mọi góc độ)>",
             "action_items": ["<Hành động 1 rất chi tiết>", "<Hành động 2 rất chi tiết>"]
           }}
         ],

@@ -113,3 +113,11 @@ h1, h2, h3, h4, h5, h6 {
 .badge-red { background-color: #FEF2F2; color: #B91C1C; border: 1px solid #FEE2E2; }
 .badge-amber { background-color: #FFFbeb; color: #B45309; border: 1px solid #FEF3C7; }
 .badge-green { background-color: #F0FDF4; color: #15803D; border: 1px solid #DCFCE7; }
+
+@media print {
+    body { background-color: white !important; }
+    .w-64.bg-white.border-r, header, button, .border-dashed, #uploadZone, #fileListContainer, #uploadSubtext, #analyzeBtn { display: none !important; }
+    .flex-1 { margin-left: 0 !important; width: 100% !important; padding: 0 !important; }
+    .card-clean { border: none !important; box-shadow: none !important; page-break-inside: avoid; }
+    #resultSection { display: block !important; }
+}
