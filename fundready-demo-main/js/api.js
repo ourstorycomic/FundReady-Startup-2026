@@ -506,82 +506,67 @@ function renderSimulation(data) {
 
 
 window.downloadPDF = function() {
-    const originalElement = document.getElementById('resultSection');
+    const element = document.getElementById('resultSection');
     
-    // Hide buttons in original to avoid clone copying them
-    const buttons = originalElement.querySelectorAll('button');
+    // Hide buttons
+    const buttons = element.querySelectorAll('button');
     const originalBtnDisplays = [];
     buttons.forEach(btn => {
         originalBtnDisplays.push(btn.style.display);
         btn.style.display = 'none';
     });
 
-    // Create a clone
-    const clone = originalElement.cloneNode(true);
-    
-    // Create a wrapper container at the top left of the document
-    const wrapper = document.createElement('div');
-    wrapper.style.position = 'absolute';
-    wrapper.style.top = '0';
-    wrapper.style.left = '0';
-    wrapper.style.width = '1024px'; // Fixed width for perfect A4 scaling
-    wrapper.style.background = '#ffffff';
-    wrapper.style.zIndex = '-9999'; // Hide behind other elements
-    wrapper.style.padding = '20px';
-    
-    // Fix animations and overflow in clone
-    const animatedElements = clone.querySelectorAll('.animate-on-scroll');
+    // Strip animations and overflow hidden
+    const animatedElements = element.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach(el => {
         el.style.opacity = '1';
         el.style.transform = 'none';
         el.classList.remove('animate-on-scroll');
     });
 
-    const hiddenElements = clone.querySelectorAll('.overflow-hidden');
+    const hiddenElements = element.querySelectorAll('.overflow-hidden, [style*="overflow: hidden"]');
     hiddenElements.forEach(el => {
         el.style.overflow = 'visible';
         el.classList.remove('overflow-hidden');
     });
-    
-    clone.style.height = 'auto';
-    clone.style.overflow = 'visible';
 
-    wrapper.appendChild(clone);
-    document.body.appendChild(wrapper);
+    // Remove margin/padding from the resultSection to avoid left offsets
+    const originalStyle = element.getAttribute('style') || '';
+    element.style.setProperty('margin', '0', 'important');
+    element.style.setProperty('padding', '20px', 'important');
+    element.style.setProperty('width', '100%', 'important');
+    element.style.setProperty('max-width', '1280px', 'important');
+    element.style.setProperty('height', 'auto', 'important');
+    element.style.setProperty('overflow', 'visible', 'important');
 
     const opt = {
-        margin:       [10, 10, 10, 10], // 10mm margin
+        margin:       [10, 10, 10, 10], // mm
         filename:     'Bao-Cao-Goi-Von.pdf',
         image:        { type: 'jpeg', quality: 1.0 },
-        html2canvas:  { scale: 3, useCORS: true, scrollX: 0, scrollY: 0, windowWidth: 1024 }, // scale 3 for high res
+        html2canvas:  { scale: 2, useCORS: true, scrollX: 0, scrollY: 0, windowWidth: 1280 }, // 1280px viewport
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
         pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
     };
     
-    // Show loading state on original buttons
-    let oldText = "";
-    const primaryBtn = document.querySelector('button[onclick="downloadPDF()"]');
-    if(primaryBtn) {
-        oldText = primaryBtn.innerHTML;
-        buttons.forEach((btn, i) => {
-            btn.style.display = originalBtnDisplays[i];
-            btn.disabled = true;
-        });
-        primaryBtn.innerHTML = '<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Đang tạo PDF...';
-    }
+    // Show a global loading overlay
+    const loadingOverlay = document.createElement('div');
+    loadingOverlay.innerHTML = '<div class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-50 flex items-center justify-center"><div class="bg-white p-6 rounded-xl shadow-2xl flex items-center gap-4"><svg class="animate-spin h-8 w-8 text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="text-lg font-bold text-gray-800">Đang xuất PDF nét cao, vui lòng đợi...</span></div></div>';
+    document.body.appendChild(loadingOverlay);
 
-    // Scroll to top to avoid any weird html2canvas scroll offset bugs
+    // Scroll to top to ensure html2canvas captures from 0
     const currentScrollY = window.scrollY;
     window.scrollTo(0, 0);
 
-    html2pdf().set(opt).from(wrapper).save().then(() => {
-        // Cleanup
-        document.body.removeChild(wrapper);
-        window.scrollTo(0, currentScrollY);
-        
-        if(primaryBtn) {
-            primaryBtn.innerHTML = oldText;
-            buttons.forEach(btn => btn.disabled = false);
-        }
-    });
+    // Use a small timeout to let browser layout changes settle before capturing
+    setTimeout(() => {
+        html2pdf().set(opt).from(element).save().then(() => {
+            // Restore everything
+            document.body.removeChild(loadingOverlay);
+            window.scrollTo(0, currentScrollY);
+            element.setAttribute('style', originalStyle);
+            buttons.forEach((btn, i) => {
+                btn.style.display = originalBtnDisplays[i];
+            });
+        });
+    }, 150);
 };
