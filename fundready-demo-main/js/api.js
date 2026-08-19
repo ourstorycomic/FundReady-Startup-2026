@@ -531,7 +531,7 @@ window.downloadPDF = function() {
 
     // Dynamic Script Loading for native html2canvas and jsPDF
     const loadScript = (src) => new Promise((resolve) => {
-        if (document.querySelector(script[src=""])) return resolve();
+        if (document.querySelector('script[src="' + src + '"]')) return resolve();
         const script = document.createElement('script');
         script.src = src;
         script.onload = resolve;
