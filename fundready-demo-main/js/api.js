@@ -508,6 +508,9 @@ function renderSimulation(data) {
 window.downloadPDF = function() {
     const element = document.getElementById('resultSection');
     
+    // Capture original inline style to restore later
+    const originalStyle = element.getAttribute('style') || '';
+    
     // Temporarily fix styles for html2canvas
     const animatedElements = element.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach(el => {
@@ -522,14 +525,19 @@ window.downloadPDF = function() {
         el.classList.remove('overflow-hidden');
     });
     
+    // Force dimensions and remove margins to prevent "cut off on the left"
     element.style.setProperty('height', 'auto', 'important');
     element.style.setProperty('overflow', 'visible', 'important');
+    element.style.setProperty('margin', '0', 'important');
+    element.style.setProperty('padding', '20px', 'important');
+    element.style.setProperty('width', '1200px', 'important');
+    element.style.setProperty('max-width', '1200px', 'important');
 
     const opt = {
         margin:       [0.3, 0.3, 0.3, 0.3],
         filename:     'Bao-Cao-Goi-Von.pdf',
         image:        { type: 'jpeg', quality: 1.0 },
-        html2canvas:  { scale: 2, useCORS: true, windowWidth: 1200, scrollY: 0 },
+        html2canvas:  { scale: 2, useCORS: true, scrollX: 0, scrollY: 0, windowWidth: 1200 },
         jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
         pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
     };
@@ -538,32 +546,16 @@ window.downloadPDF = function() {
     let oldText = "";
     if(btn) {
         oldText = btn.innerHTML;
-        btn.innerHTML = 'Đang tạo PDF...';
+        btn.innerHTML = '<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Đang tạo PDF...';
         btn.disabled = true;
     }
 
     html2pdf().set(opt).from(element).save().then(() => {
+        // Restore styles
+        element.setAttribute('style', originalStyle);
         if(btn) {
             btn.innerHTML = oldText;
             btn.disabled = false;
         }
     });
-};
-
-window.downloadWord = function() {
-    const element = document.getElementById('resultSection');
-    // Extract HTML
-    let html = element.innerHTML;
-    // Basic word HTML wrapper
-    let header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Bao Cao Goi Von</title></head><body>";
-    let footer = "</body></html>";
-    let sourceHTML = header + html + footer;
-    
-    let source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
-    let fileDownload = document.createElement("a");
-    document.body.appendChild(fileDownload);
-    fileDownload.href = source;
-    fileDownload.download = 'Bao-Cao-Goi-Von.doc';
-    fileDownload.click();
-    document.body.removeChild(fileDownload);
 };
