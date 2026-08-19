@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/animations.css">
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -170,7 +172,10 @@
             
             <div class="flex items-center justify-between mb-6">
                 <h2 class="text-xl font-bold text-gray-900">Báo cáo Sẵn sàng Gọi vốn</h2>
-                <button onclick="window.print()" class="text-xs font-medium text-brand-600 hover:text-brand-800 bg-brand-50 px-3 py-1.5 rounded-md border border-brand-100 transition-colors">Tải xuống PDF</button>
+                <button onclick="downloadPDF()" class="text-xs font-medium text-brand-600 hover:text-brand-800 bg-brand-50 px-3 py-1.5 rounded-md border border-brand-100 transition-colors flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    Tải xuống PDF
+                </button>
             </div>
 
             <!-- Metrics Grid -->
