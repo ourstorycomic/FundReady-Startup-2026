@@ -508,40 +508,28 @@ function renderSimulation(data) {
 window.downloadPDF = function() {
     const element = document.getElementById('resultSection');
     
-    // Create a deep clone to manipulate without affecting the UI
-    const clone = element.cloneNode(true);
-    clone.id = 'pdf-clone';
-    clone.style.position = 'absolute';
-    clone.style.left = '-9999px';
-    clone.style.top = '0';
-    clone.style.width = '1200px'; // fixed width for PDF
-    clone.style.height = 'auto';
-    clone.style.overflow = 'visible';
-    
-    // Remove all animation classes that might cause opacity 0
-    const animatedElements = clone.querySelectorAll('.animate-on-scroll');
+    // Temporarily fix styles for html2canvas
+    const animatedElements = element.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach(el => {
-        el.classList.remove('animate-on-scroll');
         el.style.opacity = '1';
         el.style.transform = 'none';
+        el.classList.remove('animate-on-scroll');
     });
-    clone.style.opacity = '1';
-    clone.style.transform = 'none';
 
-    // Force all overflow hidden to visible
-    const hiddenElements = clone.querySelectorAll('.overflow-hidden, [style*="overflow: hidden"]');
+    const hiddenElements = element.querySelectorAll('.overflow-hidden');
     hiddenElements.forEach(el => {
-        el.classList.remove('overflow-hidden');
         el.style.overflow = 'visible';
+        el.classList.remove('overflow-hidden');
     });
-
-    document.body.appendChild(clone);
+    
+    element.style.setProperty('height', 'auto', 'important');
+    element.style.setProperty('overflow', 'visible', 'important');
 
     const opt = {
         margin:       [0.3, 0.3, 0.3, 0.3],
         filename:     'Bao-Cao-Goi-Von.pdf',
         image:        { type: 'jpeg', quality: 1.0 },
-        html2canvas:  { scale: 2, useCORS: true, letterRendering: true, windowWidth: 1200 },
+        html2canvas:  { scale: 2, useCORS: true, windowWidth: 1200, scrollY: 0 },
         jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
         pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
     };
@@ -550,12 +538,11 @@ window.downloadPDF = function() {
     let oldText = "";
     if(btn) {
         oldText = btn.innerHTML;
-        btn.innerHTML = '<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-brand-600 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Đang tạo PDF...';
+        btn.innerHTML = 'Đang tạo PDF...';
         btn.disabled = true;
     }
 
-    html2pdf().set(opt).from(clone).save().then(() => {
-        document.body.removeChild(clone);
+    html2pdf().set(opt).from(element).save().then(() => {
         if(btn) {
             btn.innerHTML = oldText;
             btn.disabled = false;
@@ -563,3 +550,20 @@ window.downloadPDF = function() {
     });
 };
 
+window.downloadWord = function() {
+    const element = document.getElementById('resultSection');
+    // Extract HTML
+    let html = element.innerHTML;
+    // Basic word HTML wrapper
+    let header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Bao Cao Goi Von</title></head><body>";
+    let footer = "</body></html>";
+    let sourceHTML = header + html + footer;
+    
+    let source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+    let fileDownload = document.createElement("a");
+    document.body.appendChild(fileDownload);
+    fileDownload.href = source;
+    fileDownload.download = 'Bao-Cao-Goi-Von.doc';
+    fileDownload.click();
+    document.body.removeChild(fileDownload);
+};
