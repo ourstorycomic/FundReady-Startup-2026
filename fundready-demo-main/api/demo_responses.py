@@ -131,3 +131,135 @@ nexus_demo_response = {
         "final_recommendation": "ĐÁNH GIÁ CẤP ĐỘ CAO NHẤT: ĐÂY LÀ MỘT THƯƠNG VỤ BẮT BUỘC PHẢI XUỐNG TIỀN (STRONG CONVICTION BUY / MUST-INVEST). Dưới lăng kính của giới đầu tư mạo hiểm (Venture Capital), Nexus Digital JSC hiện đang hội tụ đầy đủ và rực rỡ cả 3 trụ cột cấu thành nên một startup Kỳ lân (Unicorn) tỷ đô trong tương lai gần: (1) Một thị trường mục tiêu đủ sâu, vô tận và đang trong thời kỳ bùng nổ vàng son, (2) Một giải pháp công nghệ sở hữu hào giao thông phòng thủ (Moat) sâu sắc khó sao chép, và (3) Một đội ngũ thực thi (Founding team) có bề dày kinh nghiệm thực chiến cực đoan. Lời khuyên cuối cùng dành cho các quỹ đầu tư (Lead Investors): Hãy gạt bỏ các thủ tục rườm rà, nhanh chóng phát hành Term Sheet và thiết lập đàm phán độc quyền (Exclusivity period) ngay trong quý này. Nếu chậm trễ, các quỹ đầu tư ngoại cỡ lớn (Mega-funds) từ khu vực APAC chắc chắn sẽ nhảy vào đấu thầu và đẩy định giá lên một mức đắt đỏ hơn rất nhiều."
     }
 }
+
+
+ecofarm_demo_response = {
+    "score": 89,
+    "max_score": 100,
+    "grade": "A",
+    "breakdown": [
+        {
+            "name": "Vấn đề và Giải pháp",
+            "score": 13,
+            "max": 15,
+            "reason": "Giải quyết bài toán biến đổi khí hậu, xâm nhập mặn và tối ưu năng suất canh tác thông qua nền tảng vạn vật kết nối (IoT). Hệ thống cảm biến môi trường của EcoFarm cung cấp cảnh báo sớm, giúp nông dân giảm rủi ro mất mùa và tự động hóa hệ thống tưới tiêu với độ tin cậy cực cao."
+        },
+        {
+            "name": "Thị trường mục tiêu và Cơ hội",
+            "score": 14,
+            "max": 15,
+            "reason": "Ngành Nông nghiệp công nghệ cao (Agritech) tại Việt Nam đang đón nhận dòng vốn ưu đãi khổng lồ từ Chính phủ và các tổ chức tín dụng xanh (ESG Funds). Quy mô diện tích đất canh tác cần chuyển đổi số ước tính đạt hơn 2 triệu héc-ta, mở ra một đại dương xanh (Blue Ocean) chưa có người thống lĩnh."
+        },
+        {
+            "name": "Sản phẩm và Lợi thế cạnh tranh",
+            "score": 13,
+            "max": 15,
+            "reason": "Khác biệt cốt lõi: EcoFarm tự chủ hoàn toàn từ phần cứng (mạch cảm biến R&D tại Việt Nam) đến phần mềm (App quản lý Cloud). Điều này giúp giá thành thiết bị rẻ hơn 60% so với việc nhập khẩu giải pháp từ Israel hay Hà Lan, hoàn toàn phù hợp với sức mua của các Hợp tác xã nội địa."
+        },
+        {
+            "name": "Chỉ số tăng trưởng và Tài chính",
+            "score": 15,
+            "max": 20,
+            "reason": "Kết quả Pilot cực kỳ khả quan: Thử nghiệm thành công trên 50 héc-ta trồng trọt tại Lâm Đồng, ghi nhận mức giảm thiểu 40% lượng nước tưới và phân bón. Doanh thu bán phần cứng tăng trưởng ổn định, tuy nhiên biên lợi nhuận mảng phần mềm (Data-as-a-service) vẫn cần thêm thời gian để tối ưu."
+        },
+        {
+            "name": "Năng lực đội ngũ sáng lập",
+            "score": 14,
+            "max": 15,
+            "reason": "Đội ngũ kết hợp hoàn hảo giữa Học thuật và Thực tiễn: CEO là Tiến sĩ Nông nghiệp với hơn 15 năm nghiên cứu thổ nhưỡng, bắt tay cùng CTO dày dặn kinh nghiệm trong mảng thiết kế phần cứng IoT và nhúng (Embedded Systems). Mạng lưới quan hệ sâu rộng với Sở Nông nghiệp các tỉnh."
+        },
+        {
+            "name": "Dự báo tài chính và Mô hình lợi nhuận",
+            "score": 10,
+            "max": 10,
+            "reason": "Kế hoạch kinh doanh thông minh với mô hình song song: Doanh thu 'một lần' từ việc bán/lắp đặt trạm cảm biến, và Doanh thu 'lặp lại' (Recurring Revenue) từ phí duy trì ứng dụng và phân tích dữ liệu AI hàng tháng. Dòng tiền dự kiến hòa vốn sau 2 năm."
+        },
+        {
+            "name": "Nhu cầu gọi vốn, Phân bổ vốn và Lộ trình",
+            "score": 10,
+            "max": 10,
+            "reason": "Mức kêu gọi 1.000.000 USD (25 tỷ VNĐ) được thiết kế cực kỳ vừa vặn và tinh gọn. Trọng tâm chiến lược là dịch chuyển từ phòng Lab ra sản xuất đại trà quy mô nhỏ (SME Manufacturing), xây dựng mạng lưới đại lý nông nghiệp và mở rộng kho dữ liệu cây trồng."
+        }
+    ],
+    "strengths": [
+        "Mô hình 'Công nghệ lõi - Giá nội địa': Lợi thế giá thành rẻ, bền bỉ với thời tiết khắc nghiệt giúp EcoFarm dễ dàng vượt qua vòng đấu thầu tại các dự án canh tác quy mô lớn của nhà nước và doanh nghiệp tư nhân.",
+        "Đúng 'Khẩu vị' của xu hướng đầu tư ESG toàn cầu: Việc mang lại giá trị tác động xã hội (Social Impact) rõ rệt và thúc đẩy phát triển bền vững giúp EcoFarm dễ dàng tiếp cận các khoản tài trợ không hoàn lại (Grants) và vốn vay lãi suất thấp từ các quỹ NGO quốc tế.",
+        "Tài sản dữ liệu (Data Assets) khổng lồ: Hàng tỷ điểm dữ liệu vi khí hậu (nhiệt độ, độ ẩm đất, độ mặn) thu thập mỗi ngày sẽ là nền tảng vô giá để EcoFarm huấn luyện các mô hình AI dự báo sản lượng nông sản ở tầm vĩ mô trong tương lai 5-10 năm tới."
+    ],
+    "weaknesses": [
+        "Rủi ro đứt gãy Chuỗi cung ứng (Supply Chain Risk): Mặc dù thiết kế tại Việt Nam, các chip cảm biến và vi điều khiển vẫn phụ thuộc 100% vào nguồn cung từ Trung Quốc và Đài Loan. Bất ổn địa chính trị có thể khiến việc sản xuất thiết bị bị đình trệ nghiêm trọng.",
+        "Nút thắt trong việc mở rộng (Scalability Bottleneck): Khác với phần mềm tải về dùng ngay, việc bán phần cứng IoT đòi hỏi quy trình tư vấn, khảo sát thực địa, lắp đặt và bảo hành phức tạp. Điều này khiến tốc độ tăng trưởng doanh thu khó lòng bùng nổ như các startup thuần SaaS.",
+        "Rào cản tiếp nhận công nghệ: Nông dân truyền thống tại Việt Nam vẫn giữ thói quen canh tác dựa trên kinh nghiệm. Cần rất nhiều nỗ lực và chi phí tổ chức hội thảo đầu bờ để thuyết phục họ thay đổi tư duy và bỏ tiền mua thiết bị."
+    ],
+    "recommendations": [
+        "Thiết lập lá chắn pháp lý: Nhanh chóng đệ trình hồ sơ xin cấp Bằng độc quyền giải pháp hữu ích (Patents) cho các thiết kế hộp kỹ thuật và vi mạch cảm biến lõi để chống lại rủi ro bị sao chép (Reverse engineering).",
+        "Chuyển đổi sang mô hình cho thuê thiết bị (Hardware-as-a-Service / Leasing): Thay vì bắt nông dân trả ngay 50 triệu cho một trạm thời tiết, hãy hợp tác với ngân hàng Agribank để thiết kế gói trả góp 2 triệu/tháng, qua đó gỡ bỏ hoàn toàn rào cản tài chính.",
+        "Khai thác giá trị gia tăng từ hệ sinh thái: Xây dựng mối quan hệ đối tác chiến lược (B2B2C) với các tập đoàn phân bón và thuốc bảo vệ thực vật. Dữ liệu từ EcoFarm sẽ giúp các công ty này quảng cáo sản phẩm chính xác đến từng héc-ta đất đang bị thiếu hụt vi chất."
+    ],
+    "funding_scenario": {
+        "desired_amount": "1.000.000 USD (25 tỷ VNĐ)",
+        "recommended_amount": "1.000.000 USD",
+        "rationale": {
+            "why_recommended": "Mức kêu gọi 1 triệu USD là cực kỳ hợp lý cho giai đoạn hiện tại (Hạt giống - Seed/Pre-Series A). Đây không phải là giai đoạn thử nghiệm ý tưởng, phần cứng đã chứng minh được tính ổn định ngoài môi trường thực tế (Harsh conditions). Khoản vốn này đóng vai trò như một bàn đạp (Springboard) để chuyển đổi từ việc sản xuất đơn chiếc thủ công sang tối ưu hóa chuỗi cung ứng, hạ giá thành sản xuất hàng loạt và chuẩn bị bao phủ các vùng nguyên liệu chiến lược như Đồng bằng Sông Cửu Long và Tây Nguyên.",
+            "investment_needs": [
+                "Xây dựng nhà máy lắp ráp quy mô nhỏ, chuẩn hóa quy trình QA/QC phần cứng.",
+                "Phát triển mạng lưới phân phối qua các kênh đại lý vật tư nông nghiệp cấp tỉnh.",
+                "Tuyển dụng kỹ sư Machine Learning để tối ưu hóa thuật toán dự báo sâu bệnh."
+            ]
+        },
+        "scenarios": [
+            {
+                "name": "Kịch bản Mở Rộng Điền Trang (Scale-up)",
+                "focus_explanation": "Thống lĩnh thị trường nội địa bằng cách nhanh chóng phủ sóng phần cứng IoT tại các vùng nông nghiệp trọng điểm nhằm thu thập dữ liệu nhanh nhất có thể.",
+                "allocation": [
+                    {
+                        "category": "Sản xuất Phần cứng & Chuỗi cung ứng",
+                        "percentage": "50%",
+                        "amount": "12.5 tỷ VNĐ",
+                        "objective": "Đặt cọc linh kiện số lượng lớn, mở xưởng lắp ráp nội địa đạt công suất 1.000 thiết bị/tháng."
+                    },
+                    {
+                        "category": "Marketing & Phân Phối Kênh Truyền Thống",
+                        "percentage": "30%",
+                        "amount": "7.5 tỷ VNĐ",
+                        "objective": "Thiết lập 20 đại lý ủy quyền cấp tỉnh, tổ chức chuỗi 100 hội thảo đầu bờ cho bà con nông dân."
+                    },
+                    {
+                        "category": "Phát triển Nền tảng Cloud & AI",
+                        "percentage": "20%",
+                        "amount": "5.0 tỷ VNĐ",
+                        "objective": "Chuyển đổi giao diện App thân thiện hơn, nâng cấp mô hình AI dự báo năng suất dựa trên dữ liệu khí hậu."
+                    }
+                ],
+                "expected_results": [
+                    "Bao phủ hoàn toàn hệ thống cảm biến trên 5.000 héc-ta đất nông nghiệp công nghệ cao.",
+                    "Doanh thu phần cứng đạt điểm bùng nổ 40 tỷ VNĐ/năm, mở khóa doanh thu Data recurring.",
+                    "Tạo ra tác động xã hội thực tế: Giúp cộng đồng nông dân tiết kiệm 40% chi phí nước ngọt và phân bón hóa học."
+                ]
+            }
+        ],
+        "burn_rate_runway": "Tốc độ đốt tiền dự phóng (Burn Rate) vào khoảng 600 - 700 triệu VNĐ/tháng, chủ yếu tập trung vào việc duy trì xưởng sản xuất và trả lương cho đội ngũ kỹ sư nhúng. Khác với các mô hình đốt tiền săn user, EcoFarm thu tiền tươi ngay từ lúc bán thiết bị. Khoản vốn 25 tỷ VNĐ sẽ cung cấp một 'đường băng' an toàn tuyệt đối lên tới 40 tháng, đủ sức gánh vác các rủi ro chậm trễ do thời tiết mùa vụ và cho phép công ty xoay vòng vốn lưu động liên tục.",
+        "milestones": [
+            {
+                "phase": "Tháng 1-6",
+                "goal": "Hoàn tất thủ tục thuê xưởng, thiết lập xong dây chuyền lắp ráp bán tự động, ra mắt phiên bản phần mềm 2.0 có cảnh báo sâu bệnh qua SMS."
+            },
+            {
+                "phase": "Tháng 7-12",
+                "goal": "Phân phối thành công 10.000 bộ cảm biến, tiến hành ký kết bao tiêu dữ liệu chiến lược với 50 Hợp tác xã Nông nghiệp chuẩn VietGAP."
+            },
+            {
+                "phase": "Tháng 13-24",
+                "goal": "Thống lĩnh thị trường nội địa, bắt đầu xúc tiến xuất khẩu thiết bị phần cứng và giải pháp đóng gói sang thị trường Campuchia và Lào."
+            }
+        ],
+        "suggested_deal": {
+            "instrument": "Cổ phần ưu đãi (Preferred Stock)",
+            "pre_money": "80.000.000.000 VNĐ",
+            "post_money": "105.000.000.000 VNĐ",
+            "dilution": "23.8%",
+            "note": "Khuyến nghị quỹ đầu tư nên tham gia vào Hội đồng quản trị (Board Seat) để hỗ trợ công tác quản trị tài chính. Kèm theo điều khoản quyền biểu quyết phủ quyết (Veto right) bảo vệ nhà đầu tư đối với các quyết định công ty vay nợ ngân hàng vượt quá 5 tỷ VNĐ."
+        },
+        "final_recommendation": "ĐÂY LÀ MỘT DỰ ÁN CỰC KỲ HẤP DẪN DÀNH CHO CÁC QUỸ ĐẦU TƯ TÁC ĐỘNG (IMPACT FUNDS / ESG FUNDS). EcoFarm sở hữu lợi thế định giá (Valuation) cực kỳ khiêm tốn so với tiềm năng tạo ra lợi nhuận và tác động vĩ mô của dự án. Với đội ngũ sáng lập có chiều sâu chuyên môn cao và am hiểu văn hóa địa phương, công ty có khả năng hiện thực hóa mô hình kinh doanh nhanh chóng. Quỹ đầu tư nên giải ngân theo 2 đợt (Tranches) dựa trên cam kết về số lượng thiết bị xuất xưởng nhằm giảm thiểu rủi ro."
+    }
+}
