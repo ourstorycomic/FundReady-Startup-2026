@@ -135,22 +135,20 @@ function renderResults(data) {
         else if (pct < 70) colorClass = 'bg-[#F59E0B]'; // Amber
 
         tbody.innerHTML += `
-            <tr class="border-b border-gray-100 last:border-0">
-                <td class="py-4 px-4 align-top w-1/4">
-                    <p class="font-semibold text-gray-900">${b.name}</p>
-                </td>
-                <td class="py-4 px-4 align-top w-1/3">
-                    <div class="flex items-center gap-3">
-                        <span class="text-sm font-bold text-gray-700 w-12">${b.score}/${maxScore}</span>
-                        <div class="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
-                            <div class="${colorClass} h-1.5 rounded-full progress-fill-anim" style="width: ${pct}%"></div>
+            <div class="flex flex-col border-b border-gray-100 last:border-0 p-6 break-inside-avoid">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
+                    <h4 class="font-bold text-brand-800 text-lg w-full md:w-1/3">${b.name}</h4>
+                    <div class="flex items-center gap-4 w-full md:w-2/3">
+                        <span class="text-base font-extrabold text-brand-600 w-16">${b.score}/${maxScore}</span>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden shadow-inner">
+                            <div class="${colorClass} h-2.5 rounded-full progress-fill-anim" style="width: ${pct}%"></div>
                         </div>
                     </div>
-                </td>
-                <td class="py-4 px-4 align-top">
-                    <p class="text-sm text-gray-600">${b.reason}</p>
-                </td>
-            </tr>
+                </div>
+                <div class="text-base text-gray-800 break-words whitespace-normal leading-relaxed text-justify space-y-4">
+                    ${b.reason}
+                </div>
+            </div>
         `;
     });
 
@@ -177,11 +175,13 @@ function renderResults(data) {
     const recoBody = document.getElementById('recoBody');
     recoBody.innerHTML = '';
     recos.forEach(r => {
-        recoBody.innerHTML += `
-            <tr class="border-b border-gray-100 last:border-0">
-                <td class="py-4 px-4 font-medium text-gray-900">${r}</td>
-            </tr>
-        `;
+        let text = typeof r === 'string' ? r : (r.recommendation || JSON.stringify(r));
+        recoBody.innerHTML += 
+            <div class="flex items-start gap-4 border-b border-gray-100 last:border-0 p-4">
+                <span class="text-brand-600 font-bold mt-1 text-lg">â€¢</span>
+                <p class="text-base leading-relaxed text-gray-800 whitespace-normal break-words"></p>
+            </div>
+        ;
     });
 
     // Show result section
@@ -518,7 +518,7 @@ window.downloadPDF = function() {
     // Create an overlay to show loading state
     const btn = document.querySelector('button[onclick="downloadPDF()"]');
     const oldText = btn.innerHTML;
-    btn.innerHTML = '<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-brand-600 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Ðang t?o PDF...';
+    btn.innerHTML = '<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-brand-600 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> ang t?o PDF...';
     btn.disabled = true;
 
     html2pdf().set(opt).from(element).save().then(() => {
@@ -542,7 +542,7 @@ window.downloadPDF = function() {
     // Create an overlay to show loading state
     const btn = document.querySelector('button[onclick="downloadPDF()"]');
     const oldText = btn.innerHTML;
-    btn.innerHTML = '<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-brand-600 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Ðang t?o PDF...';
+    btn.innerHTML = '<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-brand-600 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> ang t?o PDF...';
     btn.disabled = true;
 
     html2pdf().set(opt).from(element).save().then(() => {
@@ -550,3 +550,6 @@ window.downloadPDF = function() {
         btn.disabled = false;
     });
 };
+
+
+
