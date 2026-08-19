@@ -135,7 +135,7 @@ function renderResults(data) {
         else if (pct < 70) colorClass = 'bg-[#F59E0B]'; // Amber
 
         tbody.innerHTML += `
-            <div class="flex flex-col border-b border-gray-100 last:border-0 p-6 break-inside-avoid">
+            <div class="flex flex-col border-b border-gray-100 last:border-0 p-6">
                 <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
                     <h4 class="font-bold text-brand-800 text-lg w-full md:w-1/3">${b.name}</h4>
                     <div class="flex items-center gap-4 w-full md:w-2/3">
@@ -145,7 +145,7 @@ function renderResults(data) {
                         </div>
                     </div>
                 </div>
-                <div class="text-base text-gray-800 text-justify" style="width: 100%; word-wrap: break-word; overflow-wrap: break-word; white-space: pre-line; line-height: 1.6;">
+                <div class="text-base text-gray-800 text-justify break-inside-avoid" style="width: 100%; word-wrap: break-word; overflow-wrap: break-word; white-space: pre-line; line-height: 1.6;">
                     ${b.reason}
                 </div>
             </div>
@@ -177,7 +177,7 @@ function renderResults(data) {
     recos.forEach(r => {
         let text = typeof r === 'string' ? r : (r.recommendation || JSON.stringify(r));
         recoBody.innerHTML += `
-            <div class="flex items-start gap-4 border-b border-gray-100 last:border-0 p-4">
+            <div class="flex items-start gap-4 border-b border-gray-100 last:border-0 p-4 break-inside-avoid">
                 <span class="text-brand-600 font-bold mt-1 text-lg">•</span>
                 <p class="text-base text-gray-800" style="width: 100%; word-wrap: break-word; overflow-wrap: break-word; white-space: pre-line; line-height: 1.6;">${text}</p>
             </div>
@@ -312,7 +312,7 @@ function renderSimulation(data) {
     const renderAllocations = (allocations) => {
         if (!allocations || !allocations.length) return '';
         return allocations.map(al => `
-            <div class="mb-5 border border-gray-100 rounded-lg p-4 bg-white shadow-sm hover:shadow-md transition-all">
+            <div class="mb-5 border border-gray-100 rounded-lg p-4 bg-white shadow-sm hover:shadow-md transition-all break-inside-avoid">
                 <div class="flex justify-between items-center border-b border-gray-100 pb-2 mb-3">
                     <p class="font-bold text-gray-800 text-base">${al.category}</p>
                     <div class="text-right">
@@ -361,7 +361,7 @@ function renderSimulation(data) {
                         ${allocationsHTML}
                     </div>
                     ${scenario.expected_results && scenario.expected_results.length > 0 ? `
-                    <div class="bg-indigo-50/50 p-5 rounded-lg border border-indigo-100 mt-auto">
+                    <div class="bg-indigo-50/50 p-5 rounded-lg border border-indigo-100 mt-auto break-inside-avoid">
                         <h4 class="font-bold text-indigo-900 mb-3 text-base uppercase tracking-wider">Kết quả kỳ vọng</h4>
                         <ul class="space-y-2">
                             ${scenario.expected_results.map(r => `
@@ -382,7 +382,7 @@ function renderSimulation(data) {
     let dealHTML = '';
     if (data.suggested_deal) {
         dealHTML = `
-            <div class="bg-gradient-to-r from-brand-50 to-white border border-brand-100 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="bg-gradient-to-r from-brand-50 to-white border border-brand-100 rounded-xl p-6 mb-8 shadow-sm break-inside-avoid">
                 <h3 class="font-bold text-brand-900 mb-4 text-lg flex items-center">
                     <svg class="w-5 h-5 mr-2 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     Đề xuất Cấu trúc Deal & Định giá
@@ -436,7 +436,7 @@ function renderSimulation(data) {
                         </div>
                     </div>
                     
-                    <div class="bg-blue-50/50 rounded-lg p-5 border border-blue-100">
+                    <div class="bg-blue-50/50 rounded-lg p-5 border border-blue-100 break-inside-avoid">
                         <p class="text-sm font-bold text-blue-900 uppercase tracking-wider mb-3">Tại sao hệ thống đề xuất mức này?</p>
                         <p class="text-base text-gray-800 leading-relaxed mb-5">${rationale.why_recommended || '-'}</p>
                         
@@ -462,7 +462,7 @@ function renderSimulation(data) {
         ${dealHTML}
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-            <div class="bg-gray-900 text-white rounded-xl p-6 shadow-lg">
+            <div class="bg-gray-900 text-white rounded-xl p-6 shadow-lg break-inside-avoid">
                 <h3 class="font-bold text-gray-100 mb-4 text-lg border-b border-gray-700 pb-2 flex items-center">
                     <svg class="w-5 h-5 mr-2 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path></svg>
                     Đánh giá Burn Rate & Runway
@@ -470,7 +470,7 @@ function renderSimulation(data) {
                 <p class="text-base text-gray-300 leading-relaxed">${data.burn_rate_runway || 'Chưa xác định'}</p>
             </div>
             
-            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm break-inside-avoid">
                 <h3 class="font-bold text-gray-900 mb-4 text-lg border-b pb-2 flex items-center">
                     <svg class="w-5 h-5 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     Lộ trình Giải ngân & Mục tiêu
@@ -492,7 +492,7 @@ function renderSimulation(data) {
             </div>
         </div>
 
-        <div class="bg-gradient-to-r from-gray-50 to-gray-100 border-l-4 border-brand-500 p-6 rounded-r-xl shadow-sm">
+        <div class="bg-gradient-to-r from-gray-50 to-gray-100 border-l-4 border-brand-500 p-6 rounded-r-xl shadow-sm break-inside-avoid">
             <h3 class="font-bold text-gray-900 mb-2 text-lg">Khuyến nghị cuối cùng từ AI</h3>
             <p class="text-base text-gray-800 leading-relaxed font-medium">${data.final_recommendation || data.conclusion || 'Startup cần xem xét kỹ các phương án trên.'}</p>
         </div>
@@ -529,129 +529,97 @@ window.downloadPDF = function() {
     loadingOverlay.innerHTML = '<svg class="animate-spin h-14 w-14 text-brand-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="text-2xl font-extrabold text-gray-900 mb-2">Đang xuất PDF báo cáo chuẩn</span><span class="text-gray-500 font-medium">Quá trình này mất khoảng vài giây...</span>';
     document.body.appendChild(loadingOverlay);
 
-    // Dynamic Script Loading for native html2canvas and jsPDF
-    const loadScript = (src) => new Promise((resolve) => {
-        if (document.querySelector('script[src="' + src + '"]')) return resolve();
-        const script = document.createElement('script');
-        script.src = src;
-        script.onload = resolve;
-        document.head.appendChild(script);
+    // Hide buttons from PDF
+    const buttons = element.querySelectorAll('button');
+    const originalBtnDisplays = [];
+    buttons.forEach(btn => {
+        originalBtnDisplays.push(btn.style.display);
+        btn.style.display = 'none';
     });
 
-    Promise.all([
-        loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js'),
-        loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js')
-    ]).then(() => {
-        // Hide buttons from PDF
-        const buttons = element.querySelectorAll('button');
-        const originalBtnDisplays = [];
-        buttons.forEach(btn => {
-            originalBtnDisplays.push(btn.style.display);
-            btn.style.display = 'none';
-        });
+    // Clean GSAP Side-effects
+    element.classList.remove('animate-on-scroll', 'is-visible', 'fade-in-section');
+    element.style.setProperty('opacity', '1', 'important');
+    element.style.setProperty('transform', 'none', 'important');
+    element.style.setProperty('visibility', 'visible', 'important');
 
-        // Clean GSAP Side-effects
-        element.classList.remove('animate-on-scroll', 'is-visible', 'fade-in-section');
+    const animatedElements = element.querySelectorAll('.animate-on-scroll, .fade-in-section');
+    animatedElements.forEach(el => {
+        el.classList.remove('animate-on-scroll', 'fade-in-section', 'is-visible');
+        el.style.setProperty('opacity', '1', 'important');
+        el.style.setProperty('transform', 'none', 'important');
+        el.style.setProperty('visibility', 'visible', 'important');
+    });
+
+    const hiddenElements = element.querySelectorAll('.overflow-hidden, [style*="overflow: hidden"]');
+    hiddenElements.forEach(el => {
+        el.style.setProperty('overflow', 'visible', 'important');
+        el.classList.remove('overflow-hidden');
+    });
+
+    // Save current scroll position
+    const currentScrollY = window.scrollY;
+    
+    // Disable smooth scroll temporarily
+    const originalScrollBehavior = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = 'auto';
+    document.body.style.scrollBehavior = 'auto';
+    
+    // Jump to top instantly to prevent html2canvas offset bugs
+    window.scrollTo(0, 0);
+
+    const opt = {
+        margin:       [15, 10, 15, 10], 
+        filename:     'Bao-Cao-Goi-Von.pdf',
+        image:        { type: 'jpeg', quality: 1.0 },
+        html2canvas:  { 
+            scale: 2, 
+            useCORS: true,
+            scrollY: 0,
+            scrollX: 0
+        }, 
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        // IMPORTANT: We use CSS mode so it respects our break-inside-avoid classes!
+        // We do NOT use legacy mode, because legacy mode aggressively avoids breaking large elements.
+        pagebreak:    { mode: 'css' }
+    };
+
+    // Wait 500ms to ensure the browser has fully reflowed
+    setTimeout(() => {
+        // Double check opacity right before capturing
         element.style.setProperty('opacity', '1', 'important');
-        element.style.setProperty('transform', 'none', 'important');
-        element.style.setProperty('visibility', 'visible', 'important');
 
-        const animatedElements = element.querySelectorAll('.animate-on-scroll, .fade-in-section');
-        animatedElements.forEach(el => {
-            el.classList.remove('animate-on-scroll', 'fade-in-section', 'is-visible');
-            el.style.setProperty('opacity', '1', 'important');
-            el.style.setProperty('transform', 'none', 'important');
-            el.style.setProperty('visibility', 'visible', 'important');
-        });
-
-        const hiddenElements = element.querySelectorAll('.overflow-hidden, [style*="overflow: hidden"]');
-        hiddenElements.forEach(el => {
-            el.style.setProperty('overflow', 'visible', 'important');
-            el.classList.remove('overflow-hidden');
-        });
-
-        // Wait 500ms for browser paint
-        setTimeout(() => {
-            // MANUAL SLICING ALGORITHM - 100% BULLETPROOF
-            window.html2canvas(element, {
-                scale: 2,
-                useCORS: true,
-                backgroundColor: '#ffffff'
-            }).then(canvas => {
-                const imgData = canvas.toDataURL('image/jpeg', 1.0);
-                const { jsPDF } = window.jspdf;
-                const pdf = new jsPDF('p', 'mm', 'a4');
-                const pdfWidth = pdf.internal.pageSize.getWidth();
-                const pdfHeight = pdf.internal.pageSize.getHeight();
-                
-                const margin = 15; // 15mm margin
-                const contentWidth = pdfWidth - margin * 2;
-                const contentHeight = pdfHeight - margin * 2;
-                
-                const imgHeightInMm = (canvas.height * contentWidth) / canvas.width;
-                let heightLeft = imgHeightInMm;
-                let position = margin;
-                let pageNum = 1;
-                const date = new Date().toLocaleDateString('vi-VN');
-
-                // PAGE 1
-                pdf.addImage(imgData, 'JPEG', margin, position, contentWidth, imgHeightInMm);
-                
-                // Draw white rectangles to cover margins and hide overflowing sliced image parts
-                pdf.setFillColor(255, 255, 255);
-                pdf.rect(0, 0, pdfWidth, margin, 'F'); 
-                pdf.rect(0, pdfHeight - margin, pdfWidth, margin, 'F'); 
-                
-                // Header/Footer
+        html2pdf().set(opt).from(element).toPdf().get('pdf').then(function (pdf) {
+            const totalPages = pdf.internal.getNumberOfPages();
+            for (let i = 1; i <= totalPages; i++) {
+                pdf.setPage(i);
                 pdf.setFontSize(10);
-                pdf.setTextColor(100, 116, 139);
-                pdf.text('Bao cao Danh gia Doanh nghiep', margin, 10);
-                pdf.text('FundReady AI', pdfWidth - margin, 10, null, null, 'right');
-                pdf.text('Ngay xuat: ' + date, margin, pdfHeight - 10);
-                pdf.text('Trang ' + pageNum, pdfWidth - margin, pdfHeight - 10, null, null, 'right');
-                pdf.setDrawColor(226, 232, 240);
-                pdf.setLineWidth(0.5);
-                pdf.line(margin, 12, pdfWidth - margin, 12);
-                pdf.line(margin, pdfHeight - 14, pdfWidth - margin, pdfHeight - 14);
+                pdf.setTextColor(100, 116, 139); 
                 
-                heightLeft -= contentHeight;
-
-                // SUBSEQUENT PAGES
-                while (heightLeft > 0) {
-                    position = position - contentHeight; 
-                    pdf.addPage();
-                    pageNum++;
-                    
-                    pdf.addImage(imgData, 'JPEG', margin, position, contentWidth, imgHeightInMm);
-                    
-                    pdf.setFillColor(255, 255, 255);
-                    pdf.rect(0, 0, pdfWidth, margin, 'F'); 
-                    pdf.rect(0, pdfHeight - margin, pdfWidth, margin, 'F'); 
-                    
-                    pdf.setFontSize(10);
-                    pdf.setTextColor(100, 116, 139);
-                    pdf.text('Bao cao Danh gia Doanh nghiep', margin, 10);
-                    pdf.text('FundReady AI', pdfWidth - margin, 10, null, null, 'right');
-                    pdf.text('Ngay xuat: ' + date, margin, pdfHeight - 10);
-                    pdf.text('Trang ' + pageNum, pdfWidth - margin, pdfHeight - 10, null, null, 'right');
-                    pdf.setDrawColor(226, 232, 240);
-                    pdf.setLineWidth(0.5);
-                    pdf.line(margin, 12, pdfWidth - margin, 12);
-                    pdf.line(margin, pdfHeight - 14, pdfWidth - margin, pdfHeight - 14);
-
-                    heightLeft -= contentHeight;
-                }
-
-                pdf.save('Bao-Cao-Goi-Von.pdf');
-
-                // Restore UI
-                if (document.getElementById('pdf-loading-overlay')) {
-                    document.body.removeChild(loadingOverlay);
-                }
-                buttons.forEach((btn, i) => {
-                    btn.style.display = originalBtnDisplays[i];
-                });
+                pdf.text('Bao cao Danh gia Doanh nghiep', 10, 10);
+                pdf.text('FundReady AI', 200, 10, null, null, 'right');
+                
+                const date = new Date().toLocaleDateString('vi-VN');
+                pdf.text('Ngay xuat: ' + date, 10, 287);
+                pdf.text('Trang ' + i + ' / ' + totalPages, 200, 287, null, null, 'right');
+                
+                pdf.setDrawColor(226, 232, 240); 
+                pdf.setLineWidth(0.5);
+                pdf.line(10, 12, 200, 12); 
+                pdf.line(10, 282, 200, 282); 
+            }
+        }).save().then(() => {
+            // Restore everything
+            if (document.getElementById('pdf-loading-overlay')) {
+                document.body.removeChild(loadingOverlay);
+            }
+            document.documentElement.style.scrollBehavior = originalScrollBehavior;
+            document.body.style.scrollBehavior = originalScrollBehavior;
+            window.scrollTo(0, currentScrollY);
+            
+            buttons.forEach((btn, i) => {
+                btn.style.display = originalBtnDisplays[i];
             });
-        }, 500);
-    });
+        });
+    }, 500);
 };
