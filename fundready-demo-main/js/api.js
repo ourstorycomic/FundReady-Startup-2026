@@ -390,19 +390,19 @@ function renderSimulation(data) {
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                     <div class="bg-white p-4 rounded-lg border border-brand-50 shadow-sm text-center">
                         <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Công cụ</p>
-                        <p class="font-bold text-brand-800 text-xl">${data.suggested_deal.instrument}</p>
+                        <p class="font-bold text-brand-800 text-base md:text-lg break-words">${data.suggested_deal.instrument}</p>
                     </div>
                     <div class="bg-white p-4 rounded-lg border border-brand-50 shadow-sm text-center">
                         <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Pre-money</p>
-                        <p class="font-bold text-brand-800 text-xl">${data.suggested_deal.pre_money}</p>
+                        <p class="font-bold text-brand-800 text-base md:text-lg break-words">${data.suggested_deal.pre_money}</p>
                     </div>
                     <div class="bg-white p-4 rounded-lg border border-brand-50 shadow-sm text-center">
                         <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Post-money</p>
-                        <p class="font-bold text-brand-800 text-xl">${data.suggested_deal.post_money}</p>
+                        <p class="font-bold text-brand-800 text-base md:text-lg break-words">${data.suggested_deal.post_money}</p>
                     </div>
                     <div class="bg-white p-4 rounded-lg border border-brand-50 shadow-sm text-center">
                         <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Pha loãng</p>
-                        <p class="font-bold text-brand-800 text-xl">${data.suggested_deal.dilution}</p>
+                        <p class="font-bold text-brand-800 text-base md:text-lg break-words">${data.suggested_deal.dilution}</p>
                     </div>
                 </div>
                 ${data.suggested_deal.note ? `<p class="mt-4 text-sm text-gray-600 italic text-center">* ${data.suggested_deal.note}</p>` : ''}
@@ -508,19 +508,40 @@ function renderSimulation(data) {
 window.downloadPDF = function() {
     const element = document.getElementById('resultSection');
     
-    // Save original styles
-    const originalHeight = element.style.height;
-    const originalOverflow = element.style.overflow;
+    // Create a deep clone to manipulate without affecting the UI
+    const clone = element.cloneNode(true);
+    clone.id = 'pdf-clone';
+    clone.style.position = 'absolute';
+    clone.style.left = '-9999px';
+    clone.style.top = '0';
+    clone.style.width = '1200px'; // fixed width for PDF
+    clone.style.height = 'auto';
+    clone.style.overflow = 'visible';
     
-    // Apply new styles to fix blank pages
-    element.style.setProperty('height', 'auto', 'important');
-    element.style.setProperty('overflow', 'visible', 'important');
+    // Remove all animation classes that might cause opacity 0
+    const animatedElements = clone.querySelectorAll('.animate-on-scroll');
+    animatedElements.forEach(el => {
+        el.classList.remove('animate-on-scroll');
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+    });
+    clone.style.opacity = '1';
+    clone.style.transform = 'none';
+
+    // Force all overflow hidden to visible
+    const hiddenElements = clone.querySelectorAll('.overflow-hidden, [style*="overflow: hidden"]');
+    hiddenElements.forEach(el => {
+        el.classList.remove('overflow-hidden');
+        el.style.overflow = 'visible';
+    });
+
+    document.body.appendChild(clone);
 
     const opt = {
         margin:       [0.3, 0.3, 0.3, 0.3],
         filename:     'Bao-Cao-Goi-Von.pdf',
         image:        { type: 'jpeg', quality: 1.0 },
-        html2canvas:  { scale: 2, useCORS: true, letterRendering: true, windowWidth: document.documentElement.offsetWidth },
+        html2canvas:  { scale: 2, useCORS: true, letterRendering: true, windowWidth: 1200 },
         jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
         pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
     };
@@ -533,11 +554,8 @@ window.downloadPDF = function() {
         btn.disabled = true;
     }
 
-    html2pdf().set(opt).from(element).save().then(() => {
-        // Restore styles
-        element.style.height = originalHeight;
-        element.style.overflow = originalOverflow;
-        
+    html2pdf().set(opt).from(clone).save().then(() => {
+        document.body.removeChild(clone);
         if(btn) {
             btn.innerHTML = oldText;
             btn.disabled = false;
