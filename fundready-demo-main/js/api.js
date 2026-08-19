@@ -145,7 +145,7 @@ function renderResults(data) {
                         </div>
                     </div>
                 </div>
-                <div class="text-base text-gray-800 break-words whitespace-normal leading-relaxed text-justify space-y-4">
+                <div class="text-base text-gray-800 text-justify" style="width: 100%; word-wrap: break-word; overflow-wrap: break-word; white-space: pre-line; line-height: 1.6;">
                     ${b.reason}
                 </div>
             </div>
@@ -176,12 +176,12 @@ function renderResults(data) {
     recoBody.innerHTML = '';
     recos.forEach(r => {
         let text = typeof r === 'string' ? r : (r.recommendation || JSON.stringify(r));
-        recoBody.innerHTML += 
+        recoBody.innerHTML += `
             <div class="flex items-start gap-4 border-b border-gray-100 last:border-0 p-4">
                 <span class="text-brand-600 font-bold mt-1 text-lg">•</span>
-                <p class="text-base leading-relaxed text-gray-800 whitespace-normal break-words"></p>
+                <p class="text-base text-gray-800" style="width: 100%; word-wrap: break-word; overflow-wrap: break-word; white-space: pre-line; line-height: 1.6;">${text}</p>
             </div>
-        ;
+        `;
     });
 
     // Show result section
@@ -507,49 +507,40 @@ function renderSimulation(data) {
 
 window.downloadPDF = function() {
     const element = document.getElementById('resultSection');
-    const opt = {
-        margin:       [0.5, 0.5, 0.5, 0.5],
-        filename:     'Bao-Cao-Goi-Von.pdf',
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2, useCORS: true, letterRendering: true },
-        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
-    };
     
-    // Create an overlay to show loading state
-    const btn = document.querySelector('button[onclick="downloadPDF()"]');
-    const oldText = btn.innerHTML;
-    btn.innerHTML = '<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-brand-600 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> ang t?o PDF...';
-    btn.disabled = true;
+    // Save original styles
+    const originalHeight = element.style.height;
+    const originalOverflow = element.style.overflow;
+    
+    // Apply new styles to fix blank pages
+    element.style.setProperty('height', 'auto', 'important');
+    element.style.setProperty('overflow', 'visible', 'important');
 
-    html2pdf().set(opt).from(element).save().then(() => {
-        btn.innerHTML = oldText;
-        btn.disabled = false;
-    });
-};
-
-
-window.downloadPDF = function() {
-    const element = document.getElementById('resultSection');
     const opt = {
         margin:       [0.3, 0.3, 0.3, 0.3],
         filename:     'Bao-Cao-Goi-Von.pdf',
         image:        { type: 'jpeg', quality: 1.0 },
-        html2canvas:  { scale: 2, useCORS: true, letterRendering: true, windowWidth: 1200 },
+        html2canvas:  { scale: 2, useCORS: true, letterRendering: true, windowWidth: document.documentElement.offsetWidth },
         jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
         pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
     };
     
-    // Create an overlay to show loading state
     const btn = document.querySelector('button[onclick="downloadPDF()"]');
-    const oldText = btn.innerHTML;
-    btn.innerHTML = '<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-brand-600 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> ang t?o PDF...';
-    btn.disabled = true;
+    let oldText = "";
+    if(btn) {
+        oldText = btn.innerHTML;
+        btn.innerHTML = '<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-brand-600 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Đang tạo PDF...';
+        btn.disabled = true;
+    }
 
     html2pdf().set(opt).from(element).save().then(() => {
-        btn.innerHTML = oldText;
-        btn.disabled = false;
+        // Restore styles
+        element.style.height = originalHeight;
+        element.style.overflow = originalOverflow;
+        
+        if(btn) {
+            btn.innerHTML = oldText;
+            btn.disabled = false;
+        }
     });
 };
-
-
-
