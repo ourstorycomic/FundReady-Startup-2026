@@ -506,40 +506,44 @@ function renderSimulation(data) {
 
 
 window.downloadPDF = function() {
-    const original = document.getElementById('resultSection');
-    if (!original) return;
+    const element = document.getElementById('resultSection');
+    if (!element) return;
 
-    // Show beautiful loading screen
+    // Show loading screen
     const loadingOverlay = document.createElement('div');
     loadingOverlay.id = 'pdf-loading-overlay';
     loadingOverlay.style.zIndex = '99999';
-    loadingOverlay.innerHTML = '<div class="fixed inset-0 bg-white/90 backdrop-blur-sm flex flex-col items-center justify-center transition-all duration-300"><svg class="animate-spin h-14 w-14 text-brand-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="text-2xl font-extrabold text-gray-900 mb-2">Đang xử lý Báo Cáo PDF</span><span class="text-gray-500 font-medium">Vui lòng đợi trong giây lát...</span></div>';
+    loadingOverlay.innerHTML = '<div class="fixed inset-0 bg-white/90 backdrop-blur-sm flex flex-col items-center justify-center transition-all duration-300"><svg class="animate-spin h-14 w-14 text-brand-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="text-2xl font-extrabold text-gray-900 mb-2">Đang xuất PDF báo cáo chuẩn</span><span class="text-gray-500 font-medium">Quá trình này mất khoảng vài giây...</span></div>';
     document.body.appendChild(loadingOverlay);
 
-    // Create a detached clone for perfect rendering
-    const clone = original.cloneNode(true);
-    
-    // Completely strip all animation classes
-    clone.classList.remove('hidden', 'animate-on-scroll', 'is-visible', 'fade-in-section');
-    clone.style.opacity = '1';
-    clone.style.transform = 'none';
-    
-    // CRITICAL: Match the original container width (max-w-4xl = 896px) to prevent left/right layout shifts!
-    clone.style.width = '896px'; 
-    clone.style.maxWidth = '896px';
-    clone.style.margin = '0';
-    clone.style.padding = '20px';
-    clone.style.backgroundColor = '#ffffff';
+    const buttons = element.querySelectorAll('button');
+    const originalBtnDisplays = [];
+    buttons.forEach(btn => {
+        originalBtnDisplays.push(btn.style.display);
+        btn.style.display = 'none';
+    });
 
-    const allDescendants = clone.querySelectorAll('*');
-    allDescendants.forEach(el => {
+    const animatedElements = element.querySelectorAll('.animate-on-scroll');
+    animatedElements.forEach(el => {
         el.style.opacity = '1';
         el.style.transform = 'none';
-        el.classList.remove('animate-on-scroll', 'overflow-hidden', 'fade-in-section');
-        if (el.tagName.toLowerCase() === 'button') {
-            el.remove(); // Remove buttons from PDF
-        }
+        el.classList.remove('animate-on-scroll');
     });
+    element.classList.remove('hidden', 'animate-on-scroll', 'is-visible', 'fade-in-section');
+    element.style.opacity = '1';
+    element.style.transform = 'none';
+
+    const hiddenElements = element.querySelectorAll('.overflow-hidden, [style*="overflow: hidden"]');
+    hiddenElements.forEach(el => {
+        el.style.overflow = 'visible';
+        el.classList.remove('overflow-hidden');
+    });
+
+    // DO NOT scroll the window. DO NOT clone. DO NOT move.
+    // Instead, tell html2canvas the EXACT bounding box to capture!
+    const rect = element.getBoundingClientRect();
+    const absoluteX = rect.left + window.scrollX;
+    const absoluteY = rect.top + window.scrollY;
 
     const opt = {
         margin:       [15, 10, 15, 10], 
@@ -548,16 +552,18 @@ window.downloadPDF = function() {
         html2canvas:  { 
             scale: 2, 
             useCORS: true,
-            scrollY: 0,           // CRITICAL: Fixes the blank space at the top of the PDF!
-            scrollX: 0,
-            windowWidth: 896      // CRITICAL: Matches clone width to prevent left cutoff!
+            x: absoluteX,
+            y: absoluteY,
+            width: element.offsetWidth,
+            height: element.offsetHeight,
+            scrollY: -window.scrollY // This is the official html2pdf workaround for scrolled elements
         }, 
-        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        pagebreak:    { mode: ['css', 'legacy'] }
     };
 
-    // Give a short timeout for browser to prepare memory
     setTimeout(() => {
-        html2pdf().set(opt).from(clone).toPdf().get('pdf').then(function (pdf) {
+        html2pdf().set(opt).from(element).toPdf().get('pdf').then(function (pdf) {
             const totalPages = pdf.internal.getNumberOfPages();
             for (let i = 1; i <= totalPages; i++) {
                 pdf.setPage(i);
@@ -578,6 +584,9 @@ window.downloadPDF = function() {
             }
         }).save().then(() => {
             document.body.removeChild(loadingOverlay);
+            buttons.forEach((btn, i) => {
+                btn.style.display = originalBtnDisplays[i];
+            });
         });
     }, 150);
 };
