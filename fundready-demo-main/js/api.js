@@ -508,7 +508,6 @@ function renderSimulation(data) {
 window.downloadPDF = function() {
     const element = document.getElementById('resultSection');
     
-    // Hide buttons
     const buttons = element.querySelectorAll('button');
     const originalBtnDisplays = [];
     buttons.forEach(btn => {
@@ -533,17 +532,25 @@ window.downloadPDF = function() {
         el.classList.remove('overflow-hidden');
     });
 
+    const currentScrollY = window.scrollY;
+    window.scrollTo(0, 0); 
+    
+    // Calculate precise starting Y coordinate to crop out any blank space above the element
+    const rect = element.getBoundingClientRect();
+    const captureY = rect.top + window.scrollY;
+
     const opt = {
-        margin:       [15, 10, 15, 10], // top, left, bottom, right (mm) - extra space for header/footer
+        margin:       [15, 10, 15, 10], 
         filename:     'Bao-Cao-Goi-Von.pdf',
         image:        { type: 'jpeg', quality: 1.0 },
-        // CRITICAL: scrollY: 0 prevents the blank space at the top caused by user scrolling down!
-        html2canvas:  { scale: 2, useCORS: true, scrollY: 0 }, 
+        html2canvas:  { 
+            scale: 2, 
+            useCORS: true, 
+            scrollY: 0,
+            y: captureY // <-- THIS FIXES THE BLANK PAGES
+        }, 
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
-    
-    const currentScrollY = window.scrollY;
-    window.scrollTo(0, 0); // Double ensure no scroll offset
 
     setTimeout(() => {
         html2pdf().set(opt).from(element).toPdf().get('pdf').then(function (pdf) {
@@ -552,22 +559,20 @@ window.downloadPDF = function() {
             for (let i = 1; i <= totalPages; i++) {
                 pdf.setPage(i);
                 pdf.setFontSize(10);
-                pdf.setTextColor(100, 116, 139); // Tailwind slate-500
+                pdf.setTextColor(100, 116, 139); 
                 
-                // Add Header
-                pdf.text('Báo cáo Sẵn sàng Gọi vốn Chuyên sâu', 10, 10);
+                // Fix Vietnamese font issue by using English/Unaccented for jsPDF basic fonts
+                pdf.text('Bao cao Danh gia Doanh nghiep', 10, 10);
                 pdf.text('FundReady AI', 200, 10, null, null, 'right');
                 
-                // Add Footer
                 const date = new Date().toLocaleDateString('vi-VN');
-                pdf.text('Ngày xuất: ' + date, 10, 287);
+                pdf.text('Ngay xuat: ' + date, 10, 287);
                 pdf.text('Trang ' + i + ' / ' + totalPages, 200, 287, null, null, 'right');
                 
-                // Draw decorative lines
-                pdf.setDrawColor(226, 232, 240); // slate-200
+                pdf.setDrawColor(226, 232, 240); 
                 pdf.setLineWidth(0.5);
-                pdf.line(10, 12, 200, 12); // Header line
-                pdf.line(10, 282, 200, 282); // Footer line
+                pdf.line(10, 12, 200, 12); 
+                pdf.line(10, 282, 200, 282); 
             }
         }).save().then(() => {
             document.body.removeChild(loadingOverlay);
