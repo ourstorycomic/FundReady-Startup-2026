@@ -134,8 +134,10 @@ function renderResults(data) {
         if (pct < 40) colorClass = 'bg-[#EF4444]'; // Red
         else if (pct < 70) colorClass = 'bg-[#F59E0B]'; // Amber
 
-        tbody.innerHTML += `
-            <div class="flex flex-col border-b border-gray-100 last:border-0 p-6">
+        const paragraphs = (b.reason || '').split(/\\n+/).map(p => p.trim()).filter(p => p.length > 0);
+        let contentHtml = '';
+        if (paragraphs.length > 0) {
+            contentHtml += `<div class="break-inside-avoid">
                 <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
                     <h4 class="font-bold text-brand-800 text-lg w-full md:w-1/3">${b.name}</h4>
                     <div class="flex items-center gap-4 w-full md:w-2/3">
@@ -145,9 +147,28 @@ function renderResults(data) {
                         </div>
                     </div>
                 </div>
-                <div class="text-base text-gray-800 text-justify break-inside-avoid" style="width: 100%; word-wrap: break-word; overflow-wrap: break-word; white-space: pre-line; line-height: 1.6;">
-                    ${b.reason}
+                <p class="text-base text-gray-800 text-justify mb-2" style="line-height: 1.6;">${paragraphs[0]}</p>
+            </div>`;
+            for (let i = 1; i < paragraphs.length; i++) {
+                contentHtml += `<p class="text-base text-gray-800 text-justify mb-2 break-inside-avoid" style="line-height: 1.6;">${paragraphs[i]}</p>`;
+            }
+        } else {
+            contentHtml += `<div class="break-inside-avoid">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
+                    <h4 class="font-bold text-brand-800 text-lg w-full md:w-1/3">${b.name}</h4>
+                    <div class="flex items-center gap-4 w-full md:w-2/3">
+                        <span class="text-base font-extrabold text-brand-600 w-16">${b.score}/${maxScore}</span>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden shadow-inner">
+                            <div class="${colorClass} h-2.5 rounded-full progress-fill-anim" style="width: ${pct}%"></div>
+                        </div>
+                    </div>
                 </div>
+            </div>`;
+        }
+
+        tbody.innerHTML += `
+            <div class="flex flex-col border-b border-gray-100 last:border-0 p-6">
+                ${contentHtml}
             </div>
         `;
     });
@@ -156,10 +177,10 @@ function renderResults(data) {
     const strengthsList = document.getElementById('strengthsList');
     const weaknessesList = document.getElementById('weaknessesList');
     if (strengthsList) {
-        strengthsList.innerHTML = (data.strengths || []).map(s => `<li>${s}</li>`).join('');
+        strengthsList.innerHTML = (data.strengths || []).map(s => `<li class="break-inside-avoid">${s}</li>`).join('');
     }
     if (weaknessesList) {
-        weaknessesList.innerHTML = (data.weaknesses || []).map(w => `<li>${w}</li>`).join('');
+        weaknessesList.innerHTML = (data.weaknesses || []).map(w => `<li class="break-inside-avoid">${w}</li>`).join('');
     }
 
     // 4. Funding Scenario
@@ -462,12 +483,15 @@ function renderSimulation(data) {
         ${dealHTML}
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-            <div class="bg-gray-900 text-white rounded-xl p-6 shadow-lg break-inside-avoid">
-                <h3 class="font-bold text-gray-100 mb-4 text-lg border-b border-gray-700 pb-2 flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path></svg>
-                    Đánh giá Burn Rate & Runway
-                </h3>
-                <p class="text-base text-gray-300 leading-relaxed">${data.burn_rate_runway || 'Chưa xác định'}</p>
+            <div class="bg-gray-900 text-white rounded-xl p-6 shadow-lg">
+                <div class="break-inside-avoid">
+                    <h3 class="font-bold text-gray-100 mb-4 text-lg border-b border-gray-700 pb-2 flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path></svg>
+                        Đánh giá Burn Rate & Runway
+                    </h3>
+                    <p class="text-base text-gray-300 leading-relaxed mb-2">${(data.burn_rate_runway || 'Chưa xác định').split('\\n')[0]}</p>
+                </div>
+                ${(data.burn_rate_runway || '').split('\\n').slice(1).map(p => p.trim() ? `<p class="text-base text-gray-300 leading-relaxed mt-2 break-inside-avoid">${p}</p>` : '').join('')}
             </div>
             
             <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm break-inside-avoid">
