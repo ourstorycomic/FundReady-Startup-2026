@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let limitReached = false;
         
         Array.from(files).forEach(file => {
-            if (globalUploadedFiles.length >= 5) {
+            if (globalUploadedFiles.length >= 15) {
                 limitReached = true;
                 return;
             }
@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         if (limitReached) {
-            alert("Hệ thống chỉ cho phép tải lên tối đa 5 tài liệu. Các tài liệu vượt quá giới hạn đã bị bỏ qua.");
+            alert("Hệ thống chỉ cho phép tải lên tối đa 15 tài liệu. Các tài liệu vượt quá giới hạn đã bị bỏ qua.");
         }
         
         if (addedCount > 0 || files.length > 0) {
@@ -321,8 +321,8 @@ function renderSimulation(data) {
                     </div>
                 </div>
                 <div class="mb-3">
-                    <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Mục tiêu & Lý do đầu tư</p>
-                    <p class="text-sm text-gray-700 leading-relaxed">${al.why_invest || al.objective || ''}</p>
+                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Mục tiêu & Lý do đầu tư</p>
+                    <p class="text-base text-gray-700 leading-relaxed">${al.why_invest || al.objective || ''}</p>
                 </div>
                 ${al.action_items && al.action_items.length > 0 ? `
                 <div class="bg-gray-50 p-3 rounded-md border border-gray-100">
@@ -353,8 +353,8 @@ function renderSimulation(data) {
                 </div>
                 <div class="p-6 flex-grow">
                     <div class="mb-6 ${isRecommended ? 'bg-brand-50 border-brand-100 text-brand-900' : 'bg-yellow-50 border-yellow-100 text-yellow-900'} p-4 rounded-lg border">
-                        <p class="text-xs font-bold uppercase tracking-wider mb-2 ${isRecommended ? 'text-brand-800' : 'text-yellow-800'}">Trọng tâm chiến lược</p>
-                        <p class="text-sm leading-relaxed">${scenario.focus_explanation || scenario.focus || ''}</p>
+                        <p class="text-sm font-bold uppercase tracking-wider mb-2 ${isRecommended ? 'text-brand-800' : 'text-yellow-800'}">Trọng tâm chiến lược</p>
+                        <p class="text-base leading-relaxed">${scenario.focus_explanation || scenario.focus || ''}</p>
                     </div>
                     <div class="mb-6">
                         <h4 class="font-bold text-gray-800 mb-4 border-b pb-2">Chi tiết phân bổ</h4>
@@ -362,12 +362,12 @@ function renderSimulation(data) {
                     </div>
                     ${scenario.expected_results && scenario.expected_results.length > 0 ? `
                     <div class="bg-indigo-50/50 p-5 rounded-lg border border-indigo-100 mt-auto">
-                        <h4 class="font-bold text-indigo-900 mb-3 text-sm uppercase tracking-wider">Kết quả kỳ vọng</h4>
+                        <h4 class="font-bold text-indigo-900 mb-3 text-base uppercase tracking-wider">Kết quả kỳ vọng</h4>
                         <ul class="space-y-2">
                             ${scenario.expected_results.map(r => `
                                 <li class="flex items-start">
                                     <svg class="w-5 h-5 text-indigo-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-sm text-gray-700 leading-relaxed">${r}</span>
+                                    <span class="text-base text-gray-700 leading-relaxed">${r}</span>
                                 </li>
                             `).join('')}
                         </ul>
@@ -389,20 +389,20 @@ function renderSimulation(data) {
                 </h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                     <div class="bg-white p-4 rounded-lg border border-brand-50 shadow-sm text-center">
-                        <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Công cụ</p>
-                        <p class="font-bold text-brand-800 text-lg">${data.suggested_deal.instrument}</p>
+                        <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Công cụ</p>
+                        <p class="font-bold text-brand-800 text-xl">${data.suggested_deal.instrument}</p>
                     </div>
                     <div class="bg-white p-4 rounded-lg border border-brand-50 shadow-sm text-center">
-                        <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Pre-money</p>
-                        <p class="font-bold text-brand-800 text-lg">${data.suggested_deal.pre_money}</p>
+                        <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Pre-money</p>
+                        <p class="font-bold text-brand-800 text-xl">${data.suggested_deal.pre_money}</p>
                     </div>
                     <div class="bg-white p-4 rounded-lg border border-brand-50 shadow-sm text-center">
-                        <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Post-money</p>
-                        <p class="font-bold text-brand-800 text-lg">${data.suggested_deal.post_money}</p>
+                        <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Post-money</p>
+                        <p class="font-bold text-brand-800 text-xl">${data.suggested_deal.post_money}</p>
                     </div>
                     <div class="bg-white p-4 rounded-lg border border-brand-50 shadow-sm text-center">
-                        <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Pha loãng</p>
-                        <p class="font-bold text-brand-800 text-lg">${data.suggested_deal.dilution}</p>
+                        <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Pha loãng</p>
+                        <p class="font-bold text-brand-800 text-xl">${data.suggested_deal.dilution}</p>
                     </div>
                 </div>
                 ${data.suggested_deal.note ? `<p class="mt-4 text-sm text-gray-600 italic text-center">* ${data.suggested_deal.note}</p>` : ''}
@@ -444,8 +444,8 @@ function renderSimulation(data) {
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
                             ${(rationale.investment_needs || []).map((need, idx) => `
                                 <div class="bg-white rounded border border-blue-100 p-3 flex items-start shadow-sm">
-                                    <div class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs mr-3 flex-shrink-0">${idx + 1}</div>
-                                    <p class="text-sm text-gray-700 leading-tight">${need}</p>
+                                    <div class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center font-bold text-sm mr-3 flex-shrink-0">${idx + 1}</div>
+                                    <p class="text-base text-gray-700 leading-tight">${need}</p>
                                 </div>
                             `).join('')}
                         </div>
@@ -455,7 +455,7 @@ function renderSimulation(data) {
         </div>
 
         <h3 class="font-bold text-gray-900 text-xl mb-5">2. Các phương án phân bổ vốn chi tiết</h3>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+        <div class="grid grid-cols-1 ${scenarios.length === 1 ? 'lg:grid-cols-1' : 'lg:grid-cols-2'} gap-8 mb-10">
             ${scenariosHTML}
         </div>
 
@@ -467,7 +467,7 @@ function renderSimulation(data) {
                     <svg class="w-5 h-5 mr-2 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path></svg>
                     Đánh giá Burn Rate & Runway
                 </h3>
-                <p class="text-sm text-gray-300 leading-relaxed">${data.burn_rate_runway || 'Chưa xác định'}</p>
+                <p class="text-base text-gray-300 leading-relaxed">${data.burn_rate_runway || 'Chưa xác định'}</p>
             </div>
             
             <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
@@ -483,8 +483,8 @@ function renderSimulation(data) {
                                 <div class="w-0.5 h-full bg-indigo-100 my-1"></div>
                             </div>
                             <div class="pb-2">
-                                <p class="text-sm font-bold text-indigo-900 uppercase tracking-wider mb-1">${m.phase}</p>
-                                <p class="text-sm text-gray-600 leading-relaxed">${m.goal}</p>
+                                <p class="text-base font-bold text-indigo-900 uppercase tracking-wider mb-1">${m.phase}</p>
+                                <p class="text-base text-gray-600 leading-relaxed">${m.goal}</p>
                             </div>
                         </div>
                     `).join('') : '<p class="text-sm text-gray-500">Không có dữ liệu lộ trình giải ngân.</p>'}
