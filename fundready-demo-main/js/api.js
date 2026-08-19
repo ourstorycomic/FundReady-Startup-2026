@@ -509,12 +509,14 @@ window.downloadPDF = function() {
     const element = document.getElementById('resultSection');
     if (!element) return;
 
+    // Show beautiful loading screen
     const loadingOverlay = document.createElement('div');
     loadingOverlay.id = 'pdf-loading-overlay';
     loadingOverlay.style.zIndex = '99999';
-    loadingOverlay.innerHTML = '<div class="fixed inset-0 bg-white/90 backdrop-blur-sm flex flex-col items-center justify-center transition-all duration-300"><svg class="animate-spin h-14 w-14 text-brand-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="text-2xl font-extrabold text-gray-900 mb-2">Đang xuất PDF báo cáo chuẩn</span><span class="text-gray-500 font-medium">Quá trình này mất khoảng vài giây...</span></div>';
+    loadingOverlay.innerHTML = '<div class="fixed inset-0 bg-white/90 backdrop-blur-sm flex flex-col items-center justify-center transition-all duration-300"><svg class="animate-spin h-14 w-14 text-brand-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="text-2xl font-extrabold text-gray-900 mb-2">Đang xử lý Báo Cáo PDF</span><span class="text-gray-500 font-medium">Vui lòng đợi trong giây lát...</span></div>';
     document.body.appendChild(loadingOverlay);
 
+    // Hide buttons
     const buttons = element.querySelectorAll('button');
     const originalBtnDisplays = [];
     buttons.forEach(btn => {
@@ -522,7 +524,7 @@ window.downloadPDF = function() {
         btn.style.display = 'none';
     });
 
-    // Remove all animation artifacts
+    // Clean element animations to ensure perfect capture
     const animatedElements = element.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach(el => {
         el.style.opacity = '1';
@@ -532,79 +534,89 @@ window.downloadPDF = function() {
     element.classList.remove('hidden', 'animate-on-scroll', 'is-visible', 'fade-in-section');
     element.style.opacity = '1';
     element.style.transform = 'none';
-    
-    // Save original placement
-    const originalParent = element.parentNode;
-    const nextSibling = element.nextSibling;
-    
-    // THE ULTIMATE FIX: Create a temp container that exactly matches max-w-4xl (896px)
-    // Place it exactly at 0,0 to avoid all html2canvas scrolling and clipping bugs
-    const tempContainer = document.createElement('div');
-    tempContainer.style.position = 'absolute';
-    tempContainer.style.top = '0px';
-    tempContainer.style.left = '0px';
-    tempContainer.style.width = '896px';
-    tempContainer.style.margin = '0';
-    tempContainer.style.padding = '0';
-    tempContainer.style.zIndex = '99990';
-    tempContainer.style.backgroundColor = '#ffffff';
 
-    // Move the actual element into the temp container
-    tempContainer.appendChild(element);
-    document.body.appendChild(tempContainer);
-
-    const currentScrollY = window.scrollY;
-    window.scrollTo(0, 0);
-
-    const opt = {
-        margin:       [15, 10, 15, 10], 
-        filename:     'Bao-Cao-Goi-Von.pdf',
-        image:        { type: 'jpeg', quality: 1.0 },
-        html2canvas:  { 
-            scale: 2, 
-            useCORS: true,
-            windowWidth: 896,
-            scrollY: 0,
-            scrollX: 0
-        }, 
-        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-        pagebreak:    { mode: ['css', 'legacy'] }
-    };
-
+    // The Ultimate Fix: Manual Canvas to PDF without html2pdf.js layout engine bugs!
     setTimeout(() => {
-        html2pdf().set(opt).from(element).toPdf().get('pdf').then(function (pdf) {
-            const totalPages = pdf.internal.getNumberOfPages();
-            for (let i = 1; i <= totalPages; i++) {
-                pdf.setPage(i);
-                pdf.setFontSize(10);
-                pdf.setTextColor(100, 116, 139); 
-                
-                pdf.text('Bao cao Danh gia Doanh nghiep', 10, 10);
-                pdf.text('FundReady AI', 200, 10, null, null, 'right');
-                
-                const date = new Date().toLocaleDateString('vi-VN');
-                pdf.text('Ngay xuat: ' + date, 10, 287);
-                pdf.text('Trang ' + i + ' / ' + totalPages, 200, 287, null, null, 'right');
-                
-                pdf.setDrawColor(226, 232, 240); 
-                pdf.setLineWidth(0.5);
-                pdf.line(10, 12, 200, 12); 
-                pdf.line(10, 282, 200, 282); 
-            }
-        }).save().then(() => {
-            // Restore everything
-            if (nextSibling) {
-                originalParent.insertBefore(element, nextSibling);
-            } else {
-                originalParent.appendChild(element);
-            }
-            document.body.removeChild(tempContainer);
-            document.body.removeChild(loadingOverlay);
+        html2canvas(element, {
+            scale: 2, // High resolution
+            useCORS: true,
+            backgroundColor: '#ffffff'
+        }).then(canvas => {
+            const imgData = canvas.toDataURL('image/jpeg', 1.0);
             
+            // Create PDF in A4 Portrait
+            const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = pdf.internal.pageSize.getHeight();
+            
+            const margin = 15; // 15mm margin on all sides
+            const contentWidth = pdfWidth - margin * 2;
+            const contentHeight = pdfHeight - margin * 2;
+            
+            const imgHeightInMm = (canvas.height * contentWidth) / canvas.width;
+            let heightLeft = imgHeightInMm;
+            let position = margin;
+            let pageNum = 1;
+            const date = new Date().toLocaleDateString('vi-VN');
+
+            // --- PAGE 1 ---
+            pdf.addImage(imgData, 'JPEG', margin, position, contentWidth, imgHeightInMm);
+            
+            // Draw White margins to cover overscrolled image
+            pdf.setFillColor(255, 255, 255);
+            pdf.rect(0, 0, pdfWidth, margin, 'F'); // Top margin wipe
+            pdf.rect(0, pdfHeight - margin, pdfWidth, margin, 'F'); // Bottom margin wipe
+            
+            // Header/Footer Page 1
+            pdf.setFontSize(10);
+            pdf.setTextColor(100, 116, 139);
+            pdf.text('Bao cao Danh gia Doanh nghiep', margin, 10);
+            pdf.text('FundReady AI', pdfWidth - margin, 10, null, null, 'right');
+            pdf.text('Ngay xuat: ' + date, margin, pdfHeight - 10);
+            pdf.text('Trang ' + pageNum, pdfWidth - margin, pdfHeight - 10, null, null, 'right');
+            pdf.setDrawColor(226, 232, 240);
+            pdf.setLineWidth(0.5);
+            pdf.line(margin, 12, pdfWidth - margin, 12);
+            pdf.line(margin, pdfHeight - 14, pdfWidth - margin, pdfHeight - 14);
+            
+            heightLeft -= contentHeight;
+
+            // --- SUBSEQUENT PAGES ---
+            while (heightLeft > 0) {
+                // Shift position up by contentHeight
+                position = position - contentHeight; 
+                pdf.addPage();
+                pageNum++;
+                
+                pdf.addImage(imgData, 'JPEG', margin, position, contentWidth, imgHeightInMm);
+                
+                // Draw White margins to cover overscrolled image
+                pdf.setFillColor(255, 255, 255);
+                pdf.rect(0, 0, pdfWidth, margin, 'F'); // Top margin wipe
+                pdf.rect(0, pdfHeight - margin, pdfWidth, margin, 'F'); // Bottom margin wipe
+                
+                // Header/Footer
+                pdf.setFontSize(10);
+                pdf.setTextColor(100, 116, 139);
+                pdf.text('Bao cao Danh gia Doanh nghiep', margin, 10);
+                pdf.text('FundReady AI', pdfWidth - margin, 10, null, null, 'right');
+                pdf.text('Ngay xuat: ' + date, margin, pdfHeight - 10);
+                pdf.text('Trang ' + pageNum, pdfWidth - margin, pdfHeight - 10, null, null, 'right');
+                pdf.setDrawColor(226, 232, 240);
+                pdf.setLineWidth(0.5);
+                pdf.line(margin, 12, pdfWidth - margin, 12);
+                pdf.line(margin, pdfHeight - 14, pdfWidth - margin, pdfHeight - 14);
+
+                heightLeft -= contentHeight;
+            }
+
+            pdf.save('Bao-Cao-Goi-Von.pdf');
+
+            // Restore UI
+            document.body.removeChild(loadingOverlay);
             buttons.forEach((btn, i) => {
                 btn.style.display = originalBtnDisplays[i];
             });
-            window.scrollTo(0, currentScrollY);
         });
     }, 150);
 };
