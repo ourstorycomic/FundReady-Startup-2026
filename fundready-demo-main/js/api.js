@@ -533,11 +533,9 @@ window.downloadPDF = function() {
     });
 
     const currentScrollY = window.scrollY;
-    window.scrollTo(0, 0); 
     
-    // Calculate precise starting Y coordinate to crop out any blank space above the element
-    const rect = element.getBoundingClientRect();
-    const captureY = rect.top + window.scrollY;
+    // THE FIX: Only scroll to top, DO NOT override 'y' in html2canvas!
+    window.scrollTo(0, 0); 
 
     const opt = {
         margin:       [15, 10, 15, 10], 
@@ -546,8 +544,8 @@ window.downloadPDF = function() {
         html2canvas:  { 
             scale: 2, 
             useCORS: true, 
-            scrollY: 0,
-            y: captureY // <-- THIS FIXES THE BLANK PAGES
+            scrollY: 0
+            // REMOVED: y: captureY (This was causing the top of the element to be skipped!)
         }, 
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
@@ -561,7 +559,6 @@ window.downloadPDF = function() {
                 pdf.setFontSize(10);
                 pdf.setTextColor(100, 116, 139); 
                 
-                // Fix Vietnamese font issue by using English/Unaccented for jsPDF basic fonts
                 pdf.text('Bao cao Danh gia Doanh nghiep', 10, 10);
                 pdf.text('FundReady AI', 200, 10, null, null, 'right');
                 
