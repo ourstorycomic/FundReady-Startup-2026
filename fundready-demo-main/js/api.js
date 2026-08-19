@@ -525,37 +525,35 @@ window.downloadPDF = function() {
         el.classList.remove('overflow-hidden');
     });
     
-    // Force dimensions and remove margins to prevent "cut off on the left"
+    // Hide buttons during capture
+    const buttons = element.querySelectorAll('button');
+    const originalBtnDisplays = [];
+    buttons.forEach(btn => {
+        originalBtnDisplays.push(btn.style.display);
+        btn.style.display = 'none';
+    });
+    
+    // Remove margins to prevent "cut off on the left"
     element.style.setProperty('height', 'auto', 'important');
     element.style.setProperty('overflow', 'visible', 'important');
     element.style.setProperty('margin', '0', 'important');
     element.style.setProperty('padding', '20px', 'important');
-    element.style.setProperty('width', '1200px', 'important');
-    element.style.setProperty('max-width', '1200px', 'important');
+    // DO NOT force width to 1200px, let it be fluid so html2pdf can scale it properly!
 
     const opt = {
-        margin:       [0.3, 0.3, 0.3, 0.3],
+        margin:       [10, 10, 10, 10], // Use mm margins instead of inches for better control
         filename:     'Bao-Cao-Goi-Von.pdf',
         image:        { type: 'jpeg', quality: 1.0 },
-        html2canvas:  { scale: 2, useCORS: true, scrollX: 0, scrollY: 0, windowWidth: 1200 },
-        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
+        html2canvas:  { scale: 2, useCORS: true, scrollX: 0, scrollY: 0, windowWidth: 1024 }, // 1024px viewport
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
         pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
     };
-    
-    const btn = document.querySelector('button[onclick="downloadPDF()"]');
-    let oldText = "";
-    if(btn) {
-        oldText = btn.innerHTML;
-        btn.innerHTML = '<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Đang tạo PDF...';
-        btn.disabled = true;
-    }
 
     html2pdf().set(opt).from(element).save().then(() => {
-        // Restore styles
+        // Restore styles and buttons
         element.setAttribute('style', originalStyle);
-        if(btn) {
-            btn.innerHTML = oldText;
-            btn.disabled = false;
-        }
+        buttons.forEach((btn, i) => {
+            btn.style.display = originalBtnDisplays[i];
+        });
     });
 };
