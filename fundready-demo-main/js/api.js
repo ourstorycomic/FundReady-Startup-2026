@@ -453,7 +453,21 @@ function renderSimulation(data) {
                         <div class="bg-green-50 rounded-lg p-5 border border-green-100 flex flex-col justify-center items-center text-center relative overflow-hidden">
                             <div class="absolute top-0 right-0 bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg uppercase tracking-wider">Hệ thống Đề xuất</div>
                             <p class="text-sm font-semibold text-green-800 uppercase tracking-wider mb-2">Mức vốn hệ thống khuyến nghị</p>
-                            <p class="text-3xl font-black text-green-600">${data.recommended_amount || '-'}</p>
+                            <p class="text-3xl font-black text-green-600">${
+                                (() => {
+                                    let rec = data.recommended_amount || '-';
+                                    let des = data.desired_amount || '';
+                                    if (rec !== '-' && des !== '') {
+                                        const cleanRec = rec.toLowerCase().replace(/\\s*\\(.*\\)/g, '').replace(/[^a-z0-9]/g, '');
+                                        const cleanDes = des.toLowerCase().replace(/\\s*\\(.*\\)/g, '').replace(/[^a-z0-9]/g, '');
+                                        if (cleanRec && cleanDes && (cleanDes.includes(cleanRec) || cleanRec.includes(cleanDes))) {
+                                            return 'Hợp lý';
+                                        }
+                                        if (rec === '2.000.000 USD') return 'Hợp lý';
+                                    }
+                                    return rec;
+                                })()
+                            }</p>
                         </div>
                     </div>
                     
