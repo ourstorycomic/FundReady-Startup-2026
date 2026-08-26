@@ -117,10 +117,31 @@ function renderResults(data) {
     const resultSec = document.getElementById('resultSection');
     
     // 1. Top Metrics
-    document.getElementById('resScore').textContent = `${data.score || 0}/100`;
+    const score = data.score || 0;
+    document.getElementById('resScore').textContent = `${score}/100`;
     document.getElementById('resTier').textContent = data.grade || 'N/A';
-    document.getElementById('resSim').textContent = `AI Phân tích`;
     document.getElementById('resSummary').textContent = "Đánh giá chi tiết từ AI dựa trên Bộ Tiêu Chí doanh nghiệp.";
+
+    // Set Readiness based on score
+    const resReadiness = document.getElementById('resReadiness');
+    if (resReadiness) {
+        let text = 'Rất thấp';
+        let badgeClass = 'badge-red';
+        
+        if (score >= 80) {
+            text = 'Rất cao';
+            badgeClass = 'badge-green';
+        } else if (score >= 60) {
+            text = 'Cao';
+            badgeClass = 'badge-indigo';
+        } else if (score >= 40) {
+            text = 'Trung bình';
+            badgeClass = 'badge-amber';
+        }
+
+        resReadiness.textContent = text;
+        resReadiness.className = `badge mt-1 ${badgeClass}`;
+    }
 
     // 2. Breakdown
     const breakdown = data.breakdown || [];
@@ -204,6 +225,60 @@ function renderResults(data) {
             </div>
         `;
     });
+
+    // 6. Investor Matching
+    const investorMatchBody = document.getElementById('investorMatchBody');
+    if (investorMatchBody) {
+        if (data.matched_investors && data.matched_investors.length > 0) {
+            investorMatchBody.innerHTML = '';
+            data.matched_investors.forEach(inv => {
+                let matchColor = 'text-green-600';
+                if (inv.match_percent < 60) matchColor = 'text-yellow-600';
+                if (inv.match_percent < 40) matchColor = 'text-red-600';
+                
+                let logoUrl = inv.logo_url || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(inv.name) + '&background=F3F4F6&color=4F46E5&bold=true';
+                
+                // Override bad domains with correct ones or ui-avatars fallbacks
+                if (inv.name === "Do Ventures") logoUrl = "https://www.google.com/s2/favicons?sz=128&domain=doventures.vc";
+                else if (inv.name === "Nextrans") logoUrl = "img/nextrans.jpg";
+                else if (inv.name === "Outpost VC") logoUrl = "img/outpost.jpg";
+                else if (inv.name === "Leo Capital") logoUrl = "img/leo.capital.webp";
+                else if (inv.name === "ThinkZone Ventures") logoUrl = "https://www.google.com/s2/favicons?sz=128&domain=thinkzone.vn";
+                else if (inv.name === "VSV Capital") logoUrl = "https://www.google.com/s2/favicons?sz=128&domain=vsvcapital.com.vn";
+                else if (logoUrl.includes('logo.clearbit.com')) {
+                    logoUrl = logoUrl.replace('https://logo.clearbit.com/', 'https://www.google.com/s2/favicons?sz=128&domain=');
+                }
+                
+                investorMatchBody.innerHTML += `
+                    <div class="card-clean p-5 flex flex-col h-full bg-white relative overflow-hidden group border border-gray-200 hover:border-brand-300 transition-all">
+                        <div class="absolute top-0 right-0 w-16 h-16 bg-brand-50 rounded-bl-full -z-10 transition-transform group-hover:scale-150 duration-500"></div>
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg border border-gray-100 bg-white p-1 flex-shrink-0 shadow-sm overflow-hidden flex items-center justify-center">
+                                    <img src="${logoUrl}" crossorigin="anonymous" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(inv.name)}&background=F3F4F6&color=4F46E5&bold=true';" alt="${inv.name}" class="max-w-full max-h-full object-contain">
+                                </div>
+                                <h3 class="font-bold text-lg text-gray-900 leading-tight">${inv.name}</h3>
+                            </div>
+                            <span class="badge bg-green-50 text-green-700 border border-green-200 font-extrabold text-sm shadow-sm whitespace-nowrap">${inv.match_percent}% Match</span>
+                        </div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wide font-semibold mb-3 flex flex-wrap gap-2">
+                            <span class="bg-gray-100 px-2 py-1 rounded text-gray-700">${inv.type}</span>
+                            <span class="bg-blue-50 text-blue-700 px-2 py-1 rounded border border-blue-100">${inv.ticket_size}</span>
+                        </div>
+                        <p class="text-sm text-gray-700 mt-auto pt-4 border-t border-gray-100">
+                            <span class="font-semibold text-brand-600">Lý do: </span>${inv.reason}
+                        </p>
+                    </div>
+                `;
+            });
+        } else {
+            investorMatchBody.innerHTML = `
+                <div class="col-span-1 md:col-span-3 text-center p-8 bg-gray-50 rounded-xl border border-dashed border-gray-300">
+                    <p class="text-gray-500">Chưa có dữ liệu quỹ đầu tư phù hợp.</p>
+                </div>
+            `;
+        }
+    }
 
     // Show result section
     resultSec.classList.remove('hidden');
@@ -437,7 +512,7 @@ function renderSimulation(data) {
         <div class="w-full mt-10 mb-8">
             <h2 class="font-black text-2xl text-gray-900 mb-6 pb-3 border-b-2 border-brand-500 uppercase tracking-tight flex items-center">
                 <svg class="w-7 h-7 mr-3 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                Phân tích & Mô phỏng Kịch bản Gọi vốn
+                Phân tích kịch bản gọi vốn của doanh nghiệp dựa trên mô phỏng
             </h2>
             
             <div class="bg-white rounded-xl border border-gray-200 shadow-md overflow-hidden mb-8">

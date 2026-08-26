@@ -13,6 +13,7 @@ from .gemini_client import analyze_with_gemini
 from .financial_calculator import calculate_financial_score
 from .assessment_engine import run_full_assessment
 from .matcher_engine import find_best_match, analyze_with_reference as match_analyze
+from .investor_matcher import match_investors
 env_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(dotenv_path=env_path, override=True)
 
@@ -103,7 +104,12 @@ async def analyze_document(request: DocumentAnalysisRequest):
             "strengths": result.get("strengths", []),
             "weaknesses": result.get("weaknesses", []),
             "recommendations": result.get("recommendations", []),
-            "funding_scenario": result.get("funding_scenario", None)
+            "funding_scenario": result.get("funding_scenario", None),
+            "matched_investors": match_investors(
+                startup_score=final_score,
+                startup_content=request.content,
+                desired_amount_str=request.desired_amount
+            )
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -301,7 +307,12 @@ async def upload_multiple_documents(
                 }
                 for f in extracted
             ],
-            **combined_result
+            **combined_result,
+            "matched_investors": match_investors(
+                startup_score=combined_result.get("score", 0),
+                startup_content=combined_content,
+                desired_amount_str=desired_amount
+            )
         }
         
     except HTTPException:

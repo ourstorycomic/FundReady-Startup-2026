@@ -179,7 +179,7 @@
             </div>
 
             <!-- Metrics Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
                 <div class="card-clean p-5 text-center">
                     <p class="text-[10px] uppercase font-bold text-gray-500 mb-1 tracking-wider">Đánh giá chung</p>
                     <p id="resScore" class="text-3xl font-extrabold text-gray-900">0/100</p>
@@ -189,12 +189,8 @@
                     <p id="resTier" class="text-base font-bold text-brand-600 mt-2">Tier 1</p>
                 </div>
                 <div class="card-clean p-5 text-center flex flex-col justify-center items-center">
-                    <p class="text-[10px] uppercase font-bold text-gray-500 mb-1 tracking-wider">Mức độ rủi ro</p>
-                    <span class="badge badge-red mt-1">Nghiêm trọng</span>
-                </div>
-                <div class="card-clean p-5 text-center">
-                    <p class="text-[10px] uppercase font-bold text-gray-500 mb-1 tracking-wider">Tỷ lệ tương đồng</p>
-                    <p id="resSim" class="text-2xl font-bold text-gray-900 mt-1">0%</p>
+                    <p class="text-[10px] uppercase font-bold text-gray-500 mb-1 tracking-wider">Tỉ lệ sẵn sàng gọi vốn</p>
+                    <span id="resReadiness" class="badge mt-1">N/A</span>
                 </div>
             </div>
 
@@ -243,6 +239,17 @@
                             <!-- Populated via api.js -->
                         </div>
                     </div>
+                </div>
+            </div>
+            
+            <!-- Investor Matching Section -->
+            <div class="w-full mt-10 mb-8">
+                <h2 class="font-black text-2xl text-gray-900 mb-6 pb-3 border-b-2 border-brand-500 uppercase tracking-tight flex items-center">
+                    <svg class="w-7 h-7 mr-3 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    Đề xuất Quỹ Đầu Tư (Investor Matching)
+                </h2>
+                <div id="investorMatchBody" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Populated via api.js -->
                 </div>
             </div>
             

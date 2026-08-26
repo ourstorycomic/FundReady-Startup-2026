@@ -1,0 +1,1620 @@
+[
+  {
+    "id": "mekong_capital",
+    "name": "Mekong Capital",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "Sector Agnostic"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Pre-Series A",
+      "Series A"
+    ],
+    "ticket_size": {
+      "min_usd": 383000,
+      "max_usd": 1394000
+    },
+    "geography": [
+      "Global"
+    ],
+    "description": "Thành lập với sứ mệnh hỗ trợ các nhà sáng lập, Mekong Capital đầu tư vào giai đoạn Seed.",
+    "matching_criteria": {
+      "minimum_traction": "Sản phẩm đã có Product-Market Fit rõ ràng",
+      "preferred_score_range": [
+        57,
+        99
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/mekongcapital.com",
+    "domain": "mekongcapital.com"
+  },
+  {
+    "id": "do_ventures",
+    "name": "Do Ventures",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "E-commerce",
+      "AgriTech"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Pre-Series A",
+      "Series A"
+    ],
+    "ticket_size": {
+      "min_usd": 449000,
+      "max_usd": 2024000
+    },
+    "geography": [
+      "Vietnam",
+      "Singapore",
+      "Indonesia"
+    ],
+    "description": "Thành lập với sứ mệnh hỗ trợ các nhà sáng lập, Do Ventures đầu tư vào giai đoạn Seed.",
+    "matching_criteria": {
+      "minimum_traction": "Có doanh thu ban đầu hoặc tăng trưởng người dùng mạnh",
+      "preferred_score_range": [
+        54,
+        98
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/doventures.vn",
+    "domain": "doventures.vn"
+  },
+  {
+    "id": "vinacapital_ventures",
+    "name": "VinaCapital Ventures",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "ClimateTech",
+      "HealthTech"
+    ],
+    "investment_stages": [
+      "Pre-Seed",
+      "Seed"
+    ],
+    "ticket_size": {
+      "min_usd": 75000,
+      "max_usd": 203000
+    },
+    "geography": [
+      "Southeast Asia",
+      "Global"
+    ],
+    "description": "VinaCapital Ventures tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Southeast Asia.",
+    "matching_criteria": {
+      "minimum_traction": "Đội ngũ sáng lập có kinh nghiệm, thị trường đủ lớn",
+      "preferred_score_range": [
+        48,
+        89
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/vinacapital.com",
+    "domain": "vinacapital.com"
+  },
+  {
+    "id": "cyberagent_capital",
+    "name": "CyberAgent Capital",
+    "type": "CVC",
+    "focus_industries": [
+      "PropTech",
+      "ClimateTech",
+      "AgriTech"
+    ],
+    "investment_stages": [
+      "Pre-Seed",
+      "Seed"
+    ],
+    "ticket_size": {
+      "min_usd": 69000,
+      "max_usd": 284000
+    },
+    "geography": [
+      "Global"
+    ],
+    "description": "Thành lập với sứ mệnh hỗ trợ các nhà sáng lập, CyberAgent Capital đầu tư vào giai đoạn Pre-Seed.",
+    "matching_criteria": {
+      "minimum_traction": "Sản phẩm đã có Product-Market Fit rõ ràng",
+      "preferred_score_range": [
+        53,
+        85
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/cyberagentcapital.com",
+    "domain": "cyberagentcapital.com"
+  },
+  {
+    "id": "thinkzone_ventures",
+    "name": "ThinkZone Ventures",
+    "type": "Angel Network",
+    "focus_industries": [
+      "ClimateTech",
+      "Logistics",
+      "HealthTech",
+      "AgriTech",
+      "Web3/Crypto"
+    ],
+    "investment_stages": [
+      "Pre-Seed",
+      "Seed"
+    ],
+    "ticket_size": {
+      "min_usd": 10000,
+      "max_usd": 150000
+    },
+    "geography": [
+      "Vietnam"
+    ],
+    "description": "Thành lập với sứ mệnh hỗ trợ các nhà sáng lập, ThinkZone Ventures đầu tư vào giai đoạn Pre-Seed.",
+    "matching_criteria": {
+      "minimum_traction": "Có lợi thế cạnh tranh về công nghệ lõi",
+      "preferred_score_range": [
+        55,
+        90
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/thinkzone.vn",
+    "domain": "thinkzone.vn"
+  },
+  {
+    "id": "nextrans",
+    "name": "Nextrans",
+    "type": "PE",
+    "focus_industries": [
+      "Sector Agnostic"
+    ],
+    "investment_stages": [
+      "Growth",
+      "Pre-IPO"
+    ],
+    "ticket_size": {
+      "min_usd": 10000000,
+      "max_usd": 100000000
+    },
+    "geography": [
+      "Southeast Asia",
+      "Global"
+    ],
+    "description": "Nextrans tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Southeast Asia.",
+    "matching_criteria": {
+      "minimum_traction": "Mô hình kinh doanh đã chứng minh được hiệu quả tài chính",
+      "preferred_score_range": [
+        47,
+        90
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/nextrans.kr",
+    "domain": "nextrans.kr"
+  },
+  {
+    "id": "ascend_vietnam_ventures",
+    "name": "Ascend Vietnam Ventures",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "HealthTech",
+      "B2B SaaS",
+      "Web3/Crypto"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "ticket_size": {
+      "min_usd": 500000,
+      "max_usd": 5000000
+    },
+    "geography": [
+      "Vietnam",
+      "Singapore",
+      "Indonesia"
+    ],
+    "description": "Ascend Vietnam Ventures tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Vietnam.",
+    "matching_criteria": {
+      "minimum_traction": "Mô hình kinh doanh đã chứng minh được hiệu quả tài chính",
+      "preferred_score_range": [
+        46,
+        87
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/avv.co",
+    "domain": "avv.co"
+  },
+  {
+    "id": "golden_gate_ventures",
+    "name": "Golden Gate Ventures",
+    "type": "CVC",
+    "focus_industries": [
+      "Consumer/Retail",
+      "DeepTech"
+    ],
+    "investment_stages": [
+      "Pre-Seed",
+      "Seed"
+    ],
+    "ticket_size": {
+      "min_usd": 75000,
+      "max_usd": 410000
+    },
+    "geography": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "description": "Golden Gate Ventures tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Vietnam.",
+    "matching_criteria": {
+      "minimum_traction": "Sản phẩm đã có Product-Market Fit rõ ràng",
+      "preferred_score_range": [
+        42,
+        96
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/goldengate.vc",
+    "domain": "goldengate.vc"
+  },
+  {
+    "id": "east_ventures",
+    "name": "East Ventures",
+    "type": "Angel Network",
+    "focus_industries": [
+      "Consumer/Retail",
+      "E-commerce",
+      "ClimateTech",
+      "HealthTech",
+      "Web3/Crypto"
+    ],
+    "investment_stages": [
+      "Pre-Seed",
+      "Seed"
+    ],
+    "ticket_size": {
+      "min_usd": 10000,
+      "max_usd": 150000
+    },
+    "geography": [
+      "Vietnam"
+    ],
+    "description": "East Ventures tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Vietnam.",
+    "matching_criteria": {
+      "minimum_traction": "Sản phẩm đã có Product-Market Fit rõ ràng",
+      "preferred_score_range": [
+        50,
+        98
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/east.vc",
+    "domain": "east.vc"
+  },
+  {
+    "id": "jungle_ventures",
+    "name": "Jungle Ventures",
+    "type": "Angel Network",
+    "focus_industries": [
+      "PropTech",
+      "HealthTech",
+      "FinTech",
+      "DeepTech"
+    ],
+    "investment_stages": [
+      "Pre-Seed",
+      "Seed"
+    ],
+    "ticket_size": {
+      "min_usd": 10000,
+      "max_usd": 150000
+    },
+    "geography": [
+      "Vietnam",
+      "Singapore",
+      "Indonesia"
+    ],
+    "description": "Jungle Ventures là angel network hàng đầu tập trung vào PropTech, HealthTech, FinTech, DeepTech.",
+    "matching_criteria": {
+      "minimum_traction": "Có doanh thu ban đầu hoặc tăng trưởng người dùng mạnh",
+      "preferred_score_range": [
+        59,
+        95
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/jungle.vc",
+    "domain": "jungle.vc"
+  },
+  {
+    "id": "vertex_ventures",
+    "name": "Vertex Ventures",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "Sector Agnostic"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "ticket_size": {
+      "min_usd": 500000,
+      "max_usd": 5000000
+    },
+    "geography": [
+      "Southeast Asia",
+      "Global"
+    ],
+    "description": "Vertex Ventures tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Southeast Asia.",
+    "matching_criteria": {
+      "minimum_traction": "Có doanh thu ban đầu hoặc tăng trưởng người dùng mạnh",
+      "preferred_score_range": [
+        44,
+        100
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/vertexventures.com",
+    "domain": "vertexventures.com"
+  },
+  {
+    "id": "monks_hill_ventures",
+    "name": "Monk's Hill Ventures",
+    "type": "CVC",
+    "focus_industries": [
+      "ClimateTech",
+      "Logistics"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Pre-Series A",
+      "Series A"
+    ],
+    "ticket_size": {
+      "min_usd": 323000,
+      "max_usd": 1848000
+    },
+    "geography": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "description": "Thành lập với sứ mệnh hỗ trợ các nhà sáng lập, Monk's Hill Ventures đầu tư vào giai đoạn Seed.",
+    "matching_criteria": {
+      "minimum_traction": "Có doanh thu ban đầu hoặc tăng trưởng người dùng mạnh",
+      "preferred_score_range": [
+        55,
+        98
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/monkshill.com",
+    "domain": "monkshill.com"
+  },
+  {
+    "id": "500_startups_vietnam",
+    "name": "500 Startups Vietnam",
+    "type": "Angel Network",
+    "focus_industries": [
+      "ClimateTech",
+      "PropTech"
+    ],
+    "investment_stages": [
+      "Pre-Seed",
+      "Seed"
+    ],
+    "ticket_size": {
+      "min_usd": 10000,
+      "max_usd": 150000
+    },
+    "geography": [
+      "Vietnam"
+    ],
+    "description": "500 Startups Vietnam tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Vietnam.",
+    "matching_criteria": {
+      "minimum_traction": "Mô hình kinh doanh đã chứng minh được hiệu quả tài chính",
+      "preferred_score_range": [
+        57,
+        88
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/500.co",
+    "domain": "500.co"
+  },
+  {
+    "id": "vsv_capital",
+    "name": "VSV Capital",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "EdTech",
+      "Logistics",
+      "Consumer/Retail",
+      "FinTech"
+    ],
+    "investment_stages": [
+      "Series B",
+      "Series C",
+      "Growth"
+    ],
+    "ticket_size": {
+      "min_usd": 5580000,
+      "max_usd": 37721000
+    },
+    "geography": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "description": "Thành lập với sứ mệnh hỗ trợ các nhà sáng lập, VSV Capital đầu tư vào giai đoạn Series B.",
+    "matching_criteria": {
+      "minimum_traction": "Sản phẩm đã có Product-Market Fit rõ ràng",
+      "preferred_score_range": [
+        40,
+        89
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/vsvcapital.com",
+    "domain": "vsvcapital.com"
+  },
+  {
+    "id": "vibeji_ventures",
+    "name": "Vibeji Ventures",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "E-commerce",
+      "Consumer/Retail"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Pre-Series A",
+      "Series A"
+    ],
+    "ticket_size": {
+      "min_usd": 410000,
+      "max_usd": 1049000
+    },
+    "geography": [
+      "Southeast Asia",
+      "Global"
+    ],
+    "description": "Vibeji Ventures là venture capital hàng đầu tập trung vào E-commerce, Consumer/Retail.",
+    "matching_criteria": {
+      "minimum_traction": "Có doanh thu ban đầu hoặc tăng trưởng người dùng mạnh",
+      "preferred_score_range": [
+        53,
+        92
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/vibeji.com",
+    "domain": "vibeji.com"
+  },
+  {
+    "id": "earth_venture_capital",
+    "name": "Earth Venture Capital",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "Sector Agnostic"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Pre-Series A",
+      "Series A"
+    ],
+    "ticket_size": {
+      "min_usd": 312000,
+      "max_usd": 1573000
+    },
+    "geography": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "description": "Earth Venture Capital tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Vietnam.",
+    "matching_criteria": {
+      "minimum_traction": "Mô hình kinh doanh đã chứng minh được hiệu quả tài chính",
+      "preferred_score_range": [
+        52,
+        85
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/earth.vc",
+    "domain": "earth.vc"
+  },
+  {
+    "id": "patamar_capital",
+    "name": "Patamar Capital",
+    "type": "CVC",
+    "focus_industries": [
+      "FinTech",
+      "HealthTech",
+      "DeepTech"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Pre-Series A",
+      "Series A"
+    ],
+    "ticket_size": {
+      "min_usd": 360000,
+      "max_usd": 2833000
+    },
+    "geography": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "description": "Patamar Capital tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Vietnam.",
+    "matching_criteria": {
+      "minimum_traction": "Mô hình kinh doanh đã chứng minh được hiệu quả tài chính",
+      "preferred_score_range": [
+        49,
+        100
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/patamar.com",
+    "domain": "patamar.com"
+  },
+  {
+    "id": "smilegate_investment",
+    "name": "Smilegate Investment",
+    "type": "CVC",
+    "focus_industries": [
+      "Logistics",
+      "FinTech",
+      "B2B SaaS",
+      "E-commerce"
+    ],
+    "investment_stages": [
+      "Pre-Seed",
+      "Seed"
+    ],
+    "ticket_size": {
+      "min_usd": 76000,
+      "max_usd": 377000
+    },
+    "geography": [
+      "Vietnam"
+    ],
+    "description": "Smilegate Investment tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Vietnam.",
+    "matching_criteria": {
+      "minimum_traction": "Có lợi thế cạnh tranh về công nghệ lõi",
+      "preferred_score_range": [
+        45,
+        98
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/smilegateinvestment.com",
+    "domain": "smilegateinvestment.com"
+  },
+  {
+    "id": "b_capital_group",
+    "name": "B Capital Group",
+    "type": "CVC",
+    "focus_industries": [
+      "DeepTech",
+      "Logistics",
+      "Consumer/Retail"
+    ],
+    "investment_stages": [
+      "Pre-Seed",
+      "Seed"
+    ],
+    "ticket_size": {
+      "min_usd": 57000,
+      "max_usd": 396000
+    },
+    "geography": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "description": "B Capital Group là cvc hàng đầu tập trung vào DeepTech, Logistics, Consumer/Retail.",
+    "matching_criteria": {
+      "minimum_traction": "Có lợi thế cạnh tranh về công nghệ lõi",
+      "preferred_score_range": [
+        55,
+        98
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/bcapgroup.com",
+    "domain": "bcapgroup.com"
+  },
+  {
+    "id": "insignia_ventures",
+    "name": "Insignia Ventures",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "AgriTech",
+      "ClimateTech",
+      "HealthTech",
+      "B2B SaaS"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "ticket_size": {
+      "min_usd": 500000,
+      "max_usd": 5000000
+    },
+    "geography": [
+      "Southeast Asia",
+      "Global"
+    ],
+    "description": "Insignia Ventures tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Southeast Asia.",
+    "matching_criteria": {
+      "minimum_traction": "Có lợi thế cạnh tranh về công nghệ lõi",
+      "preferred_score_range": [
+        52,
+        97
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/insignia.vc",
+    "domain": "insignia.vc"
+  },
+  {
+    "id": "wavemaker_partners",
+    "name": "Wavemaker Partners",
+    "type": "Angel Network",
+    "focus_industries": [
+      "Sector Agnostic"
+    ],
+    "investment_stages": [
+      "Pre-Seed",
+      "Seed"
+    ],
+    "ticket_size": {
+      "min_usd": 10000,
+      "max_usd": 150000
+    },
+    "geography": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "description": "Wavemaker Partners là angel network hàng đầu tập trung vào Sector Agnostic.",
+    "matching_criteria": {
+      "minimum_traction": "Mô hình kinh doanh đã chứng minh được hiệu quả tài chính",
+      "preferred_score_range": [
+        57,
+        100
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/wavemaker.vc",
+    "domain": "wavemaker.vc"
+  },
+  {
+    "id": "febe_ventures",
+    "name": "FEBE Ventures",
+    "type": "CVC",
+    "focus_industries": [
+      "Web3/Crypto",
+      "E-commerce",
+      "Logistics"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "ticket_size": {
+      "min_usd": 500000,
+      "max_usd": 5000000
+    },
+    "geography": [
+      "Southeast Asia",
+      "Global"
+    ],
+    "description": "FEBE Ventures là cvc hàng đầu tập trung vào Web3/Crypto, E-commerce, Logistics.",
+    "matching_criteria": {
+      "minimum_traction": "Có lợi thế cạnh tranh về công nghệ lõi",
+      "preferred_score_range": [
+        51,
+        90
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/febe.vc",
+    "domain": "febe.vc"
+  },
+  {
+    "id": "gobi_partners",
+    "name": "Gobi Partners",
+    "type": "Angel Network",
+    "focus_industries": [
+      "AgriTech",
+      "PropTech",
+      "Logistics",
+      "HealthTech"
+    ],
+    "investment_stages": [
+      "Pre-Seed",
+      "Seed"
+    ],
+    "ticket_size": {
+      "min_usd": 10000,
+      "max_usd": 150000
+    },
+    "geography": [
+      "Global"
+    ],
+    "description": "Thành lập với sứ mệnh hỗ trợ các nhà sáng lập, Gobi Partners đầu tư vào giai đoạn Pre-Seed.",
+    "matching_criteria": {
+      "minimum_traction": "Có lợi thế cạnh tranh về công nghệ lõi",
+      "preferred_score_range": [
+        40,
+        92
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/gobi.vc",
+    "domain": "gobi.vc"
+  },
+  {
+    "id": "sequoia_india_and_sea",
+    "name": "Sequoia India & SEA",
+    "type": "CVC",
+    "focus_industries": [
+      "Consumer/Retail",
+      "EdTech",
+      "Web3/Crypto",
+      "PropTech",
+      "AgriTech"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "ticket_size": {
+      "min_usd": 500000,
+      "max_usd": 5000000
+    },
+    "geography": [
+      "Southeast Asia",
+      "Global"
+    ],
+    "description": "Sequoia India & SEA là cvc hàng đầu tập trung vào Consumer/Retail, EdTech, Web3/Crypto, PropTech, AgriTech.",
+    "matching_criteria": {
+      "minimum_traction": "Sản phẩm đã có Product-Market Fit rõ ràng",
+      "preferred_score_range": [
+        46,
+        86
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/sequoiacap.com",
+    "domain": "sequoiacap.com"
+  },
+  {
+    "id": "lightspeed_venture_partners_sea",
+    "name": "Lightspeed Venture Partners SEA",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "FinTech",
+      "Logistics",
+      "DeepTech"
+    ],
+    "investment_stages": [
+      "Series A",
+      "Series B"
+    ],
+    "ticket_size": {
+      "min_usd": 2380000,
+      "max_usd": 9845000
+    },
+    "geography": [
+      "Vietnam",
+      "Singapore",
+      "Indonesia"
+    ],
+    "description": "Lightspeed Venture Partners SEA tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Vietnam.",
+    "matching_criteria": {
+      "minimum_traction": "Mô hình kinh doanh đã chứng minh được hiệu quả tài chính",
+      "preferred_score_range": [
+        47,
+        100
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/lsvp.com",
+    "domain": "lsvp.com"
+  },
+  {
+    "id": "alpha_jwc_ventures",
+    "name": "Alpha JWC Ventures",
+    "type": "Angel Network",
+    "focus_industries": [
+      "Sector Agnostic"
+    ],
+    "investment_stages": [
+      "Pre-Seed",
+      "Seed"
+    ],
+    "ticket_size": {
+      "min_usd": 10000,
+      "max_usd": 150000
+    },
+    "geography": [
+      "Southeast Asia",
+      "Global"
+    ],
+    "description": "Alpha JWC Ventures là angel network hàng đầu tập trung vào Sector Agnostic.",
+    "matching_criteria": {
+      "minimum_traction": "Có doanh thu ban đầu hoặc tăng trưởng người dùng mạnh",
+      "preferred_score_range": [
+        43,
+        96
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/alphajwc.com",
+    "domain": "alphajwc.com"
+  },
+  {
+    "id": "venturra_capital",
+    "name": "Venturra Capital",
+    "type": "PE",
+    "focus_industries": [
+      "E-commerce",
+      "Logistics",
+      "Consumer/Retail"
+    ],
+    "investment_stages": [
+      "Growth",
+      "Pre-IPO"
+    ],
+    "ticket_size": {
+      "min_usd": 10000000,
+      "max_usd": 100000000
+    },
+    "geography": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "description": "Venturra Capital tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Vietnam.",
+    "matching_criteria": {
+      "minimum_traction": "Đội ngũ sáng lập có kinh nghiệm, thị trường đủ lớn",
+      "preferred_score_range": [
+        45,
+        95
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/venturra.com",
+    "domain": "venturra.com"
+  },
+  {
+    "id": "kkr_sea",
+    "name": "KKR SEA",
+    "type": "CVC",
+    "focus_industries": [
+      "Logistics",
+      "ClimateTech",
+      "PropTech",
+      "B2B SaaS",
+      "E-commerce"
+    ],
+    "investment_stages": [
+      "Series B",
+      "Series C",
+      "Growth"
+    ],
+    "ticket_size": {
+      "min_usd": 7152000,
+      "max_usd": 48500000
+    },
+    "geography": [
+      "Southeast Asia",
+      "Global"
+    ],
+    "description": "KKR SEA là cvc hàng đầu tập trung vào Logistics, ClimateTech, PropTech, B2B SaaS, E-commerce.",
+    "matching_criteria": {
+      "minimum_traction": "Mô hình kinh doanh đã chứng minh được hiệu quả tài chính",
+      "preferred_score_range": [
+        40,
+        98
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/kkr.com",
+    "domain": "kkr.com"
+  },
+  {
+    "id": "openspace_ventures",
+    "name": "Openspace Ventures",
+    "type": "CVC",
+    "focus_industries": [
+      "AgriTech",
+      "E-commerce"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "ticket_size": {
+      "min_usd": 500000,
+      "max_usd": 5000000
+    },
+    "geography": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "description": "Openspace Ventures tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Vietnam.",
+    "matching_criteria": {
+      "minimum_traction": "Sản phẩm đã có Product-Market Fit rõ ràng",
+      "preferred_score_range": [
+        44,
+        100
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/openspace.vc",
+    "domain": "openspace.vc"
+  },
+  {
+    "id": "saison_capital",
+    "name": "Saison Capital",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "HealthTech",
+      "AgriTech",
+      "Web3/Crypto",
+      "Consumer/Retail",
+      "DeepTech"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "ticket_size": {
+      "min_usd": 500000,
+      "max_usd": 5000000
+    },
+    "geography": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "description": "Thành lập với sứ mệnh hỗ trợ các nhà sáng lập, Saison Capital đầu tư vào giai đoạn Seed.",
+    "matching_criteria": {
+      "minimum_traction": "Mô hình kinh doanh đã chứng minh được hiệu quả tài chính",
+      "preferred_score_range": [
+        51,
+        94
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/saisoncapital.com",
+    "domain": "saisoncapital.com"
+  },
+  {
+    "id": "access_ventures",
+    "name": "Access Ventures",
+    "type": "PE",
+    "focus_industries": [
+      "Sector Agnostic"
+    ],
+    "investment_stages": [
+      "Growth",
+      "Pre-IPO"
+    ],
+    "ticket_size": {
+      "min_usd": 10000000,
+      "max_usd": 100000000
+    },
+    "geography": [
+      "Vietnam"
+    ],
+    "description": "Access Ventures là pe hàng đầu tập trung vào Sector Agnostic.",
+    "matching_criteria": {
+      "minimum_traction": "Có lợi thế cạnh tranh về công nghệ lõi",
+      "preferred_score_range": [
+        51,
+        89
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/accessvc.co",
+    "domain": "accessvc.co"
+  },
+  {
+    "id": "antler_vietnam",
+    "name": "Antler Vietnam",
+    "type": "Angel Network",
+    "focus_industries": [
+      "DeepTech",
+      "ClimateTech",
+      "Web3/Crypto",
+      "Consumer/Retail",
+      "PropTech"
+    ],
+    "investment_stages": [
+      "Pre-Seed",
+      "Seed"
+    ],
+    "ticket_size": {
+      "min_usd": 10000,
+      "max_usd": 150000
+    },
+    "geography": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "description": "Antler Vietnam tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Vietnam.",
+    "matching_criteria": {
+      "minimum_traction": "Mô hình kinh doanh đã chứng minh được hiệu quả tài chính",
+      "preferred_score_range": [
+        41,
+        94
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/antler.co",
+    "domain": "antler.co"
+  },
+  {
+    "id": "genesis_alternative_ventures",
+    "name": "Genesis Alternative Ventures",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "E-commerce",
+      "Consumer/Retail",
+      "FinTech",
+      "AgriTech",
+      "Logistics"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "ticket_size": {
+      "min_usd": 500000,
+      "max_usd": 5000000
+    },
+    "geography": [
+      "Vietnam",
+      "Singapore",
+      "Indonesia"
+    ],
+    "description": "Thành lập với sứ mệnh hỗ trợ các nhà sáng lập, Genesis Alternative Ventures đầu tư vào giai đoạn Seed.",
+    "matching_criteria": {
+      "minimum_traction": "Đội ngũ sáng lập có kinh nghiệm, thị trường đủ lớn",
+      "preferred_score_range": [
+        59,
+        99
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/genesisventures.co",
+    "domain": "genesisventures.co"
+  },
+  {
+    "id": "integra_partners",
+    "name": "Integra Partners",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "E-commerce",
+      "Logistics",
+      "EdTech"
+    ],
+    "investment_stages": [
+      "Pre-Seed",
+      "Seed"
+    ],
+    "ticket_size": {
+      "min_usd": 65000,
+      "max_usd": 252000
+    },
+    "geography": [
+      "Global"
+    ],
+    "description": "Integra Partners tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Global.",
+    "matching_criteria": {
+      "minimum_traction": "Đội ngũ sáng lập có kinh nghiệm, thị trường đủ lớn",
+      "preferred_score_range": [
+        57,
+        94
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/integrapartners.co",
+    "domain": "integrapartners.co"
+  },
+  {
+    "id": "kairous_capital",
+    "name": "Kairous Capital",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "PropTech",
+      "B2B SaaS",
+      "E-commerce",
+      "HealthTech"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Pre-Series A",
+      "Series A"
+    ],
+    "ticket_size": {
+      "min_usd": 484000,
+      "max_usd": 1653000
+    },
+    "geography": [
+      "Southeast Asia",
+      "Global"
+    ],
+    "description": "Kairous Capital tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Southeast Asia.",
+    "matching_criteria": {
+      "minimum_traction": "Có lợi thế cạnh tranh về công nghệ lõi",
+      "preferred_score_range": [
+        43,
+        90
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/kairous.com",
+    "domain": "kairous.com"
+  },
+  {
+    "id": "quest_ventures",
+    "name": "Quest Ventures",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "Sector Agnostic"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "ticket_size": {
+      "min_usd": 500000,
+      "max_usd": 5000000
+    },
+    "geography": [
+      "Global"
+    ],
+    "description": "Quest Ventures là venture capital hàng đầu tập trung vào Sector Agnostic.",
+    "matching_criteria": {
+      "minimum_traction": "Mô hình kinh doanh đã chứng minh được hiệu quả tài chính",
+      "preferred_score_range": [
+        55,
+        90
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/questventures.com",
+    "domain": "questventures.com"
+  },
+  {
+    "id": "sovereigns_capital",
+    "name": "Sovereign's Capital",
+    "type": "CVC",
+    "focus_industries": [
+      "Logistics",
+      "Web3/Crypto",
+      "E-commerce",
+      "B2B SaaS",
+      "Consumer/Retail"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "ticket_size": {
+      "min_usd": 500000,
+      "max_usd": 5000000
+    },
+    "geography": [
+      "Vietnam",
+      "Singapore",
+      "Indonesia"
+    ],
+    "description": "Thành lập với sứ mệnh hỗ trợ các nhà sáng lập, Sovereign's Capital đầu tư vào giai đoạn Seed.",
+    "matching_criteria": {
+      "minimum_traction": "Có lợi thế cạnh tranh về công nghệ lõi",
+      "preferred_score_range": [
+        42,
+        92
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/sovereignscapital.com",
+    "domain": "sovereignscapital.com"
+  },
+  {
+    "id": "tnb_aura",
+    "name": "TNB Aura",
+    "type": "CVC",
+    "focus_industries": [
+      "E-commerce",
+      "B2B SaaS",
+      "EdTech",
+      "Consumer/Retail",
+      "AgriTech"
+    ],
+    "investment_stages": [
+      "Series A",
+      "Series B"
+    ],
+    "ticket_size": {
+      "min_usd": 1351000,
+      "max_usd": 6022000
+    },
+    "geography": [
+      "Southeast Asia",
+      "Global"
+    ],
+    "description": "TNB Aura là cvc hàng đầu tập trung vào E-commerce, B2B SaaS, EdTech, Consumer/Retail, AgriTech.",
+    "matching_criteria": {
+      "minimum_traction": "Sản phẩm đã có Product-Market Fit rõ ràng",
+      "preferred_score_range": [
+        47,
+        85
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/tnbaura.vc",
+    "domain": "tnbaura.vc"
+  },
+  {
+    "id": "qualgro",
+    "name": "Qualgro",
+    "type": "CVC",
+    "focus_industries": [
+      "E-commerce",
+      "AgriTech",
+      "Consumer/Retail"
+    ],
+    "investment_stages": [
+      "Series A",
+      "Series B"
+    ],
+    "ticket_size": {
+      "min_usd": 2623000,
+      "max_usd": 6982000
+    },
+    "geography": [
+      "Global"
+    ],
+    "description": "Qualgro tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Global.",
+    "matching_criteria": {
+      "minimum_traction": "Sản phẩm đã có Product-Market Fit rõ ràng",
+      "preferred_score_range": [
+        40,
+        97
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/qualgro.com",
+    "domain": "qualgro.com"
+  },
+  {
+    "id": "edbi",
+    "name": "EDBI",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "FinTech",
+      "PropTech",
+      "AgriTech",
+      "Web3/Crypto"
+    ],
+    "investment_stages": [
+      "Series A",
+      "Series B"
+    ],
+    "ticket_size": {
+      "min_usd": 2664000,
+      "max_usd": 9729000
+    },
+    "geography": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "description": "Thành lập với sứ mệnh hỗ trợ các nhà sáng lập, EDBI đầu tư vào giai đoạn Series A.",
+    "matching_criteria": {
+      "minimum_traction": "Sản phẩm đã có Product-Market Fit rõ ràng",
+      "preferred_score_range": [
+        56,
+        86
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/edbi.com",
+    "domain": "edbi.com"
+  },
+  {
+    "id": "altara_ventures",
+    "name": "Altara Ventures",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "Sector Agnostic"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "ticket_size": {
+      "min_usd": 500000,
+      "max_usd": 5000000
+    },
+    "geography": [
+      "Global"
+    ],
+    "description": "Altara Ventures tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Global.",
+    "matching_criteria": {
+      "minimum_traction": "Đội ngũ sáng lập có kinh nghiệm, thị trường đủ lớn",
+      "preferred_score_range": [
+        55,
+        92
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/altaraventures.com",
+    "domain": "altaraventures.com"
+  },
+  {
+    "id": "cocoon_capital",
+    "name": "Cocoon Capital",
+    "type": "PE",
+    "focus_industries": [
+      "FinTech",
+      "HealthTech"
+    ],
+    "investment_stages": [
+      "Growth",
+      "Pre-IPO"
+    ],
+    "ticket_size": {
+      "min_usd": 10000000,
+      "max_usd": 100000000
+    },
+    "geography": [
+      "Vietnam",
+      "Singapore",
+      "Indonesia"
+    ],
+    "description": "Thành lập với sứ mệnh hỗ trợ các nhà sáng lập, Cocoon Capital đầu tư vào giai đoạn Growth.",
+    "matching_criteria": {
+      "minimum_traction": "Sản phẩm đã có Product-Market Fit rõ ràng",
+      "preferred_score_range": [
+        59,
+        97
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/cocooncap.com",
+    "domain": "cocooncap.com"
+  },
+  {
+    "id": "foxmont_capital",
+    "name": "Foxmont Capital",
+    "type": "Angel Network",
+    "focus_industries": [
+      "E-commerce",
+      "ClimateTech",
+      "FinTech",
+      "AgriTech",
+      "HealthTech"
+    ],
+    "investment_stages": [
+      "Pre-Seed",
+      "Seed"
+    ],
+    "ticket_size": {
+      "min_usd": 10000,
+      "max_usd": 150000
+    },
+    "geography": [
+      "Vietnam",
+      "Singapore",
+      "Indonesia"
+    ],
+    "description": "Foxmont Capital tìm kiếm các công ty có tăng trưởng đột phá tại khu vực Vietnam.",
+    "matching_criteria": {
+      "minimum_traction": "Sản phẩm đã có Product-Market Fit rõ ràng",
+      "preferred_score_range": [
+        50,
+        89
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/foxmontcapital.com",
+    "domain": "foxmontcapital.com"
+  },
+  {
+    "id": "global_founders_capital",
+    "name": "Global Founders Capital",
+    "type": "PE",
+    "focus_industries": [
+      "PropTech",
+      "Consumer/Retail",
+      "Web3/Crypto"
+    ],
+    "investment_stages": [
+      "Growth",
+      "Pre-IPO"
+    ],
+    "ticket_size": {
+      "min_usd": 10000000,
+      "max_usd": 100000000
+    },
+    "geography": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "description": "Global Founders Capital là pe hàng đầu tập trung vào PropTech, Consumer/Retail, Web3/Crypto.",
+    "matching_criteria": {
+      "minimum_traction": "Có lợi thế cạnh tranh về công nghệ lõi",
+      "preferred_score_range": [
+        58,
+        89
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/globalfounderscapital.com",
+    "domain": "globalfounderscapital.com"
+  },
+  {
+    "id": "good_startup",
+    "name": "Good Startup",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "Consumer/Retail",
+      "ClimateTech"
+    ],
+    "investment_stages": [
+      "Pre-Seed",
+      "Seed"
+    ],
+    "ticket_size": {
+      "min_usd": 79000,
+      "max_usd": 348000
+    },
+    "geography": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "description": "Good Startup là venture capital hàng đầu tập trung vào Consumer/Retail, ClimateTech.",
+    "matching_criteria": {
+      "minimum_traction": "Mô hình kinh doanh đã chứng minh được hiệu quả tài chính",
+      "preferred_score_range": [
+        41,
+        99
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/goodstartup.com",
+    "domain": "goodstartup.com"
+  },
+  {
+    "id": "hustle_fund",
+    "name": "Hustle Fund",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "Sector Agnostic"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Pre-Series A",
+      "Series A"
+    ],
+    "ticket_size": {
+      "min_usd": 404000,
+      "max_usd": 1848000
+    },
+    "geography": [
+      "Southeast Asia",
+      "Global"
+    ],
+    "description": "Thành lập với sứ mệnh hỗ trợ các nhà sáng lập, Hustle Fund đầu tư vào giai đoạn Seed.",
+    "matching_criteria": {
+      "minimum_traction": "Sản phẩm đã có Product-Market Fit rõ ràng",
+      "preferred_score_range": [
+        45,
+        92
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/hustlefund.vc",
+    "domain": "hustlefund.vc"
+  },
+  {
+    "id": "kaya_founders",
+    "name": "Kaya Founders",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "E-commerce",
+      "HealthTech",
+      "B2B SaaS",
+      "ClimateTech"
+    ],
+    "investment_stages": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "ticket_size": {
+      "min_usd": 500000,
+      "max_usd": 5000000
+    },
+    "geography": [
+      "Vietnam",
+      "Southeast Asia"
+    ],
+    "description": "Thành lập với sứ mệnh hỗ trợ các nhà sáng lập, Kaya Founders đầu tư vào giai đoạn Seed.",
+    "matching_criteria": {
+      "minimum_traction": "Có lợi thế cạnh tranh về công nghệ lõi",
+      "preferred_score_range": [
+        45,
+        86
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/kayafounders.com",
+    "domain": "kayafounders.com"
+  },
+  {
+    "id": "leo_capital",
+    "name": "Leo Capital",
+    "type": "CVC",
+    "focus_industries": [
+      "HealthTech",
+      "PropTech",
+      "AgriTech",
+      "EdTech",
+      "ClimateTech"
+    ],
+    "investment_stages": [
+      "Series B",
+      "Series C",
+      "Growth"
+    ],
+    "ticket_size": {
+      "min_usd": 6689000,
+      "max_usd": 44864000
+    },
+    "geography": [
+      "Global"
+    ],
+    "description": "Thành lập với sứ mệnh hỗ trợ các nhà sáng lập, Leo Capital đầu tư vào giai đoạn Series B.",
+    "matching_criteria": {
+      "minimum_traction": "Sản phẩm đã có Product-Market Fit rõ ràng",
+      "preferred_score_range": [
+        44,
+        85
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/leo.capital",
+    "domain": "leo.capital"
+  },
+  {
+    "id": "outpost_vc",
+    "name": "Outpost VC",
+    "type": "Venture Capital",
+    "focus_industries": [
+      "EdTech",
+      "ClimateTech"
+    ],
+    "investment_stages": [
+      "Series B",
+      "Series C",
+      "Growth"
+    ],
+    "ticket_size": {
+      "min_usd": 5520000,
+      "max_usd": 28398000
+    },
+    "geography": [
+      "Global"
+    ],
+    "description": "Outpost VC là venture capital hàng đầu tập trung vào EdTech, ClimateTech.",
+    "matching_criteria": {
+      "minimum_traction": "Có lợi thế cạnh tranh về công nghệ lõi",
+      "preferred_score_range": [
+        53,
+        94
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/outpost.vc",
+    "domain": "outpost.vc"
+  },
+  {
+    "id": "play_ventures",
+    "name": "Play Ventures",
+    "type": "PE",
+    "focus_industries": [
+      "E-commerce",
+      "Logistics",
+      "FinTech"
+    ],
+    "investment_stages": [
+      "Growth",
+      "Pre-IPO"
+    ],
+    "ticket_size": {
+      "min_usd": 10000000,
+      "max_usd": 100000000
+    },
+    "geography": [
+      "Southeast Asia",
+      "Global"
+    ],
+    "description": "Thành lập với sứ mệnh hỗ trợ các nhà sáng lập, Play Ventures đầu tư vào giai đoạn Growth.",
+    "matching_criteria": {
+      "minimum_traction": "Có doanh thu ban đầu hoặc tăng trưởng người dùng mạnh",
+      "preferred_score_range": [
+        49,
+        93
+      ]
+    },
+    "logo_url": "https://logo.clearbit.com/playventures.vc",
+    "domain": "playventures.vc"
+  }
+]
