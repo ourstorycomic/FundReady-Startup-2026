@@ -243,6 +243,7 @@ function renderResults(data) {
                 else if (inv.name === "Nextrans") logoUrl = "img/nextrans.jpg";
                 else if (inv.name === "Outpost VC") logoUrl = "img/outpost.jpg";
                 else if (inv.name === "Leo Capital") logoUrl = "img/leo.capital.webp";
+                else if (inv.name === "VinaCapital Ventures") logoUrl = "img/VinaCapital.svg";
                 else if (inv.name === "ThinkZone Ventures") logoUrl = "https://www.google.com/s2/favicons?sz=128&domain=thinkzone.vn";
                 else if (inv.name === "VSV Capital") logoUrl = "https://www.google.com/s2/favicons?sz=128&domain=vsvcapital.com.vn";
                 else if (logoUrl.includes('logo.clearbit.com')) {
